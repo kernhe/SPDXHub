@@ -15,3 +15,40 @@
 * Along with active issue tracking, we will rely on intentional and relevant commits at regular intervals with clear commit messages. 
 * At this stage we don’t have a robust change log for our groups activity, but we are familiarizing ourselves with “SOCSDashboard” changes via the commit log and. 
 
+# Project Milestones
+## Milestone One
+* Collaborate to discuss plans for our project, and use our discussion to construct a deliverable that details:
+  a. Overview/description for our project
+  b. Milestone definitions
+  c. System service requests
+  d. Applicable stakeholders
+  e. Communication management plan
+  f. Data flow diagram
+  g. Database structure
+  h. Copyright declarations
+## Milestone Two
+* Continue looking into the existing code for the Dashboard to determine what ways the code can be modified to add functionality or improve existing issues.
+* This will include the involvement of our community to determine the priority of the existing issues, as well as possible suggestions to append to our list of issues.
+* This phase will be conceptual – determining how our issues can be handled while keeping the existing code in mind, while also very hands on – coding as needed to create our proof of concept.
+## Milestone Three
+* Begin by working through issues detailed on the SPDXDashboard’s issue tracker: https://github.com/socs-dev-env/SOCSDashboard/issues
+  a. Listed in order of their defined "difficulty":
+    1. Import existing SPDX docs
+    2. Error Handling for running DoSOCS
+    3. LDAP Authentication
+    4. Create Comparison Interface
+  b. This will include an integrated involvement with our communities as well, to see how these issues affect them currently and possibly a direction on how they would like these to be solved.
+* Work on improving the overall functionality of the interface as it is currently:
+  a. Creating a “flagging” system that can be used to designate specific licenses to stand out in searches and file views.  
+    1. The idea is that this flagging system will be viewed post-upload, users can designate licences while performing a search. This will give more power to the existing search command, and will not affect upload times.
+## Milestone Four
+* This milestone will primarily be a refinement/testing phase for our project.
+  a. Continue to improve existing prototype through bug fixes
+  b. Begin testing our code and the added functionality added to the interface for end users
+  c. Continue to reach out to our community to discuss changes we have made to the existing project
+
+
+
+
+
+
