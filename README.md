@@ -1,11 +1,23 @@
+# System Charter and Description
+* We are working on making the existing SPDX Dashboard a more fluid and robust experience by fixing outstanding issues and adding functionality. We will achieve this by communicating with our respective stakeholders and by collaborating as a group to set and reach goals.
+* The SPDX Dashboard allows users, at any level of the supply chain, to upload and scan packages to create SPDX documents. These documents are stored in a database to be retrieved at any time. 
+
 # Stakeholders
 * Linux Foundation, SPDX, Small Business/Corporate  Interest, Open Source Communities.
+
+# System Service Requests
+* None applicable at this time
 
 # Communication Management Plan
 * We will keep regular and timely email correspondence – requiring a response within 24 hours for normal communication, and a response within 6 hours when communication concerns a deadline. 
 * We will meet in person on monday after class and thursday at 5:30 for at least 30 mins to discuss the current status of the project, set goals, and complete group work if necessary.
 * We will keep a shared google drive folder with assignment drafts and ongoing working, and housekeeping items. 
 * We will use Google hangouts and the chat feature as necessary for communication outside of email and in person meetings.
+
+# Database / Data Store Structures of the System
+* The structure of the database will rely on the all of the required fields in the SPDX document found here: 
+  1. https://github.com/socs-dev-env/SOCSDatabase/blob/master/Schema.md
+* The SPDX 2.0 spec, itself, will be the final measure as to the shape of our database. 
 
 # Copyright Declarations and License Choice
 * Apache 2.0 License
