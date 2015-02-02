@@ -16,6 +16,7 @@
 * At this stage we don’t have a robust change log for our groups activity, but we are familiarizing ourselves with “SOCSDashboard” changes via the commit log and. 
 
 # Project Milestones
+
 ## Milestone One
 * Collaborate to discuss plans for our project, and use our discussion to construct a deliverable that details:
   1. Overview/description for our project
@@ -26,10 +27,12 @@
   6. Data flow diagram
   7. Database structure
   8. Copyright declarations
+
 ## Milestone Two
 * Continue looking into the existing code for the Dashboard to determine what ways the code can be modified to add functionality or improve existing issues.
 * This will include the involvement of our community to determine the priority of the existing issues, as well as possible suggestions to append to our list of issues.
 * This phase will be conceptual – determining how our issues can be handled while keeping the existing code in mind, while also very hands on -coding as needed to create our proof of concept.
+
 ## Milestone Three
 * Begin by working through issues detailed on the SPDXDashboard’s issue tracker: https://github.com/socs-dev-env/SOCSDashboard/issues
   1. Listed in order of their defined "difficulty":
@@ -41,6 +44,7 @@
 * Work on improving the overall functionality of the interface as it is currently:
   1. Creating a “flagging” system that can be used to designate specific licenses to stand out in searches and file views.  
     * The idea is that this flagging system will be viewed post-upload, users can designate licences while performing a search. This will give more power to the existing search command, and will not affect upload times.
+
 ## Milestone Four
 * This milestone will primarily be a refinement/testing phase for our project.
   1. Continue to improve existing prototype through bug fixes
