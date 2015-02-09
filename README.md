@@ -21,7 +21,7 @@
 
 # Copyright Declarations and License Choice
 * Apache 2.0 License
-* We own copyright
+* Copyright © 2015 Jacob Overkamp, Nick Chickinelli, Khangal Erdenetsogt
 
 # Change Log
 * Along with active issue tracking, we will rely on intentional and relevant commits at regular intervals with clear commit messages. 
