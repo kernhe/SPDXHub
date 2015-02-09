@@ -3,7 +3,7 @@
 * The SPDX Dashboard allows users, at any level of the supply chain, to upload and scan packages to create SPDX documents. These documents are stored in a database to be retrieved at any time. 
 
 # Stakeholders
-* Linux Foundation, SPDX, Small Business/Corporate  Interest, Open Source Communities.
+* SPDX Community
 
 # System Service Requests
 * None applicable at this time
