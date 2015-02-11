@@ -41,9 +41,12 @@
   8. Copyright declarations
 
 ## Milestone Two
-* Continue looking into the existing code for the Dashboard to determine what ways the code can be modified to add functionality or improve existing issues.
-* This will include the involvement of our community to determine the priority of the existing issues, as well as possible suggestions to append to our list of issues.
-* This phase will be conceptual – determining how our issues can be handled while keeping the existing code in mind, while also very hands on -coding as needed to create our proof of concept.
+1. Clarify SOCSDashboard outstanding issues within our scope
+  * Determine what existing code and files we will be primarly working with as we impliment our code. 
+  * Reach out to community to clarifiy outstanading issues.
+  * Begin working relationship wtih stakeholders.
+2. Begin Coding 
+  * Setup up the infrastructure for project.
 
 ## Milestone Three
 * Begin by working through issues detailed on the SPDXDashboard’s issue tracker: https://github.com/socs-dev-env/SOCSDashboard/issues
