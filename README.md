@@ -50,12 +50,9 @@
   1. Listed in order of their defined "difficulty":
     * Import existing SPDX docs
     * Error Handling for running DoSOCS
-    * LDAP Authentication
     * Create Comparison Interface
-  2. This will include an integrated involvement with our communities as well, to see how these issues affect them currently and possibly a direction on how they would like these to be solved.
-* Work on improving the overall functionality of the interface as it is currently:
-  1. Creating a “flagging” system that can be used to designate specific licenses to stand out in searches and file views.  
-    * The idea is that this flagging system will be viewed post-upload, users can designate licences while performing a search. This will give more power to the existing search command, and will not affect upload times.
+  2. Creating a “flagging” system that can be used to designate specific licenses to stand out in searches and file views.  
+    * The idea is that this flagging system will be viewed post-upload, users can designate licences while performing a search.       This will give more power to the existing search command, and will not affect upload times.
 
 ## Milestone Four
 * This milestone will primarily be a refinement/testing phase for our project.
