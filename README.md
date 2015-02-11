@@ -53,6 +53,7 @@
     * Create Comparison Interface
   2. Creating a “flagging” system that can be used to designate specific licenses to stand out in searches and file views.  
     * The idea is that this flagging system will be viewed post-upload, users can designate licences while performing a search.       This will give more power to the existing search command, and will not affect upload times.
+  3. Update SPDX spec to 2.0
 
 ## Milestone Four
 * This milestone will primarily be a refinement/testing phase for our project.
