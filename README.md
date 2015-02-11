@@ -1,5 +1,5 @@
 # System Charter and Description
-* We are working on making the existing SPDX Dashboard a more fluid and robust experience by fixing outstanding issues and adding functionality. We will achieve this by communicating with our respective stakeholders and by collaborating as a group to set and reach goals.
+* To make existing SPDX Dashboard a more fluid and robust experience. Communication with our stakeholders, team collaboration,  and the clear and reasoknable identification of issues and additions will be essential in achieving these goals. 
 * The SPDX Dashboard allows users, at any level of the supply chain, to upload and scan packages to create SPDX documents. These documents are stored in a database to be retrieved at any time. 
 
 # Stakeholders
