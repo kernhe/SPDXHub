@@ -24,8 +24,7 @@
 * Copyright © 2015 Jacob Overkamp, Nick Chickinelli, Khangal Erdenetsogt
 
 # Change Log
-* Along with active issue tracking, we will rely on intentional and relevant commits at regular intervals with clear commit messages. 
-* At this stage we don’t have a robust change log for our groups activity, but we are familiarizing ourselves with “SOCSDashboard” changes via the commit log and. 
+* Along with active issue tracking, we will rely on intentional and relevant commits at regular intervals with clear commit messages.
 
 # Project Milestones
 
