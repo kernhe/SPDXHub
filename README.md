@@ -42,7 +42,7 @@
 ## Milestone Two
 1. Clarify SOCSDashboard outstanding issues within our scope
   * Determine what existing code and files we will be primarly working with as we impliment our code. 
-  * Reach out to community to clarifiy outstanading issues.
+  * Reach out to community to clarifiy outstanding issues.
   * Begin working relationship wtih stakeholders.
 2. Begin Coding 
   * Setup up the infrastructure for project.
