@@ -24,8 +24,7 @@
 * Copyright © 2015 Jacob Overkamp, Nick Chickinelli, Khangal Erdenetsogt
 
 # Change Log
-* Along with active issue tracking, we will rely on intentional and relevant commits at regular intervals with clear commit messages.
-* Find issue tracking here: https://github.com/joverkamp/SPDXHub/issues
+* Change log and issue tracking can be found here: https://github.com/joverkamp/SPDXHub/issues
 
 # Project Milestones
 
