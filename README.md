@@ -1,5 +1,6 @@
 # System Charter and Description
-* To make existing SPDX Dashboard a more fluid and robust experience. Communication with our stakeholders, team collaboration,  and the clear and reasonable identification of issues and additions will be essential in achieving these goals. 
+* To make existing SPDX Dashboard a more robust experience by adding near-essential features such as liscense flagging and a tool for document comparison, which will allow more options for information retrieval. Communication with our stakeholders, team collaboration,  and the clear and reasonable identification of issues and additions will be essential in achieving these goals. 
+* Updating the existing deashboard to provide documents in the SPDX 2.0 spec. More information on that spec can be found here: https://spdx.org/SPDX-specifications/spdx-version-2.0
 * The SPDX Dashboard allows users, at any level of the supply chain, to upload and scan packages to create SPDX documents. These documents are stored in a database to be retrieved at any time. 
 
 # Stakeholders
@@ -15,9 +16,8 @@
 * We will use Google hangouts and the chat feature as necessary for communication outside of email and in person meetings.
 
 # Database / Data Store Structures of the System
-* The structure of the database will rely on the all of the required fields in the SPDX document found here: 
-  1. https://github.com/socs-dev-env/SOCSDatabase/blob/master/Schema.md
-* The SPDX 2.0 spec, itself, will be the final measure as to the shape of our database. 
+* The structure of the database will rely on the all of the required fields in the SPDX document found here: https://github.com/socs-dev-env/SOCSDatabase/blob/master/Schema.md
+* Dataflow diagram can be found here: https://github.com/joverkamp/SPDXHub/blob/master/SPDXDashboard_DFD.svg
 
 # Copyright Declarations and License Choice
 * Apache 2.0 License
