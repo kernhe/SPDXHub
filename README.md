@@ -7,7 +7,7 @@
 * SPDX Community
 
 # System Service Requests
-* None applicable at this time
+* Linux Ubuntu system 12.04 Dual core with 32G of memory
 
 # Communication Management Plan
 * We will keep regular and timely email correspondence – requiring a response within 24 hours for normal communication, and a response within 6 hours when communication concerns a deadline. 
