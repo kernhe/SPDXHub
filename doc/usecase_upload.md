@@ -28,5 +28,5 @@
 * Client uploads a package that is not a package that can be scanned, and as such a SPDX document cannot be created
 
 <b>Trigger:</b> Clientele selects the option for an upload to the SPDX Dashboard, and then are given the option to upload an SPDX document or to scan a package for licensing information<br><br>
-<b>Notes:</b> Clients may upload documents that are incomplete, as these documents can be later edited to include pertinent information. Also, not all scanned packages will provide complete SPDX documents if information is not present or cannot be found, yet again if this information is known by the client – it can be added after the scan has concluded and the document has been created and added.
+<b>Notes:</b> Clients may upload documents that are incomplete, as these documents can be later edited to include pertinent information. Also, not all scanned packages will provide complete SPDX documents if information is not present or cannot be found, yet again if this information is known by the client â€“ it can be added after the scan has concluded and the document has been created and added.
 
