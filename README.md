@@ -1,13 +1,17 @@
 # System Charter and Description
 * To make existing SPDX Dashboard a more robust experience by adding near-essential features such as liscense flagging and a tool for document comparison, which will allow more options for information retrieval. Communication with our stakeholders, team collaboration,  and the clear and reasonable identification of issues and additions will be essential in achieving these goals. 
+
 * Updating the existing deashboard to provide documents in the SPDX 2.0 spec. More information on that spec can be found here: https://spdx.org/SPDX-specifications/spdx-version-2.0
+
 * The SPDX Dashboard allows users, at any level of the supply chain, to upload and scan packages to create SPDX documents. These documents are stored in a database to be retrieved at any time. 
 
 # Stakeholders
 * SPDX Community
 
 # System Service Requests
-* Linux Ubuntu system 12.04 Dual core with 32G of memory
+**Linux Ubuntu system** 
+* 12.04 Dual core or greater
+* 32G of memory or greater
 
 # Communication Management Plan
 * We will keep regular and timely email correspondence – requiring a response within 24 hours for normal communication, and a response within 6 hours when communication concerns a deadline. 
