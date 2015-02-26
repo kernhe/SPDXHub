@@ -17,7 +17,7 @@
     */
     $host        = "localhost"; // Host name
     $username    = "root"; // Mysql username
-    $password    = "star1234%";
+    $password    = "";
     $db_name     = "SPDX"; // Database name
-    $DoSOCS      = "/home/Zac/DoSOCS/src/DoSPDX.py";
+    $DoSOCS      = "";
 ?>
