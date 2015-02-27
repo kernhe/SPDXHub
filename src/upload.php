@@ -21,10 +21,6 @@ limitations under the License.
 <div class="col-md-8 col-md-offset-2">
     <form action="upload_action.php" method="POST" enctype="multipart/form-data" >
         <div class="form-group">
-            <label for="packageFile">SPDX Document</label>
-            <input type="file" name="document" id="filePackageFile"/>
-        </div>
-        <div class="form-group">
             <label for="packageFile">Package</label>
             <input type="file" name="package" id="filePackageFile"/>
         </div>
