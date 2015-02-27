@@ -18,65 +18,96 @@ limitations under the License.
     include("function/headerfooter.php");
     incHeader("Upload Package");
 ?>
+
+<script>
+	var index;
+	var id_list = ["txtDocumentComment", "txtCreator", "txtAreaCreatorComment", "txtPackageVersion", "txtPackageSupplier", "txtPackageOriginator", "txtPackageDownalodLocation", "txtPackageHomePage", "txtPackageSourceInfo", "txtPackageLicenseComments", "txtPackageDescription", "selectScanOption"];
+	
+	function enableForm(buttonToDisable) {
+		document.getElementById(buttonToDisable).disabled = true;
+		document.getElementById("submit").disabled = false;
+		if(buttonToDisable == "fileDocumentFile"){
+			for (index = 0; index < id_list.length; ++index) {
+    			document.getElementById(id_list[index]).disabled = false;
+			}
+		}
+	}
+	function disableForm() {
+		window.scrollTo(0, 0);
+		document.getElementById("fileDocumentFile").disabled = false;
+		document.getElementById("filePackageFile").disabled = false;
+		document.getElementById("submit").disabled = true;
+		for (index = 0; index < id_list.length; ++index) {
+    		document.getElementById(id_list[index]).disabled = true;
+		}
+	}
+</script>
+
 <div class="col-md-8 col-md-offset-2">
     <form action="upload_action.php" method="POST" enctype="multipart/form-data" >
-        <div class="form-group">
+         <div class="form-group"  style="display:inline-block;min-width:200px;">
             <label for="packageFile">Package</label>
-            <input type="file" name="package" id="filePackageFile"/>
-        </div>
+            <input type="file" onclick="enableForm('fileDocumentFile')" name="package" id="filePackageFile"/>
+        </div>   
+        <div class="form-group" style="display:inline-block;min-width:200px;">             
+        	<label for="packageFile">SPDX Document</label>             
+        	<input type="file" onclick="enableForm('filePackageFile')" name="document" id="fileDocumentFile"/>         
+       	</div>
         <div class="form-group">
             <label for="txtDocComment">Document Comment</label>
-            <textarea name="document_comment" id="txtDocumentComment" class="form-control"></textarea>
+            <textarea name="document_comment" id="txtDocumentComment" class="form-control" disabled></textarea>
         </div>
         <div class="form-group">
             <label for="">Creator</label>
-            <input type="text" name="creator" id="txtCreator" class="form-control"/>
+            <input type="text" name="creator" id="txtCreator" class="form-control" disabled/>
         </div>
         <div class="form-group">
             <label for="txtAreaCreatorComment">Creator Comment</label>
-            <textarea id="txtAreaCreatorComment" name="creator_comment" class="form-control"></textarea>
+            <textarea id="txtAreaCreatorComment" name="creator_comment" class="form-control" disabled></textarea>
         </div>
         <div class="form-group">
             <label for="packageVersion">Package Version</label>
-            <input type="text" name="pacakge_version" id="txtPackageVersion" class="form-control"/>
+            <input type="text" name="pacakge_version" id="txtPackageVersion" class="form-control" disabled/>
         </div>
         <div class="form-group">
             <label for="txtPackageSupplier">Package Supplier</label>
-            <input type="text" name="package_supplier" id="txtPackageSupplier" class="form-control"/>
+            <input type="text" name="package_supplier" id="txtPackageSupplier" class="form-control" disabled/>
         </div>
         <div class="form-group">
             <label for="txtPackageOriginator">Package Originator</label>
-            <input type="text" id="txtPackageOriginator" name="package_originator" class="form-control"/>
+            <input type="text" id="txtPackageOriginator" name="package_originator" class="form-control" disabled/>
         </div>
         <div class="form-group">
             <label for="txtPackageDownalodLocation">Package Download Location</label>
-            <input type="text" id="txtPackageDownalodLocation" name="package_download_location" class="form-control"/>
+            <input type="text" id="txtPackageDownalodLocation" name="package_download_location" class="form-control" disabled/>
         </div>
         <div class="form-group">
             <label for="txtPackageHomePage">Package Home Page</label>
-            <input type="text" id="txtPackageHomePage" name="package_home_page" class="form-control"/>
+            <input type="text" id="txtPackageHomePage" name="package_home_page" class="form-control" disabled/>
         </div>
         <div class="form-group">
             <label for="txtPackageSourceInfo">Package Source Info</label>
-            <input type="text" id="txtPackageSourceInfo" name="package_source_info" class="form-control"/>
+            <input type="text" id="txtPackageSourceInfo" name="package_source_info" class="form-control" disabled/>
         </div>
         <div class="form-group">
             <label for="txtPackageLicenseComments">Package License Comments</label>
-            <input type="text" id="txtPackageLicenseComments" name="package_license_comments" class="form-control"/>
+            <input type="text" id="txtPackageLicenseComments" name="package_license_comments" class="form-control" disabled/>
         </div>
         <div class="form-group">
             <label for="txtPackageDescription">Package Description</label>
-            <input type="text" id="txtPackageDescription" name="package_description" class="form-control"/>
+            <input type="text" id="txtPackageDescription" name="package_description" class="form-control" disabled/>
         </div>
-        <div class="form-group">
-            <label for="txtScanOption">Scan Option</label>
-            <select name="scan_option" id="selectScanOption"  size="2" class="form-control">
+        <div class="form-group" >
+            <label for="txtScanOption" >Scan Option</label>
+            <select name="scan_option" id="selectScanOption"  size="2" class="form-control" disabled>
             <option value="fossology">fossology</option>
             <option value="fossology+ninka">fossology+ninka</option></select>
         </div>
-        <input type="submit" value="submit">
+        <input type="submit" value="submit" id="submit" style="width:100px;" disabled>
+        <input type="reset" onclick="disableForm()" value="reset" style="width:65px;">
     </form>
 </div>
 <?php
     incFooter(); 
 ?>
+
