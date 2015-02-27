@@ -47,11 +47,11 @@ limitations under the License.
     <form action="upload_action.php" method="POST" enctype="multipart/form-data" >
          <div class="form-group"  style="display:inline-block;min-width:200px;">
             <label for="packageFile">Package</label>
-            <input type="file" onclick="enableForm('fileDocumentFile')" name="package" id="filePackageFile"/>
+            <input type="file" onchange="enableForm('fileDocumentFile')" name="package" id="filePackageFile"/>
         </div>   
         <div class="form-group" style="display:inline-block;min-width:200px;">             
         	<label for="packageFile">SPDX Document</label>             
-        	<input type="file" onclick="enableForm('filePackageFile')" name="document" id="fileDocumentFile"/>         
+        	<input type="file" onchange="enableForm('filePackageFile')" name="document" id="fileDocumentFile"/>         
        	</div>
         <div class="form-group">
             <label for="txtDocComment">Document Comment</label>
