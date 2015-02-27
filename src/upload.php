@@ -110,8 +110,10 @@ limitations under the License.
             <option value="fossology">fossology</option>
             <option value="fossology+ninka">fossology+ninka</option></select>
         </div>
-        <input type="submit" class="upload-btn" value="submit" id="submit" style="width:100px;float:left;clear:left;margin-right:5px;margin-top:20px" disabled>
-        <input type="reset" onclick="disableForm(), toggleView('block')" value="reset" style="width:65px;margin-top:20px">
+        <div style="display:block">
+        	<input type="submit" class="upload-btn" value="submit" id="submit" style="width:100px;" disabled>
+        	<input type="reset" onclick="disableForm(), toggleView('block')" value="reset" style="width:65px;margin-top:20px">
+  		</div>  
     </form>
 </div>
 <?php
