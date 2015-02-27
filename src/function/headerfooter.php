@@ -51,7 +51,7 @@ limitations under the License.
     }
     
     function incFooter() {
-        echo         '<div class="container col-md-3 col-md-offset-5" style="margin-top:10px;">';
+        echo         '<div class="container col-md-3 col-md-offset-5" style="margin-top:10px;clear:both;">';
         echo             '<footer>';
         echo                 '<p>&copy; University of Nebraska at Omaha 2014<p>';
         echo             '</footer>';
