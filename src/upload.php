@@ -52,11 +52,11 @@ limitations under the License.
 
 <div class="col-md-8 col-md-offset-2">
     <form action="upload_action.php" method="POST" enctype="multipart/form-data" >
-         <div class="form-group"  style="display:inline-block;min-width:200px;">
+         <div class="form-group"  style="display:inline-block;min-width:200px;margin-bottom:20px">
             <label for="packageFile">Package</label>
             <input type="file" onchange="enableForm('fileDocumentFile')" name="package" id="filePackageFile"/>
         </div>   
-        <div class="form-group" style="display:inline-block;min-width:200px;">             
+        <div class="form-group" style="display:inline-block;min-width:200px;margin-bottom:20px">             
         	<label for="packageFile">SPDX Document</label>             
         	<input type="file" onchange="enableForm('filePackageFile'), toggleView('none')" name="document" id="fileDocumentFile"/>         
        	</div>
@@ -110,8 +110,8 @@ limitations under the License.
             <option value="fossology">fossology</option>
             <option value="fossology+ninka">fossology+ninka</option></select>
         </div>
-        <input type="submit" value="submit" id="submit" style="width:100px;float:left;clear:left;margin-right:5px;" disabled>
-        <input type="reset" onclick="disableForm(), toggleView('block')" value="reset" style="width:65px;">
+        <input type="submit" class="upload-btn" value="submit" id="submit" style="width:100px;float:left;clear:left;margin-right:5px;margin-top:20px" disabled>
+        <input type="reset" onclick="disableForm(), toggleView('block')" value="reset" style="width:65px;margin-top:20px">
     </form>
 </div>
 <?php

@@ -13,6 +13,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+(isset($_POST['scan_option']) ? $_POST['scan_option'] : null);
 -->
 <?php
 	include("function/headerfooter.php");
@@ -31,7 +32,7 @@ limitations under the License.
     $package_source_info        = $_POST['package_source_info'];
     $package_license_comments   = $_POST['package_license_comments'];
     $package_description        = $_POST['package_description'];
-    $scan_option		= $_POST['scan_option'];
+    $scan_option 				= (isset($_POST['scan_option']) ? $_POST['scan_option'] : null);
 
     move_uploaded_file($filePath,"uploads/$fileName");
     while (!file_exists("uploads/$fileName")) sleep(1);
@@ -70,11 +71,15 @@ limitations under the License.
     if(!empty($package_description)) {
         $commandLine .= " --documentComment \"$package_description\"";
     }
+    
     if(!empty($scan_option)) {
         $commandLine .= " --scanOption \"$scan_option\"";
+        shell_exec($commandLine . ' 2>&1');
+    	echo "<div align=\"center\">Document successfully uploaded.</div>";
     }
-
-    shell_exec($commandLine . ' 2>&1');
-    echo "<div align=\"center\">Document sucessfully uploaded.</div>";
+    else{
+    	echo "<div align=\"center\">Error processing request.</div>";
+    }
+   
 	incFooter();
 ?>
