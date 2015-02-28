@@ -71,3 +71,14 @@ table.table-doc th {
     text-align: center;
     width: 200px;
 }
+
+a.navbar-brand.navbar-upload{
+	float: right;
+}
+
+@media screen and (max-width:525px){
+	a.navbar-brand.navbar-upload{
+		float: left;
+		display: inline-block;	
+	}
+}
