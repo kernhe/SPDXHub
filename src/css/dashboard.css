@@ -73,6 +73,13 @@ table.table-doc th {
 }
 
 /*
+* UPLOAD NAV ELEMENT
+*/
+a.navbar-brand.navbar-upload{
+	float: right;
+}
+
+/*
 * PERSISTENT HEADER
 */
 div.navbar.navbar-default.navbar-static-top{
@@ -80,23 +87,22 @@ div.navbar.navbar-default.navbar-static-top{
 	margin:0px auto;
 	top:0;
 	position: fixed;
-	height: 64px;
+	height: auto;
 }
-
 body{
 	padding-top: 84px;
 }
-
-/*
-* UPLOAD NAV ELEMENT
-*/
-a.navbar-brand.navbar-upload{
-	float: right;
-}
-
-@media screen and (max-width:525px){
+@media screen and (max-width:490px){
 	a.navbar-brand.navbar-upload{
 		float: left;
 		display: inline-block;	
+	}
+	body{
+		padding-top: 134px;
+	}
+}
+@media screen and (max-width:326px){
+	body{
+		padding-top: 184px;
 	}
 }
