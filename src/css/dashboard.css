@@ -72,6 +72,24 @@ table.table-doc th {
     width: 200px;
 }
 
+/*
+* PERSISTENT HEADER
+*/
+div.navbar.navbar-default.navbar-static-top{
+	width: 100%;
+	margin:0px auto;
+	top:0;
+	position: fixed;
+	height: 64px;
+}
+
+body{
+	padding-top: 84px;
+}
+
+/*
+* UPLOAD NAV ELEMENT
+*/
 a.navbar-brand.navbar-upload{
 	float: right;
 }
