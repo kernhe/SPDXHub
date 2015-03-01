@@ -22,6 +22,7 @@ limitations under the License.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $title; ?></title>
         <link href="css/dashboard.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/bootstrap-theme.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

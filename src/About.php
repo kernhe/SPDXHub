@@ -69,6 +69,7 @@ limitations under the License.
         These tools include a web based dashboard to view SOCS documents in a more user friendly way. 
     </p>
 </div>
+
 <?php
     include("inc/_footer.php");
 ?>
