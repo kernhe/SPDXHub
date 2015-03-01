@@ -25,21 +25,22 @@ limitations under the License.
     }
 ?>
     <style>
-        table.table button.btn {
+    /*    table.table button.btn {
             margin-right: 5px;
         }
         
         table.table td {
             font-size: 13pt;
-        }
+        }*/
     </style>
+    <!-- <button type="button" class="btn btn-primary" onclick="window.location='upload.php'" style="display:inline-block;width:11.5%;margin-left:10px;">Upload Package</button> -->
+
     <div class="container">
-        <h1 class="bold">Docs</h1>
+        <!-- <h1 class="bold">Docs</h1> -->
         <div style="width:100%;">
         	<form action="index.php" method="post" style="width:100%;">
         		<input type="text" class="form-control" tabindex="1" autofocus="autofocus" style="display:inline-block;width:70%;" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
         		<button type="submit" class="btn" style="display: inline-block;width:11.5%;margin-left:25px;">Search</button>
-        		<button type="button" class="btn btn-primary" onclick="window.location='upload.php'" style="display:inline-block;width:11.5%;margin-left:10px;">Upload Package</button>
         	</form>
         </div>
         <table id="spdx_doc_list" class="table table-striped" >
