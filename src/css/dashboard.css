@@ -126,3 +126,8 @@ body{
 		padding-top: 184px;
 	}
 }
+@media screen and (max-width:241px){
+	body{
+		padding-top: 240px;
+	}
+}
