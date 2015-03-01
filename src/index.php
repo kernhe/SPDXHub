@@ -79,6 +79,5 @@ limitations under the License.
              </tbody>
          </table>
     </div>
-<?php
-    incFooter();
-?>
+
+<?php include("inc/_footer.php"); ?>
