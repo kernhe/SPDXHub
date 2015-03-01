@@ -1,4 +1,11 @@
-﻿/* HELPER CLASSES */
+﻿
+.search-block {
+    background-color: pink;
+}
+
+
+
+/* HELPER CLASSES */
 .bold {
     font-weight: bold;
 }

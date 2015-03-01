@@ -35,23 +35,36 @@ limitations under the License.
 
     <div class="container">
         <!-- <h1 class="bold">Docs</h1> -->
-        <div style="width:100%;">
-        	<form action="index.php" method="post" style="width:100%;">
-        		<input type="text" class="form-control" tabindex="1" autofocus="autofocus" style="display:inline-block;width:70%;" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
-        		<button type="submit" class="btn" style="display: inline-block;width:11.5%;margin-left:25px;">Search</button>
-        	</form>
+        <div style="row search-block">
+        	
+
+            <div>
+                <form action="index.php" method="post" style="width:100%;">
+            		<input type="text" class="form-control" tabindex="1" autofocus="autofocus" style="display:inline-block;width:70%;" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
+            		<button type="submit" class="btn" style="display: inline-block;width:11.5%;margin-left:25px;">Search</button>
+            	</form>
+            </div>
+            
+            <div>
+                <button type="submit" class="btn" style="display: inline-block;width:11.5%;margin-left:25px;">Search</button>
+            </div>
+        
         </div>
-        <table id="spdx_doc_list" class="table table-striped" >
-            <thead>
-                <tr>
-                    <th>Document #</th>
-                    <th>Document Name</th>
-                    <th>Created On</th>
-                    <th style="text-align:center;">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+       
+
+
+        <div clas="row">
+            <table id="spdx_doc_list" class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>Document #</th>
+                        <th>Document Name</th>
+                        <th>Created On</th>
+                        <th style="text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
                     $result = getSPDX_DocList($name);
                     while($row = mysql_fetch_assoc($result)) {
                         echo '<tr>';
@@ -72,9 +85,10 @@ limitations under the License.
                         echo     '</td>';
                         echo '</tr>';
                     }
-                ?>
-             </tbody>
-         </table>
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 <?php include("inc/_footer.php"); ?>
