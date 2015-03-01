@@ -15,6 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php
+    $title = "About";
     include("inc/_header.php");
 ?>
 <script type="text/javascript">

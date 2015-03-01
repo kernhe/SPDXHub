@@ -1,4 +1,5 @@
 <?php
+    $title = "SPDX";
     include("inc/_header.php");
     include("function/spdx_doc.php");
     $name = "";
