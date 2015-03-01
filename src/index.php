@@ -44,8 +44,9 @@
                     </thead>
                     <tbody>
                         <?php
+                        $count = 0;
                         $result = getSPDX_DocList($name);
-                        while($row = mysql_fetch_assoc($result)) {
+                        while(($row = mysql_fetch_assoc($result)) && $count < 5) {
                             echo '<tr>';
                             echo     '<td>';
                             echo         $row['id'];
@@ -63,6 +64,8 @@
                             echo         '</div>';
                             echo     '</td>';
                             echo '</tr>';
+
+                            $count++;
                         }
                         ?>
                     </tbody>
