@@ -15,14 +15,14 @@
         	
 
             <div>
-                <form action="index.php" method="post" style="width:100%;">
-            		<input type="text" class="form-control" tabindex="1" autofocus="autofocus" style="display:inline-block;width:70%;" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
+                <form action="index.php" method="post" > <!-- style="width:100%;" -->
+            		<input type="text" class="form-control" tabindex="1" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/> <!-- style="display:inline-block;width:70%;"  -->
             		<button type="submit" class="btn" style="display: inline-block;width:11.5%;margin-left:25px;">Search</button>
             	</form>
             </div>
             
             <div>
-                <button type="submit" class="btn" style="display: inline-block;width:11.5%;margin-left:25px;">Search</button>
+                <button type="submit" class="btn" style="display: inline-block;width:11.5%;margin-left:25px;">Filter</button>
             </div>
         
         </div>
