@@ -15,14 +15,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php
-    include("function/headerfooter.php");
+    include("inc/_header.php");
     include("function/spdx_doc.php");
     include("function/creator.php");
     include("function/package.php");
     include("function/package_files.php");
     include("function/license.php");
     include("function/tree.php");
-    incHeader("SPDX");
     
     $spdxId = $_GET["doc_id"];
     if(array_key_exists('action',$_POST)){
@@ -371,5 +370,5 @@ limitations under the License.
     }
 </script>
 <?php
-    incFooter();
+    include("inc/_footer");
 ?>
