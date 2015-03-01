@@ -15,15 +15,16 @@
         <div class="row search-block">    	
             <div class="col-sm-12">
                 
-                <div class="search-bar col-sm-8">
+                <div class="search-bar col-sm-9">
                     <form action="index.php" method="post" > <!-- style="width:100%;" -->
                 		<input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/> <!-- style="display:inline-block;width:70%;"  -->
                 		<button type="submit" class="btn pull-right">Search</button>
                 	</form>
                 </div>
                 
-                <div class="filter-bar col-sm-4">
-                    <button type="submit" class="btn pull-right">Filter</button>
+                <div class="search-bar col-sm-3">
+                    <span class="draw-line"></span>
+                    <button type="submit" class="btn">Filter</button>
                 </div>
             
             </div>
