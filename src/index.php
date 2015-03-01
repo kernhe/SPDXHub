@@ -15,8 +15,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php
-    // include("function/headerfooter.php");
-    
     include("inc/_header.php");
     include("function/spdx_doc.php");
     $name = "";
