@@ -12,6 +12,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    </head>
     <body>
+        
         <div class="navbar navbar-default navbar-static-top">
             <div class="navbar-inner">
                <div class="container-fluid">
