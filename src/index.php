@@ -10,61 +10,64 @@
     <!-- <button type="button" class="btn btn-primary" onclick="window.location='upload.php'" style="display:inline-block;width:11.5%;margin-left:10px;">Upload Package</button> -->
 
     <div class="container">
-        <!-- <h1 class="bold">Docs</h1> -->
-        <div style="row search-block">
-        	
 
-            <div>
-                <form action="index.php" method="post" > <!-- style="width:100%;" -->
-            		<input type="text" class="form-control" tabindex="1" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/> <!-- style="display:inline-block;width:70%;"  -->
-            		<button type="submit" class="btn" style="display: inline-block;width:11.5%;margin-left:25px;">Search</button>
-            	</form>
+        <div style="row">    	
+            <div class="col-sm-12">
+                
+                <div class="search-bar col-sm-8">
+                    <form action="index.php" method="post" > <!-- style="width:100%;" -->
+                		<input type="text" class="form-control" tabindex="1" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/> <!-- style="display:inline-block;width:70%;"  -->
+                		<button type="submit" class="btn pull-right">Search</button>
+                	</form>
+                </div>
+                
+                <div class="filter-bar col-sm-4">
+                    <button type="submit" class="btn pull-right">Filter</button>
+                </div>
             </div>
-            
-            <div>
-                <button type="submit" class="btn" style="display: inline-block;width:11.5%;margin-left:25px;">Filter</button>
-            </div>
-        
         </div>
        
 
 
         <div clas="row">
-            <table id="spdx_doc_list" class="table table-striped" >
-                <thead>
-                    <tr>
-                        <th>Document #</th>
-                        <th>Document Name</th>
-                        <th>Created On</th>
-                        <th style="text-align:center;">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $result = getSPDX_DocList($name);
-                    while($row = mysql_fetch_assoc($result)) {
-                        echo '<tr>';
-                        echo     '<td>';
-                        echo         $row['id'];
-                        echo     '</td>';
-                        echo     '<td>';
-                        echo         '<a href="spdx_doc.php?doc_id=' . $row['id'] . '">' . $row['upload_file_name'] . '</a>';
-                        echo     '</td>';
-                        echo     '<td>';
-                        echo         date('m/d/Y', strtotime($row['created_at'])); 
-                        echo     '</td>';
-                        echo     '<td style="text-align:right;">';
-                        echo         '<div>';
-                        echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['id'] . '\'">View Details</button>';
-                        echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['id'] . '&format=RDF&doc_name=' . $row['upload_file_name'] . '\',\'_blank\');">Download</button>';
-                        echo         '</div>';
-                        echo     '</td>';
-                        echo '</tr>';
-                    }
-                    ?>
-                </tbody>
-            </table>
+            <div class="col-sm-12">
+                <table id="spdx_doc_list" class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th>Document #</th>
+                            <th>Document Name</th>
+                            <th>Created On</th>
+                            <th style="text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $result = getSPDX_DocList($name);
+                        while($row = mysql_fetch_assoc($result)) {
+                            echo '<tr>';
+                            echo     '<td>';
+                            echo         $row['id'];
+                            echo     '</td>';
+                            echo     '<td>';
+                            echo         '<a href="spdx_doc.php?doc_id=' . $row['id'] . '">' . $row['upload_file_name'] . '</a>';
+                            echo     '</td>';
+                            echo     '<td>';
+                            echo         date('m/d/Y', strtotime($row['created_at'])); 
+                            echo     '</td>';
+                            echo     '<td style="text-align:right;">';
+                            echo         '<div>';
+                            echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['id'] . '\'">View Details</button>';
+                            echo             '<button type="button" class="btn">Download</button>'; 
+                            echo         '</div>';
+                            echo     '</td>';
+                            echo '</tr>';
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
     </div>
 
 <?php include("inc/_footer.php"); ?>

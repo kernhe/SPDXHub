@@ -1,9 +1,21 @@
 ﻿
-.search-block {
+div.row  div{
     background-color: pink;
 }
 
 
+.search-bar input {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+
+}
+
+.search-bar button {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
 
 /* HELPER CLASSES */
 .bold {

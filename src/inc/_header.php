@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SPDX</title>
+        <title><?php echo $title; ?></title>
         <link href="css/dashboard.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/bootstrap-theme.css" rel="stylesheet">
