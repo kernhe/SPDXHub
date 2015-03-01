@@ -12,12 +12,12 @@
 
     <div class="container">
 
-        <div style="row">    	
+        <div class="row search-block">    	
             <div class="col-sm-12">
                 
                 <div class="search-bar col-sm-8">
                     <form action="index.php" method="post" > <!-- style="width:100%;" -->
-                		<input type="text" class="form-control" tabindex="1" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/> <!-- style="display:inline-block;width:70%;"  -->
+                		<input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/> <!-- style="display:inline-block;width:70%;"  -->
                 		<button type="submit" class="btn pull-right">Search</button>
                 	</form>
                 </div>
@@ -25,12 +25,13 @@
                 <div class="filter-bar col-sm-4">
                     <button type="submit" class="btn pull-right">Filter</button>
                 </div>
+            
             </div>
         </div>
        
 
 
-        <div clas="row">
+        <div class="row">
             <div class="col-sm-12">
                 <table id="spdx_doc_list" class="table table-striped" >
                     <thead>
