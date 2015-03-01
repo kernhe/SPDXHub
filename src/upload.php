@@ -15,8 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php
-    include("function/headerfooter.php");
-    incHeader("Upload Package");
+    include("inc/_header.php");
 ?>
 
 <script>
@@ -117,6 +116,6 @@ limitations under the License.
     </form>
 </div>
 <?php
-    incFooter(); 
+    include("inc/_footer.php");
 ?>
 
