@@ -15,8 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php
-    include("function/headerfooter.php");
-    incHeader("About");
+    include("inc/_header.php");
 ?>
 <script type="text/javascript">
     function filter (term, _id, cellNr) {
@@ -70,5 +69,5 @@ limitations under the License.
     </p>
 </div>
 <?php
-    incFooter();
+    include("inc/_footer.php");
 ?>
