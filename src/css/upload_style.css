@@ -1,0 +1,49 @@
+
+/****************************
+UPLOAD PAGE
+****************************/
+.form-group, .doc-group{
+    display: none;
+}
+
+.form-menu{
+    padding: 20px 0;
+    background: ;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-selection{
+    margin-top: 50px;
+    padding: 20px 0;
+    background: ;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+.select-btn  {
+    width:6em;
+    height:2.5em;
+}
+
+#package-btn{
+    font-size: 2em;
+    margin-right: 75px;
+ }
+
+#doc-btn{
+    font-size: 2em;
+ }
+
+ #submission-group{
+    text-align: center;
+ }
+
+@media screen and (max-width:490px){
+    #package-btn{
+        margin-right: 0px;
+    }
+}
+@media screen and (max-width:369px){
+    #package-btn{
+        margin-bottom: 20px;
+    }
+}
