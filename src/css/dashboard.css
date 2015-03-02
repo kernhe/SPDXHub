@@ -171,7 +171,16 @@ UPLOAD PAGE
     text-align: center;
  }
 
-
+@media screen and (max-width:490px){
+    #package-btn{
+        margin-right: 0px;
+    }
+}
+@media screen and (max-width:369px){
+    #package-btn{
+        margin-bottom: 20px;
+    }
+}
 
 
 
