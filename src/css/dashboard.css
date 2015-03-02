@@ -156,16 +156,19 @@ UPLOAD PAGE
 .select-btn  {
     width:6em;
     height:2.5em;
-
 }
 
 #package-btn{
     font-size: 2em;
+    margin-right: 75px;
  }
 
 #doc-btn{
-    margin-left: 75px;
     font-size: 2em;
+ }
+
+ #submission-group{
+    text-align: center;
  }
 
 
