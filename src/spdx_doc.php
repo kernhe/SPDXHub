@@ -1,13 +1,10 @@
 <SPDX-License-Identifier: Apache-2.0>
 <!--
 Copyright (C) 2014 University of Nebraska at Omaha.
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-
     http://www.apache.org/licenses/LICENSE-2.0
-
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -149,11 +146,11 @@ limitations under the License.
                 </tr>
                 <tr>
                     <td title="When was this SPDX document created.">Created</td>
-                    <td><?php echo date('d/j/o', strtotime($doc["created_at"])); ?></td>
+                    <td><?php echo date('m/d/Y', strtotime($doc["created_at"])); ?></td>
                 </tr>
                 <tr>
                     <td title="When was this document last updated.">Updated</td>
-                    <td><?php echo date('d/j/o', strtotime($doc["updated_at"])); ?></td>
+                    <td><?php echo date('m/d/Y', strtotime($doc["updated_at"])); ?></td>
                 </tr>
                 <tr>
                     <td title="Additional comments from during the creation of this document.">Creator Comment</td>
@@ -351,13 +348,12 @@ limitations under the License.
             <?php if($count != mysql_num_rows($licCounts)):?>,<?php endif;?>
        <?php endwhile;?>
     ];
-
     window.onload = function(){
         var ctx = document.getElementById("licChart").getContext("2d");
         var options = {
                 legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%> !important;\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
         };
-        var myPie = new Chart(ctx).Doughnut(pieData,options);
+        var myPie = new Chart(ctx).Pie(pieData,options);
         var legend = myPie.generateLegend();
         $("#legend").html(legend);
     };
