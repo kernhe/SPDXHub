@@ -357,7 +357,7 @@ limitations under the License.
         var options = {
                 legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%> !important;\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
         };
-        var myPie = new Chart(ctx).Pie(pieData,options);
+        var myPie = new Chart(ctx).Doughnut(pieData,options);
         var legend = myPie.generateLegend();
         $("#legend").html(legend);
     };
