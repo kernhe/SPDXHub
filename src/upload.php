@@ -34,11 +34,11 @@ limitations under the License.
 	    <div class="form-menu">
 	         <div class="form-group" style="min-width:200px;margin-bottom:20px">
 	            <label for="packageFile">Package</label>
-	            <input type="file" onchange="enableForm('fileDocumentFile')" name="package" id="filePackageFile"/>
+	            <input type="file" onchange="enableForm()" name="package" id="filePackageFile"/>
 	        </div>   
 	        <div class="doc-group" style="min-width:200px;margin-bottom:20px">             
 	        	<label for="packageFile">SPDX Document</label>             
-	        	<input type="file" onchange="enableForm('filePackageFile'), toggleView('none')" name="document" id="fileDocumentFile"/>         
+	        	<input type="file" onchange="enableForm(), toggleView('none')" name="document" id="fileDocumentFile"/>         
 	       	</div>
 	        <div class="form-group">
 	            <label for="txtDocComment">Document Comment</label>
@@ -92,7 +92,7 @@ limitations under the License.
 	        </div>
 	        <div class="form-group doc-group" id="submission-group">
 	        	<input type="submit" class="btn" value="submit" id="submit" style="width:100px;margin-right:10px;" disabled>
-	        	<input type="reset" class="btn" onclick="disableForm()" value="reset" style="width:65px;">
+	        	<input type="reset" class="btn" onclick="toggleFormView('none'), toggleDocView('none'), disableForm()" value="reset" style="width:65px;">
 	  		</div> 
 	  	</div> 
     </form>

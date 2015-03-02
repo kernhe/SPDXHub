@@ -5,16 +5,14 @@
 	var doc_elements = document.getElementsByClassName('doc-group')
 
 	
-	function enableForm(buttonToDisable) {
-		document.getElementById(buttonToDisable).disabled = true;
+	function enableForm() {
 		document.getElementById("submit").disabled = false;
-		if(buttonToDisable == "fileDocumentFile"){
-			for (index = 0; index < id_list.length; ++index) {
+		for (index = 0; index < id_list.length; ++index) {
     			document.getElementById(id_list[index]).disabled = false;
-			}
 		}
 	}
 	function disableForm() {
+		window.scrollTo(0, 0);
 		document.getElementById("fileDocumentFile").disabled = false;
 		document.getElementById("filePackageFile").disabled = false;
 		document.getElementById("submit").disabled = true;
