@@ -90,6 +90,8 @@ limitations under the License.
    	if(!empty($docfilePath)){
    	    move_uploaded_file($docfilePath,"uploads/$docfileName");
     	while (!file_exists("uploads/$docfileName")) sleep(1);
+    	
+    	echo "<div align=\"center\">Document successfully uploaded.</div>";
    	}
    
 	include("inc/_footer.php");
