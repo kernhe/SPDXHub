@@ -18,7 +18,6 @@ limitations under the License.
 	$title = "Upload";
     include("inc/_header.php");
     include("js/upload.js");
-    
 ?>
 
 
