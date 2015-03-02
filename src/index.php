@@ -18,12 +18,34 @@
             		<input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/> <!-- style="display:inline-block;width:70%;"  -->
             		<button type="submit" class="btn pull-right">Search</button>
             	</form>
+                
                 <div class="draw-line"></div>
-                    
-
-                    <button type="submit" class="btn">Filter</button>  
-                <div class="draw-line"></div>   
+            
             </div>
+           
+           <div class="col-sm-12 filter-block">
+                <a href="#">Doc Name</a>
+                <a href="#">License</a>
+                <a href="#">Author</a>  
+                <a class="btn" href="#"><button>Filter</button></a> 
+
+                <div class="draw-line"></div>
+            </div>
+
+            <div class="col-sm-12">
+                <a href="#">Any Time</a>
+                <a href="#">Created On</a>
+                <a href="#">License type</a>
+                <a href="#">Doc Number</a>
+        
+
+                <div class="draw-line"></div>
+            </div>
+
+
+
+
+
         </div>
        
 
