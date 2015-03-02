@@ -1,7 +1,9 @@
 <SCRIPT LANGUAGE="JavaScript">
 	var index;
 	var id_list = ["txtDocumentComment", "txtCreator", "txtAreaCreatorComment", "txtPackageVersion", "txtPackageSupplier", "txtPackageOriginator", "txtPackageDownalodLocation", "txtPackageHomePage", "txtPackageSourceInfo", "txtPackageLicenseComments", "txtPackageDescription", "selectScanOption"];
-	var hide_list = document.getElementsByClassName('hideable')
+	var form_elements = document.getElementsByClassName('form-group')
+	var doc_elements = document.getElementsByClassName('doc-group')
+
 	
 	function enableForm(buttonToDisable) {
 		document.getElementById(buttonToDisable).disabled = true;
@@ -21,10 +23,17 @@
 		}
 	}
 	
-	function toggleView(style) {
+	function toggleFormView(style) {
 		window.scrollTo(0, 0);
-		for (index = 0; index < hide_list.length; ++index) {
-    		hide_list[index].style.display = style;
+		for (index = 0; index < form_elements.length; ++index) {
+    		form_elements[index].style.display = style;
+		}
+	}
+
+	function toggleDocView(style) {
+		window.scrollTo(0, 0);
+		for (index = 0; index < doc_elements.length; ++index) {
+    		doc_elements[index].style.display = style;
 		}
 	}
 </SCRIPT>

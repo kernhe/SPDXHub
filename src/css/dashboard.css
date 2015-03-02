@@ -92,16 +92,13 @@ table.table-doc th {
     width: 200px;
 }
 
-/*
-* UPLOAD NAV ELEMENT
-*/
+/****************************
+HEADER
+****************************/
 a.navbar-brand.navbar-upload{
 	float: right;
 }
 
-/*
-* PERSISTENT HEADER
-*/
 div.navbar.navbar-default.navbar-static-top{
 	width: 100%;
 	margin:0px auto;
@@ -109,9 +106,11 @@ div.navbar.navbar-default.navbar-static-top{
 	position: fixed;
 	height: auto;
 }
+
 body{
 	padding-top: 84px;
 }
+
 @media screen and (max-width:490px){
 	a.navbar-brand.navbar-upload{
 		float: left;
@@ -121,13 +120,56 @@ body{
 		padding-top: 134px;
 	}
 }
+
 @media screen and (max-width:326px){
 	body{
 		padding-top: 184px;
 	}
 }
+
 @media screen and (max-width:241px){
 	body{
 		padding-top: 240px;
 	}
 }
+
+/****************************
+UPLOAD PAGE
+****************************/
+.form-group, .doc-group{
+    display: none;
+}
+
+.form-menu{
+    padding: 20px 0;
+    background: ;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-selection{
+    margin-top: 50px;
+    padding: 20px 0;
+    background: ;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+.select-btn  {
+    width:6em;
+    height:2.5em;
+
+}
+
+#package-btn{
+    font-size: 2em;
+ }
+
+#doc-btn{
+    margin-left: 75px;
+    font-size: 2em;
+ }
+
+
+
+
+
+

@@ -17,7 +17,7 @@
     */
     $host        = "localhost"; // Host name
     $username    = "root"; // Mysql username
-    $password    = "root";
+    $password    = "";
     $db_name     = "SPDX"; // Database name
     $DoSOCS      = "";
 ?>
