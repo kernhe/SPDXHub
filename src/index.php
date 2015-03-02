@@ -25,36 +25,8 @@
                 <div class="filter-bar col-sm-4">
                     <button type="submit" class="btn pull-right">Filter</button>
                 </div>
-            <table width = "80%" border="0" align="center" id="advSrch" bgcolor="#009999" >
-  <caption>&nbsp;
-  </caption>
-  <tr>
-    <td width="6">1</td>
-    <td width="6">&nbsp;</td>
-    <td width="6">&nbsp;</td>
-    <td width="6">&nbsp;</td>
-    <td width="6">&nbsp;</td>
-    <td width="6">&nbsp;</td>
-    <td width="6">&nbsp;</td>
-    <td width="6">1</td>
-    <td width="6">&nbsp;</td>
-    <td width="298">1</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>1</td>
-  </tr>
-</table>
-
-          </div>
+            
+            </div>
         </div>
        
 

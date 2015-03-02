@@ -2255,7 +2255,7 @@
 		segmentStrokeWidth : 2,
 
 		//The percentage of the chart that we cut out of the middle.
-		percentageInnerCutout : 35,
+		percentageInnerCutout : 50,
 
 		//Number - Amount of animation steps
 		animationSteps : 100,
