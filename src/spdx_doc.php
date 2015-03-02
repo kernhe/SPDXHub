@@ -354,5 +354,5 @@
     }
 </script>
 <?php
-    include("inc/_footer");
+    include("inc/_footer.php");
 ?>
