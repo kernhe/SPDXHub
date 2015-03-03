@@ -45,10 +45,12 @@
 ## Milestone Two
 1. Clarify SOCSDashboard outstanding issues within our scope
   * Determine what existing code and files we will be primarly working with as we impliment our code. 
-  * Reach out to community to clarifiy outstanding issues.
-  * Begin working relationship wtih stakeholders.
 2. Begin Coding 
-  * Setup up the infrastructure for project.
+  * Get code working accross local machines
+  * Code a clickable mockup
+  * HTML structure for more robust search.
+  * HTML structure for upload. Allow user to upload an SPDX document or a package. 
+  * HTML structure for file view. More concise, clear layout. 
 
 ## Milestone Three
 * Begin by working through issues detailed on the SPDXDashboard’s issue tracker: https://github.com/socs-dev-env/SOCSDashboard/issues
