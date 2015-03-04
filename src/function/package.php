@@ -48,7 +48,11 @@ limitations under the License.
         
         //Execute Query
         $qryUpdatePackage = mysql_query($sql);
-        
+		if (mysql_query($sql)) {
+    		echo "New record created successfully";
+		} else {
+   		 	echo "Error: ";
+		}
         //Close Connection
         mysql_close();
     }
