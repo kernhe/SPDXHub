@@ -24,6 +24,14 @@
 * **During work session:** make regular commits with short messages. contribute to a healthy change log. Commit small and commit often, and we will have a clear history that will help us define future goals and work allocation.
 * **After any meaningful change and at the end of every work session:** push all work associated with the change to the repo. Keep the most current code housed in the central repo for other members to access.
 
+#### External use and submissions:
+* All submitted code must comply fully with the Apache 2.0 license. 
+* Author will retain copyright of code submitted by pull request, regardless of whether or not it makes it into the source. 
+
+* All pull requests will be reviewed and processed based on their relationship to outstanding issues and the issue’s priority. Merging code into the source will be a top priority when the submitted code works to solve outstanding issues.
+* All other pull requests will be reviewed and processed in the order they come in. A contribution's value to the overall health will be dertermined by the SPDXHub internal team.
+* Suggestions and critiques for system improvment are welcomed. 
+
 # Database / Data Store Structures of the System
 * The structure of the database will rely on the all of the required fields in the SPDX document found here: https://github.com/socs-dev-env/SOCSDatabase/blob/master/Schema.md
 * Dataflow diagram can be found here: https://github.com/joverkamp/SPDXHub/blob/master/SPDXDashboard_DFD.svg
