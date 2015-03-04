@@ -23,15 +23,16 @@
 	
 	function toggleFormView(style) {
 		window.scrollTo(0, 0);
-		for (index = 0; index < form_elements.length; ++index) {
-    		form_elements[index].style.display = style;
-		}
+			$('.form-group').each(function(i, obj) {
+			 	this.style.display = style;
+			});
 	}
 
 	function toggleDocView(style) {
 		window.scrollTo(0, 0);
-		for (index = 0; index < doc_elements.length; ++index) {
-    		doc_elements[index].style.display = style;
-		}
+		$('.doc-group').each(function(i, obj) {
+		 	this.style.display = style;
+		});
 	}
+
 </SCRIPT>

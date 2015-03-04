@@ -132,11 +132,11 @@
                 </tr>
                 <tr>
                     <td title="When was this SPDX document created.">Created</td>
-                    <td><?php echo date('d/j/o', strtotime($doc["created_at"])); ?></td>
+                    <td><?php echo date('m/d/Y', strtotime($doc["created_at"])); ?></td>
                 </tr>
                 <tr>
                     <td title="When was this document last updated.">Updated</td>
-                    <td><?php echo date('d/j/o', strtotime($doc["updated_at"])); ?></td>
+                    <td><?php echo date('m/d/Y', strtotime($doc["updated_at"])); ?></td>
                 </tr>
                 <tr>
                     <td title="Additional comments from during the creation of this document.">Creator Comment</td>
@@ -334,13 +334,12 @@
             <?php if($count != mysql_num_rows($licCounts)):?>,<?php endif;?>
        <?php endwhile;?>
     ];
-
     window.onload = function(){
         var ctx = document.getElementById("licChart").getContext("2d");
         var options = {
                 legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%> !important;\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
         };
-        var myPie = new Chart(ctx).Doughnut(pieData,options);
+        var myPie = new Chart(ctx).Pie(pieData,options);
         var legend = myPie.generateLegend();
         $("#legend").html(legend);
     };
@@ -354,5 +353,10 @@
     }
 </script>
 <?php
+<<<<<<< HEAD
     include("inc/_footer.php");
 ?>
+=======
+    incFooter();
+?>
+>>>>>>> 46b743704cb72fe0d31b9064da769578c580a536

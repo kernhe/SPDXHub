@@ -19,6 +19,7 @@ limitations under the License.
 	$title = "Upload";
 	include("inc/_header.php");
 	include("function/Data_Source.php");
+	include("function/read_file.php");
     $packagefilePath            = (isset($_FILES['package']["tmp_name"]) ? $_FILES['package']["tmp_name"] : null);
     $packagefileName            = (isset($_FILES['package']["name"]) ? $_FILES['package']["name"] : null);
     $docfilePath                = (isset($_FILES['document']["tmp_name"]) ? $_FILES['document']["tmp_name"] : null);
@@ -26,7 +27,7 @@ limitations under the License.
     $document_comment           = (isset($_POST['document_comment']) ? $_POST['document_comment'] : null);
     $creator                    = (isset($_POST['creator']) ? $_POST['creator'] : null);
     $creator_comment            = (isset($_POST['creator_comment']) ? $_POST['creator_comment'] : null);
-    $pakage_version             = (isset($_POST['pacakge_version']) ? $_POST['pacakge_version'] : null);
+    $pakage_version             = (isset($_POST['package_version']) ? $_POST['package_version'] : null);
     $package_supplier           = (isset($_POST['package_supplier']) ? $_POST['package_supplier'] : null);
     $package_originator         = (isset($_POST['package_originator']) ? $_POST['package_originator'] : null);
     $package_download_location  = (isset($_POST['package_download_location']) ? $_POST['package_download_location'] : null);
@@ -91,6 +92,7 @@ limitations under the License.
    	    move_uploaded_file($docfilePath,"uploads/$docfileName");
     	while (!file_exists("uploads/$docfileName")) sleep(1);
     	
+    	upload_file("uploads/$docfileName");
     	echo "<div align=\"center\">Document successfully uploaded.</div>";
    	}
    

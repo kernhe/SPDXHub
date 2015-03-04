@@ -23,6 +23,7 @@
             
             </div>
            
+
            <div class="col-sm-12 filter-block">
                 <a href="#">Doc Name</a>
                 <a href="#">License</a>
@@ -42,6 +43,72 @@
                 <div class="draw-line"></div>
             </div>
 
+           <fieldset id="extra_opt_uri" class="moreoptions">
+		<legend class="toggletext toggled"><a href="#"><img src="images/arrow-closed.png" alt="Hide " name="toggleiconURI" class="toggleicon toggled" id="toggleiconURI"> More Options</a></legend>
+		<div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div class="options" style="margin: 0px; display: block;">
+		
+                
+          <table>
+  <tbody>
+    
+  
+  <tr>
+          <td colspan="4"><input type="radio" name="group" id="urigroup_no" value="0" checked="checked">
+          <label for="urigroup_no">Document #</label> <input type="radio" name="group" id="urigroup_yes" value="1">
+          <label for="urigroup_yes">Document Name</label></td>
+</tr>
+<tr>
+        <td colspan="4"><label for="uri-charset"><strong>Licences</strong></label></td>
+        </tr>
+          <tr>
+                  <td><input id="uri-outline" name="outline" type="checkbox" value="1">
+                    <label title="Show an Outline of the document" for="uri-outline">OSI Approved</label>                  </td>
+                  <td width="160"><input id="uri-No200" name="No200" type="checkbox" value="1">
+                    <label title="Validate also pages for which the HTTP status code indicates an error" for="uri-No200">OSI Not Approved</label></td>
+
+                  <td width="128"><input id="uri-verbose2" name="uri-verbose" type="checkbox" value="1" />
+                  <label title="Verbose Output" for="uri-verbose2">Ve</label></td>
+                  <td><label title="Verbose Output" for="uri-verbose"></label></td>
+      
+       </tr><tr> <th width="136">
+      Full name  </th>
+    <td colspan="2">
+                    <select id="uri-charset" name="charset">
+                <option value="(license names)" selected="selected">(license names)</option>
+                <option value="utf-8">3dfx Glide License</option>
+                <option value="utf-16">Abstyles License</option>
+                <option value="iso-8859-1">Academic Free License v1.1</option>
+                <option value="iso-8859-2">Artistic License 1.0 w/clause 8</option>
+                <option value="iso-8859-3">Borceux license</option>
+
+              
+              </select>    </td>
+    <td width="118"><input id="uri-fbc" name="fbc" type="checkbox" value="1"><label for="uri-fbc" title="Use selected Character encoding only if missing in the document">Only if missing</label></td>
+  </tr>
+  <tr>
+    <th>
+        Identifier   </th>
+    <td colspan="2">
+        <select id="uri-doctype" name="doctype">
+  <option value="Identifier" selected="selected">(Identifier)</option>
+  <option value="HTML5">Glide</option>
+  <option value="XHTML 1.0 Strict">AFL-3.0</option>
+  <option value="XHTML 1.0 Transitional">AMDPLPA</option>
+  <option value="XHTML 1.0 Frameset">APSL-1.0</option>
+  <option value="HTML 4.01 Strict">Artistic-2.0</option>
+  <option value="HTML 4.01 Transitional">CECILL-1.1</option>
+ 
+</select>    </td>
+    <td><label for="uri-fbd"><input id="uri-fbd" name="fbd" type="checkbox" value="1" title="Use selected Document Type only if missing in the document">Only if missing</label></td>
+        </tr>
+</tbody></table>
+
+  
+    </div></div>
+  </fieldset>
+
+          
+
 
 
 
@@ -52,13 +119,15 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <table id="spdx_doc_list" class="table table-striped" >
+
+<table width = "95%" class="sortable">
                     <thead>
                         <tr>
-                            <th>Document #</th>
-                            <th>Document Name</th>
-                            <th>Created On</th>
-                            <th style="text-align:center;">Action</th>
+                            <th width="10%" >Document #</th>
+                            <th width="54%">Document Name</th>
+                            <th width="15%">Created On</th>
+                            <th width="6%" class="sorttable_nosort">Licences</th>
+                            <th width="15%" class="sorttable_nosort">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,6 +145,9 @@
                             echo     '<td>';
                             echo         date('m/d/Y', strtotime($row['created_at'])); 
                             echo     '</td>';
+							echo     '<td>';
+                            echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
+                            echo     '</td>';
                             echo     '<td style="text-align:right;">';
                             echo         '<div>';
                             echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['id'] . '\'">View Details</button>';
@@ -89,7 +161,8 @@
                         ?>
                     </tbody>
                 </table>
-            </div>
+          </div>
+           
         </div>
 
     </div>
