@@ -19,6 +19,7 @@ limitations under the License.
 	$title = "Upload";
 	include("inc/_header.php");
 	include("function/Data_Source.php");
+	include("function/read_file.php");
     $packagefilePath            = (isset($_FILES['package']["tmp_name"]) ? $_FILES['package']["tmp_name"] : null);
     $packagefileName            = (isset($_FILES['package']["name"]) ? $_FILES['package']["name"] : null);
     $docfilePath                = (isset($_FILES['document']["tmp_name"]) ? $_FILES['document']["tmp_name"] : null);
@@ -91,6 +92,7 @@ limitations under the License.
    	    move_uploaded_file($docfilePath,"uploads/$docfileName");
     	while (!file_exists("uploads/$docfileName")) sleep(1);
     	
+    	upload_file("uploads/$docfileName");
     	echo "<div align=\"center\">Document successfully uploaded.</div>";
    	}
    
