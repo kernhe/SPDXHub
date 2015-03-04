@@ -1,0 +1,268 @@
+/* sort table */
+
+div.sortTableBorder{
+	border:1px solid #c0c0c0;
+}
+div.sortTableTitle{
+	background-color:#efefef;
+	padding:2px;
+	padding-left:5px;
+	color:#00377A;
+	text-align:center;
+	font-weight:bold;
+	border-bottom:1px solid #c0c0c0;
+}
+.sort-table {
+	background:	ffffff;
+	color:		000000;
+	/* oleg: fix the jumping */
+	/* font-family:  tahoma; */
+	/* font-size:11px; */
+}
+
+.sort-table td {
+	padding:	2px 5px;
+	border-right:	1px solid #eeeeee;
+	border-bottom: 1px solid #DEDEDE;
+	vertical-align:top;
+}
+
+.sort-table td.expanderCell {
+	padding:	5px 0px 0px 5px;
+	border:0px;
+	border-bottom: 1px solid #DEDEDE;
+	vertical-align:top;
+	width:11px;
+}
+
+.sort-table td.noPad{
+	padding:0px;
+}
+.sort-table tbody tr.odd{
+	background-color:#f5f5f5;
+}
+.sort-table tbody tr.even{
+	background-color:#ffffff;
+}
+.sort-table tbody tr.odd1{
+	background-color:#f5f5f5;
+}
+.sort-table tbody tr.even1{
+	background-color:#ffffff;
+}
+.sort-table tbody tr.odd2{
+	background-color: #FFF8DC;
+}
+.sort-table tbody tr.even2{
+	background-color: #FFFFF0;
+}
+.sort-table tbody tr.odd3{
+	background-color: #F0F8FF;
+}
+.sort-table tbody tr.even3{
+	background-color: #FFFAFA;
+}
+.sort-table tr.deadRow{
+	background-color:#eeeeee;
+}
+
+.sort-table td p {
+	font:		Icon;
+	color:		WindowText;
+}
+span.sort-table-flag{
+	background-image:url("../js/flag.gif");
+	background-repeat: no-repeat;
+	background-position: left;
+	height:12px;
+	width:20px;
+}
+span.sort-table-noflag{
+	visibility:hidden;
+	width:0px;
+}
+.sort-table.hiliteColumn {
+	padding:	2px 5px;
+	 border-right:	1px solid; 
+	 background-color: #ffffcc; 
+	cursor:			hand;
+}
+
+.sort-table.hiliteColumnEven {
+	padding:	2px 5px;
+	border-right:	1px solid;
+	background-color: #ffffff;
+	cursor:			hand;
+}
+
+.sort-table.hiliteColumnOdd {
+	padding:	2px 5px;
+	border-right:	1px solid;
+	background-color: #f5f5f5;
+	cursor:			hand;
+}
+
+.sort-table.selected {
+	padding:	2px 5px; /* oleg: fix the jumping */
+	background-color: #E8EBF9;
+	color: navy;
+	cursor:			hand;
+}
+
+.sort-table thead td.expanderCell {
+	border:			1px solid #E5E3D5;
+	border-left:0px;
+	cursor:			hand;
+	background-color:ffffff;
+}
+
+.sort-table thead td {
+	border:			1px solid #ffffff;
+	border-left:0px;
+	border-bottom: 1px solid #aaaaaa;
+	cursor:			default;
+}
+
+.sort-table thead td.sorted {
+	border:			1px solid #ffffff;
+	border-left:0px;
+	border-bottom: 1px solid #cc9900;
+	cursor:			default;
+}
+
+.sort-table tfoot td {
+	border:			1px solid #ffffff;
+	border-left:0px;
+	border-top: 1px solid #aaaaaa;
+	cursor:			default;
+	margin-top:1px;
+}
+
+.sort-table thead {
+	background:	#dcdcdc;
+}
+
+.sort-table tfoot {
+	background:	#dcdcdc;
+	color:#003399;
+}
+
+.sort-table.hilite td{
+	padding:	2px 5px; /* oleg: fix the jumping */
+	background-color: #DFE3F7;
+	cursor:			hand;
+}
+
+.sort-table thead td:active {
+	border:			1px solid #ffffff;
+	border-left:0px;
+	padding:		3px 4px 1px 6px;
+}
+
+.sort-table div.subCellTitle{
+	color:#000000;
+	border:1px solid #cdcdcd;
+	border-left:0px;
+	border-right:0px;
+	margin-top:-1px;
+	background-color:#ececec;
+	width:100%;
+	font-size:11px;
+	padding:3px;
+	padding-left:5px;
+
+}
+.sort-table td.leftBorder{
+	background-color: #ececec;
+	border-bottom: 1px solid #DEDEDE;
+	border-right: 1px solid #DEDEDE;
+	width:17px;
+	padding:0px;
+	padding-top:2px;
+}
+.sort-table td.recordNumber{
+	background-color: #ececec;
+	border-bottom: 1px solid #DEDEDE;
+	border-right: 1px solid #DEDEDE;
+	width:25px;
+	padding:0px;
+	text-align:right;
+	margin-right:0px;
+	color:#888888;
+	padding-top:2px;
+}
+.sort-table td.leftBorderNoPad{
+	background-color: #ececec;
+	width:17px;
+	padding:0px;
+}
+.sort-table td.leftBorderSelected{
+	background-color: #E7E4EF;
+	border-bottom: 1px solid #DEDEDE;
+	border-right: 1px solid #DEDEDE;
+	width:20px;
+	padding:0px;
+	padding-top:2px;
+}
+.sort-table div.subCell{
+	color:#000000;
+	font-size:11px;
+	margin-left:5px;
+	margin-right:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.sort-table td.doubleLine{
+	line-height:2px;padding:0px;margin:0px;height:0px;font-size:0px;background-color:#ffffff;
+	border-bottom:1px solid #E5E3D5;
+}
+
+.anchored {
+	position:relative;
+	top:expression(this.offsetParent.scrollTop); 
+}
+
+.anchoredBottom {
+	position:relative; 
+    top:expression(this.offsetParent.clientHeight<this.offsetParent.scrollHeight?this.offsetParent.clientHeight-this.offsetParent.scrollHeight+this.offsetParent.scrollTop:0); 
+}
+
+.sort-arrow {
+	width:					11px;
+	height:					11px;
+	background-position:	center center;
+	background-repeat:		no-repeat;
+	margin:					0 2px;
+}
+
+.sort-arrow.descending {
+	background-image:		url("../js/downsimple.png");
+	
+}
+
+.sort-arrow.ascending {
+	background-image:		url("../js/upsimple.png");
+}
+
+div.messages {
+	color:#0033cc;
+	font-family:tahoma;
+	font-size: 11px;
+	font-weight:normal;
+	background-color:DFE3F7;
+	cursor:default;
+	border:1px solid c0c0c0;
+	padding:5px;
+	z-index: 1099;
+	width : 130px;
+	position: absolute;
+	visibility: hidden;
+	filter:revealTrans() progid:DXImageTransform.Microsoft.dropshadow(OffX=5, OffY=5, Color='##aeaeae', Positive='true') ;
+	}
+
+span.iconCell{
+	margin-top:-3px;
+	position:absolute;
+}
+
