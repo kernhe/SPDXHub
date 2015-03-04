@@ -6,7 +6,17 @@
     
     function match_doc($myString, $docFile, $filePath){
     	include("Data_Source.php");
-    	//CREATOR
+    	
+    	// CREATOR
+		$c_generated_at = "";
+		$c_creator_comments= "";
+		$c_license_list_version = "";
+		$c_spdx_doc_id = "";
+		$c_creator = "";
+		$c_created_at = "";
+		$c_updated_at = "";
+    	
+    	//SPDX DOC
 		$spdx_version = "";
 		$data_license = "";
 		$upload_file_name = "";
@@ -39,7 +49,25 @@
 		$create = "";
 		$updated = "";
 		
-		// CREATOR PARSE
+		$docID;
+		$packageID;
+		
+		// CREATOR
+		$c_generated_at = NULL;
+		$c_creator_comments= NULL;
+		if (preg_match("/<spdx:licenseListVersion>(?P<name>.*?)<\/spdx:licenseListVersion>/", $myString, $matches)) {
+		  	$c_license_list_version = $matches[1] ?: NULL;
+		}
+		$c_spdx_doc_id = 5;
+		if (preg_match("/<spdx:creator>Organization: (?P<name>.*?)<\/spdx:creator>/", $myString, $matches)) {
+		  	$c_creator = $matches[1] ?: NULL;
+		}
+		if (preg_match("/<spdx:created>(?P<name>.*?)<\/spdx:created>/", $myString, $matches)) {
+		  	$c_created_at = $matches[1] ?: NULL;
+		}
+		$c_updated_at = NULL;
+		
+		// SPDX DOC PARSE
 		if (preg_match("/<spdx:specVersion>(?P<name>.*?)<\/spdx:specVersion>/", $myString, $matches)) {
 		  	$spdx_version = $matches[1] ?: NULL;
 		}	
@@ -128,11 +156,12 @@
 				'$p_verification_code_excluded_file', '$create', '$updated')";
         
         //Execute Query
-
 		if (mysql_query($sql)){
     		echo "New record created successfully";
+    		$packageID = mysql_insert_id();
 		} else {
    		 	echo "Error: " . mysql_error();
+   		 	$packageID = NULL;
 		}
 		
         //Query
@@ -142,12 +171,39 @@
 				'$upload_updated_at', '$document_comment', '$created_at', '$updated_at')";
         
         //Execute Query
-
+		if (mysql_query($sql)){
+    		echo "New record created successfully";
+    		$docID = mysql_insert_id();
+		} else {
+   		 	echo "Error: " . mysql_error();
+   		 	$docID = NULL;
+		}
+		
+        //Query
+        $sql  = "INSERT INTO `creators` (`generated_at`, `creator_comments`, `license_list_version`, `spdx_doc_id`,  `creator`,
+				`created_at`, `updated_at`) 
+				VALUES('$c_generated_at', '$c_creator_comments', '$c_license_list_version', '$docID', '$c_creator',
+				'$c_created_at', '$c_updated_at')";
+        
+        //Execute Query
 		if (mysql_query($sql)){
     		echo "New record created successfully";
 		} else {
    		 	echo "Error: " . mysql_error();
 		}
+		
+		//Query
+        $sql  = "INSERT INTO `doc_file_package_associations` (`spdx_doc_id`,`package_id`,`package_file_id`,`created_at`,`updated_at`) 
+        		VALUES ('$docID', '$packageID', 1, NOW(), NULL)";
+        
+        //Execute Query
+		if (mysql_query($sql)){
+    		echo "New record created successfully";
+		} else {
+   		 	echo "Error: " . mysql_error();
+		}
+		
+		
         //Close Connection
         mysql_close();
     }
