@@ -18,6 +18,12 @@
 * We will meet in person on monday after class and thursday at 5:30 for at least 30 mins to discuss the current status of the project, set goals, and complete group work if necessary.
 * We will communicate on GitHub through the issue tracker and comments.
 
+# Code Management Plan
+#### Internal SPDXHub team:
+* **Before every work session:** individual members must stay consistent with the team by pulling the most current source code from the repo. This will reduce the likelihood of merge conflicts or overwriting significant work. 
+* **During work session:** make regular commits with short messages. contribute to a healthy change log. Commit small and commit often, and we will have a clear history that will help us define future goals and work allocation.
+* **After any meaningful change and at the end of every work session:** push all work associated with the change to the repo. Keep the most current code housed in the central repo for other members to access.
+
 # Database / Data Store Structures of the System
 * The structure of the database will rely on the all of the required fields in the SPDX document found here: https://github.com/socs-dev-env/SOCSDatabase/blob/master/Schema.md
 * Dataflow diagram can be found here: https://github.com/joverkamp/SPDXHub/blob/master/SPDXDashboard_DFD.svg
