@@ -353,10 +353,6 @@
     }
 </script>
 <?php
-<<<<<<< HEAD
     include("inc/_footer.php");
 ?>
-=======
-    incFooter();
-?>
->>>>>>> 46b743704cb72fe0d31b9064da769578c580a536
+

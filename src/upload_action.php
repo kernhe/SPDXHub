@@ -92,7 +92,7 @@ limitations under the License.
    	    move_uploaded_file($docfilePath,"uploads/$docfileName");
     	while (!file_exists("uploads/$docfileName")) sleep(1);
     	
-    	upload_file("uploads/$docfileName");
+    	upload_file("uploads/$docfileName", "$docfileName");
     	echo "<div align=\"center\">Document successfully uploaded.</div>";
    	}
    
