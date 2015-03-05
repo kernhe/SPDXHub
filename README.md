@@ -1,5 +1,5 @@
 # System Charter and Description
-* To make existing SPDX Dashboard a more robust experience by adding near-essential features such as liscense flagging and a tool for document comparison, which will allow more options for information retrieval. Communication with our stakeholders, team collaboration,  and the clear and reasonable identification of issues and additions will be essential in achieving these goals. 
+* To make existing SPDX Dashboard a more robust experience by adding near-essential features such as a more tailored search method, liscense flagging and a tool for document comparison, which will allow more options for information retrieval. Communication with our stakeholders, team collaboration,  and the clear and reasonable identification of issues and additions will be essential in achieving these goals. 
 
 * Updating the existing deashboard to provide documents in the SPDX 2.0 spec. More information on that spec can be found here: https://spdx.org/SPDX-specifications/spdx-version-2.0
 
@@ -27,7 +27,6 @@
 #### External use and submissions:
 * All submitted code must comply fully with the Apache 2.0 license. 
 * Author will retain copyright of code submitted by pull request, regardless of whether or not it makes it into the source. 
-
 * All pull requests will be reviewed and processed based on their relationship to outstanding issues and the issue’s priority. Merging code into the source will be a top priority when the submitted code works to solve outstanding issues.
 * All other pull requests will be reviewed and processed in the order they come in. A contribution's value to the overall health will be dertermined by the SPDXHub internal team.
 * Suggestions and critiques for system improvment are welcomed. 
@@ -61,16 +60,16 @@
   * Determine what existing code and files we will be primarly working with as we impliment our code. 
 2. Begin Coding 
   * Get code working accross local machines
-  * Code a clickable mockup
+  * Develop a structured mock up indicative of the direction we are taking the existing Dashboard
   * HTML structure for more robust search.
   * HTML structure for upload. Allow user to upload an SPDX document or a package. 
   * HTML structure for file view. More concise, clear layout. 
+  * Begin programming file processing to read existing SPDX documents into our database.
 
 ## Milestone Three
 * Begin by working through issues detailed on the SPDXDashboard’s issue tracker: https://github.com/socs-dev-env/SOCSDashboard/issues
   1. Listed in order of their defined "difficulty":
     * Import existing SPDX docs
-    * Error Handling for running DoSOCS
     * Create Comparison Interface
   2. Creating a “flagging” system that can be used to designate specific licenses to stand out in searches and file views.  
     * The idea is that this flagging system will be viewed post-upload, users can designate licences while performing a search.       This will give more power to the existing search command, and will not affect upload times.
