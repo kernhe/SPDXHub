@@ -13,36 +13,42 @@
     <div class="container">
 
         <div class="row search-block">    	
-            <div class="col-sm-12">
-                <form action="index.php" method="post" > <!-- style="width:100%;" -->
-            		<input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/> <!-- style="display:inline-block;width:70%;"  -->
-            		<button type="submit" class="btn pull-right">Search</button>
-            	</form>
-                
-                <div class="draw-line"></div>
-            
-            </div>
-
-            <div class="col-sm-12">
+          <div class="col-sm-12">
+              <form action="index.php" method="post" > <!-- style="width:100%;" -->
+          		<input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/> <!-- style="display:inline-block;width:70%;"  -->
+          		<button type="submit" class="btn pull-right">Search</button>
+          	</form>
+              
               <div class="draw-line"></div>
-            </div>
+          
+          </div>
 
+          <div class="col-sm-12">
+            <div class="draw-line"></div>
+          </div>
+          <br>
+        </div>
+        <div class="row">            
+          <div class="col-sm-12">
           <fieldset id="extra_opt_uri" class="moreoptions">
-		<legend class="toggletext toggled"><a href="#"><img src="images/arrow-closed.png" alt="Hide " name="toggleiconURI" class="toggleicon toggled" id="toggleiconURI"> More Options</a></legend>
-		<div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div class="options" style="margin: 0px; display: block;">
-		
-                
+		      <legend class="toggletext toggled"><a href="#"><img src="images/arrow-closed.png" alt="Hide " name="toggleiconURI" class="toggleicon toggled" id="toggleiconURI"> More Options</a></legend>
+		      <div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div class="options" style="margin: 0px; display: block;">
+		    </div>
+        
+
+        <div class="row">            
+          <div class="col-sm-12">
           <table class="toggleTable">
-  <tbody>
+          <tbody>
     
   
-  <tr>
+        <tr>
           <td colspan="4"><input type="radio" name="group" id="urigroup_no" value="0" checked="checked">
           <label for="urigroup_no">Document #</label> <input type="radio" name="group" id="urigroup_yes" value="1">
           <label for="urigroup_yes">Document Name</label></td>
-</tr>
-<tr>
-        <td colspan="4"><label for="uri-charset"><strong>Licences</strong></label></td>
+        </tr>
+        <tr>
+          <td colspan="4"><label for="uri-charset"><strong>Licences</strong></label></td>
         </tr>
           <tr>
                   <td><input id="uri-outline" name="outline" type="checkbox" value="1">
@@ -67,44 +73,45 @@
 
               
               </select>    </td>
-    <td width="118"><input id="uri-fbc" name="fbc" type="checkbox" value="1"><label for="uri-fbc" title="Use selected Character encoding only if missing in the document">Only if missing</label></td>
-  </tr>
-  <tr>
-    <th>
-        Identifier   </th>
-    <td colspan="2">
-        <select id="uri-doctype" name="doctype">
-  <option value="Identifier" selected="selected">(Identifier)</option>
-  <option value="HTML5">Glide</option>
-  <option value="XHTML 1.0 Strict">AFL-3.0</option>
-  <option value="XHTML 1.0 Transitional">AMDPLPA</option>
-  <option value="XHTML 1.0 Frameset">APSL-1.0</option>
-  <option value="HTML 4.01 Strict">Artistic-2.0</option>
-  <option value="HTML 4.01 Transitional">CECILL-1.1</option>
- 
-</select>    </td>
-    <td><label for="uri-fbd"><input id="uri-fbd" name="fbd" type="checkbox" value="1" title="Use selected Document Type only if missing in the document">Only if missing</label></td>
-        </tr>
-</tbody></table>
+              <td width="118"><input id="uri-fbc" name="fbc" type="checkbox" value="1"><label for="uri-fbc" title="Use selected Character encoding only if missing in the document">Only if missing</label></td>
+            </tr>
+            <tr>
+              <th>
+                  Identifier   </th>
+              <td colspan="2">
+                  <select id="uri-doctype" name="doctype">
+                    <option value="Identifier" selected="selected">(Identifier)</option>
+                    <option value="HTML5">Glide</option>
+                    <option value="XHTML 1.0 Strict">AFL-3.0</option>
+                    <option value="XHTML 1.0 Transitional">AMDPLPA</option>
+                    <option value="XHTML 1.0 Frameset">APSL-1.0</option>
+                    <option value="HTML 4.01 Strict">Artistic-2.0</option>
+                    <option value="HTML 4.01 Transitional">CECILL-1.1</option>
+                </select>    
+                </td>
+              <td><label for="uri-fbd"><input id="uri-fbd" name="fbd" type="checkbox" value="1" title="Use selected Document Type only if missing in the document">Only if missing</label></td>
+                  </tr>
+          </tbody></table>
 
-  
-    </div></div>
-  </fieldset>
+            
+              </div>
+            </div>
+            </fieldset>
 
-          
+                    
 
 
 
 
 
         </div>
-       
+    
 
 
         <div class="row">
             <div class="col-sm-12">
 
-<table width = "95%" class="sortable">
+            <table width = "95%" class="sortable">
                     <thead>
                         <tr>
                             <th width="10%" >Document #</th>
