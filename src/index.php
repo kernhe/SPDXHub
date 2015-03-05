@@ -15,6 +15,12 @@
 
 			});
 </script>
+<script>
+function myFunction() {
+    var x = document.getElementById("myBtn").value;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
     <!-- <button type="button" class="btn btn-primary" onclick="window.location='upload.php'" style="display:inline-block;width:11.5%;margin-left:10px;">Upload Package</button> -->
 
     <div class="container">
@@ -47,21 +53,20 @@
                     <tbody>
                       <tr>
                         <td colspan="4"><input type="radio" name="group" id="urigroup_no" value="0" checked="checked" />
-                            <label for="urigroup_no">Document #</label>
-                            <input type="radio" name="group" id="urigroup_yes" value="1" />
-                            <label for="urigroup_yes">Document Name</label></td>
+                            <label for="docnumber">Document Name</label>
+                            <input type="radio" name="group" id="docnumber" value="1" />
+                            <label for="docnumname">Document #</label></td>
                       </tr>
                       <tr>
                         <td colspan="4"><label for="uri-charset"><strong>Licences</strong></label></td>
                       </tr>
                       <tr>
                         <td><input id="uri-outline" name="outline" type="checkbox" value="1" />
-                            <label title="Show an Outline of the document" for="uri-outline">OSI Approved</label>
-                        </td>
+                            <label title="Show an Outline of the document" for="uri-outline">OSI Approved</label>                        </td>
                         <td width="160"><input id="uri-No200" name="No200" type="checkbox" value="1" />
                             <label title="Validate also pages for which the HTTP status code indicates an error" for="uri-No200">OSI Not Approved</label></td>
                         <td width="128"><input id="uri-verbose2" name="uri-verbose" type="checkbox" value="1" />
-                            <label title="Verbose Output" for="uri-verbose2">Ve</label></td>
+                            <label title="Verbose Output" for="uri-verbose2">No license</label></td>
                         <td><label title="Verbose Output" for="uri-verbose"></label></td>
                       </tr>
                       <tr>
@@ -73,10 +78,8 @@
                             <option value="iso-8859-1">Academic Free License v1.1</option>
                             <option value="iso-8859-2">Artistic License 1.0 w/clause 8</option>
                             <option value="iso-8859-3">Borceux license</option>
-                          </select>
-                        </td>
-                        <td width="118"><input id="uri-fbc" name="fbc" type="checkbox" value="1" />
-                            <label for="uri-fbc" title="Use selected Character encoding only if missing in the document">Only if missing</label></td>
+                          </select>                        </td>
+                        <td width="118">&nbsp;</td>
                       </tr>
                       <tr>
                         <th> Identifier </th>
@@ -88,11 +91,8 @@
                             <option value="XHTML 1.0 Frameset">APSL-1.0</option>
                             <option value="HTML 4.01 Strict">Artistic-2.0</option>
                             <option value="HTML 4.01 Transitional">CECILL-1.1</option>
-                          </select>
-                        </td>
-                        <td><label for="uri-fbd">
-                          <input id="uri-fbd" name="fbd" type="checkbox" value="1" title="Use selected Document Type only if missing in the document" />
-                          Only if missing</label></td>
+                          </select>                        </td>
+                        <td>&nbsp;</td>
                       </tr>
                     </tbody>
                   </table>
@@ -109,7 +109,7 @@
                 <div class="col-sm-12">
                   <table width = "100%" class="sortable">
                     <thead>
-                      <tr>
+                      <tr bgcolor="#0066FF">
                         <th width="19%">Document #</th>
                         <th width="29%">Document Name</th>
                         <th width="15%">Created On</th>
@@ -121,7 +121,7 @@
                       <?php
                         $count = 0;
                         $result = getSPDX_DocList($name);
-                        while(($row = mysql_fetch_assoc($result)) && $count < 5) {
+                        while(($row = mysql_fetch_assoc($result)) && $count < 10) {
                             echo '<tr>';
                             echo     '<td>';
                             echo         $row['id'];
