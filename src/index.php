@@ -1,4 +1,4 @@
-<?php
+    <?php
     $title = "SPDX";
     include("inc/_header.php");
     include("function/spdx_doc.php");
@@ -7,20 +7,6 @@
     	$name = $_POST['doc_name'];
     }
 ?>
-	<script>
-			$(document).ready(function(){
-				$("#moreOptions").click(function(){
-					$("#toggleTable").toggle();
-				});
-
-			});
-</script>
-<script>
-function myFunction() {
-    var x = document.getElementById("myBtn").value;
-    document.getElementById("demo").innerHTML = x;
-}
-</script>
     <!-- <button type="button" class="btn btn-primary" onclick="window.location='upload.php'" style="display:inline-block;width:11.5%;margin-left:10px;">Upload Package</button> -->
 
     <div class="container">
@@ -46,24 +32,24 @@ function myFunction() {
           <tr>
             <td><div class="col-sm-12">
             
-              <legend id="moreOptions"><a href=""><img src="images/arrow-closed.png" /> More Options</a></legend>
+              <legend id="moreOptions"><img src="images/arrow-closed.png" /> More Options</legend>
 
                 <div class="row">
                 <table id="toggleTable">
                     <tbody>
                       <tr>
-                        <td colspan="4"><input type="radio" name="group" id="urigroup_no" value="0" checked="checked" />
+                        <td colspan="5"><input type="radio" name="group" id="urigroup_no" value="0" checked="checked" />
                             <label for="docnumber">Document Name</label>
                             <input type="radio" name="group" id="docnumber" value="1" />
-                            <label for="docnumname">Document #</label></td>
+                            <label for="docnumname">Document ID</label></td>
                       </tr>
                       <tr>
-                        <td colspan="4"><label for="uri-charset"><strong>Licences</strong></label></td>
+                        <td colspan="5"><label for="uri-charset"><strong>Licences</strong></label></td>
                       </tr>
                       <tr>
                         <td><input id="uri-outline" name="outline" type="checkbox" value="1" />
                             <label title="Show an Outline of the document" for="uri-outline">OSI Approved</label>                        </td>
-                        <td width="160"><input id="uri-No200" name="No200" type="checkbox" value="1" />
+                        <td width="160" colspan="2"><input id="uri-No200" name="No200" type="checkbox" value="1" />
                             <label title="Validate also pages for which the HTTP status code indicates an error" for="uri-No200">OSI Not Approved</label></td>
                         <td width="128"><input id="uri-verbose2" name="uri-verbose" type="checkbox" value="1" />
                             <label title="Verbose Output" for="uri-verbose2">No license</label></td>
@@ -79,20 +65,29 @@ function myFunction() {
                             <option value="iso-8859-2">Artistic License 1.0 w/clause 8</option>
                             <option value="iso-8859-3">Borceux license</option>
                           </select>                        </td>
-                        <td width="118">&nbsp;</td>
+                        <td>Identifier </td>
+                        <td width="118"><select id="uri-doctype" name="doctype">
+                          <option value="Identifier" selected="selected">(Identifier)</option>
+                          <option value="HTML5">Glide</option>
+                          <option value="XHTML 1.0 Strict">AFL-3.0</option>
+                          <option value="XHTML 1.0 Transitional">AMDPLPA</option>
+                          <option value="XHTML 1.0 Frameset">APSL-1.0</option>
+                          <option value="HTML 4.01 Strict">Artistic-2.0</option>
+                          <option value="HTML 4.01 Transitional">CECILL-1.1</option>
+                        </select></td>
                       </tr>
                       <tr>
-                        <th> Identifier </th>
-                        <td colspan="2"><select id="uri-doctype" name="doctype">
-                            <option value="Identifier" selected="selected">(Identifier)</option>
-                            <option value="HTML5">Glide</option>
-                            <option value="XHTML 1.0 Strict">AFL-3.0</option>
-                            <option value="XHTML 1.0 Transitional">AMDPLPA</option>
-                            <option value="XHTML 1.0 Frameset">APSL-1.0</option>
-                            <option value="HTML 4.01 Strict">Artistic-2.0</option>
-                            <option value="HTML 4.01 Transitional">CECILL-1.1</option>
-                          </select>                        </td>
-                        <td>&nbsp;</td>
+                        <th colspan="5" width="100%"><table border="0">
+                          <tr>
+                            <td width="101"><strong>Date created</strong></td>
+                            <td width="88">&nbsp;</td>
+                            <td width="71"><strong>from</strong></td>
+                            <td width="99">mm/dd/yyyy</td>
+                            <td width="35"><strong>to </strong></td>
+                            <td width="82">mm/dd/yyyy</td>
+                          </tr>
+                        </table>
+                        </th>
                       </tr>
                     </tbody>
                   </table>
@@ -109,7 +104,7 @@ function myFunction() {
                 <div class="col-sm-12">
                   <table width = "100%" class="sortable">
                     <thead>
-                      <tr bgcolor="#0066FF">
+                      <tr bgcolor="#00FFFF">
                         <th width="19%">Document #</th>
                         <th width="29%">Document Name</th>
                         <th width="15%">Created On</th>
@@ -155,4 +150,18 @@ function myFunction() {
         </table>
 
         <?php include("inc/_footer.php"); ?>
-    
+
+	<script>
+			$(document).ready(function(){
+				$("#moreOptions").click(function(){
+					$("#toggleTable").toggle();
+				});
+
+			});
+</script>
+<script>
+function myFunction() {
+    var x = document.getElementById("myBtn").value;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
