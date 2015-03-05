@@ -22,33 +22,17 @@
                 <div class="draw-line"></div>
             
             </div>
-           
-
-           <div class="col-sm-12 filter-block">
-                <a href="#">Doc Name</a>
-                <a href="#">License</a>
-                <a href="#">Author</a>  
-                <a class="btn" href="#"><button>Filter</button></a> 
-
-                <div class="draw-line"></div>
-            </div>
 
             <div class="col-sm-12">
-                <a href="#">Any Time</a>
-                <a href="#">Created On</a>
-                <a href="#">License type</a>
-                <a href="#">Doc Number</a>
-        
-
-                <div class="draw-line"></div>
+              <div class="draw-line"></div>
             </div>
 
-           <fieldset id="extra_opt_uri" class="moreoptions">
+          <fieldset id="extra_opt_uri" class="moreoptions">
 		<legend class="toggletext toggled"><a href="#"><img src="images/arrow-closed.png" alt="Hide " name="toggleiconURI" class="toggleicon toggled" id="toggleiconURI"> More Options</a></legend>
 		<div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div class="options" style="margin: 0px; display: block;">
 		
                 
-          <table>
+          <table class="toggleTable">
   <tbody>
     
   
