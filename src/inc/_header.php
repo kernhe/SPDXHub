@@ -26,7 +26,8 @@ limitations under the License.
         <link href="css/upload_style.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/bootstrap-theme.css" rel="stylesheet">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" async="" src="js/sorttable.js"></script>
    </head>
     <body>
         
