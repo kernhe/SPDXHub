@@ -14,9 +14,11 @@
 * 32G of memory or greater
 
 # Communication Management Plan
-* We will keep regular and timely email correspondence – requiring a response within 24 hours for normal communication, and a response within 6 hours when communication concerns a deadline. 
+* We will keep regular and timely email correspondence – requiring a response within 24 hours for normal communication, and a response within 4 hours when communication concerns a group deadline. 
 * We will meet in person on Monday after class and Thursday at 5:30 for at least 30 minutes to discuss the current status of the project, set goals, and complete group work if necessary.
-* We will communicate on GitHub through the issue tracker and comments.
+* We will rely on Github as our main communication center. Communication directly related to issues should be transacted directly in the issue thread. 
+* Issues will be opened and closed with short messages (in addition to a title) that specify the desired actions that need to or have been taken. These can be short!
+* In regards to time sensitivity – responses in an issue thread should be treated the same as email. 24 hours for normal communication and 4 hours under deadline. 
 
 # Code Management Plan
 #### Internal SPDXHub team:
