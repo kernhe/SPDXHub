@@ -1,51 +1,49 @@
 <?php
     function getSPDX($myString, $docFile, $filePath){
     	//SPDX DOC
-		$spdx_version = "";
-		$data_license = "";
-		$upload_file_name = "";
-		$upload_content_type = "";
-		$upload_file_size = "";
-		$upload_updated_at = "";
-		$document_comment = "";
-		$created_at = "";
-		$updated_at = "";
+    	$spdxArray = array (
+			$spdx_version = "",
+			$data_license = "",
+			$upload_file_name = $docFile ?: NULL,
+			$upload_content_type = "",
+			$upload_file_size = filesize($filePath),
+			$upload_updated_at = "",
+			$document_comment = "",
+			$created_at = "",
+			$updated_at = "",
+		);
     	
 		$rdf_regex = array(
-			'spec_ver' => "<spdx:specVersion>(?P<name>.*?)<\/spdx:specVersion>",
-			'data_lic' => "<spdx:dataLicense rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
-			'type' => "\.(?P<name>.*)",
-			'created' => "<spdx:created>(?P<name>.*?)<\/spdx:created>",
+			$spdx_version = "<spdx:specVersion>(?P<name>.*?)<\/spdx:specVersion>",
+			$data_license = "<spdx:dataLicense rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
+			$upload_file_name = NULL,
+			$upload_content_type = "\.(?P<name>.*)",
+			$upload_file_size = NULL,
+			$upload_updated_at = NULL,
+			$document_comment = NULL,
+			$created_at = "<spdx:created>(?P<name>.*?)<\/spdx:created>",
+			$updated_at = NULL,
 		);
 		
 		$regex = array(
 			'rdf' => $rdf_regex,
 		);	
 		
-		// SPDX DOC PARSE
-		if (preg_match('/' . $regex['rdf']['spec_ver'] . '/', $myString, $matches)) {
-		  	$spdx_version = $matches[1] ?: NULL;
-		}	
-		if (preg_match('/' . $regex['rdf']['data_lic'] . '/', $myString, $matches)) {
-		  	$data_license = $matches[1] ?: NULL;
-		}	
-		$upload_file_name = $docFile ?: NULL;
-		if (preg_match('/' . $regex['rdf']['type'] . '/', $docFile, $matches)) {
-		  	$upload_content_type = $matches[1] ?: NULL;
-		}	
-		$upload_file_size = filesize($filePath);
-		$upload_updated_at = NULL;
-		$document_comment = NULL;
-		if (preg_match('/' . $regex['rdf']['created'] . '/', $myString, $matches)) {
-		  	$created_at = $matches[1] ?: NULL;
+    	for($x = 0; $x < sizeof($regex['rdf']); $x++){ 
+    		if ($regex['rdf'][$x] == NULL){
+    			continue;
+    		}
+    		if (preg_match('/' . $regex['rdf'][$x] . '/', $myString, $matches)) {
+		  		$spdxArray[$x] = $matches[1] ?: NULL;
+			}
 		}
-		$updated_at = NULL;
+		
 			
 
         $query	=	"INSERT INTO `spdx_docs` (`spdx_version`, `data_license`, `upload_file_name`, `upload_content_type`,
 					`upload_file_size`, `upload_updated_at`, `document_comment`, `created_at`, `updated_at`) 
-					VALUES('$spdx_version', '$data_license', '$upload_file_name', '$upload_content_type', '$upload_file_size',
-					'$upload_updated_at', '$document_comment', '$created_at', '$updated_at')";
+					VALUES('$spdxArray[0]', '$spdxArray[1]', '$spdxArray[2]', '$spdxArray[3]', '$spdxArray[4]',
+					'$spdxArray[5]', '$spdxArray[6]', '$spdxArray[7]', '$spdxArray[8]')";
 					
 		return $query;
         
