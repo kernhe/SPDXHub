@@ -13,19 +13,37 @@
 
       <div class="row search-block">
         
-        <div class="col-sm-12">
+        <div class="col-sm-6">
+          <!-- <form action="index.php" method="post" >
+          <input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
+          <button type="submit" class="btn pull-right">Search</button>
+            </form> -->
+        
           <form action="index.php" method="post" >
-            <input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
-            <button type="submit" class="btn pull-right">Search</button>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+              </span>
+            </div>
           </form>
           
-          <div class="draw-line"></div>
-        </div>
+          <div class="col-sm-6">
+            <label class="switch">
+              <input type="checkbox" class="switch-input">
+              <span class="switch-label" data-on="On" data-off="Off">Name</span>
+              <span class="switch-handle">License</span>
+            </label>
+          </div>
+          <div class="col-sm-12">
+            <div class="draw-line"></div>
+          </div>
+    
       </div>
       
       <div class="row">
         
-        <div class="col-sm-12">
+        <!-- <div class="col-sm-12">
           <label class="switch">
             <input type="checkbox" class="switch-input">
             <span class="switch-label" data-on="On" data-off="Off">Name</span>
@@ -35,7 +53,7 @@
         
         <div class="col-sm-12">
            <div class="draw-line"></div>
-        </div>
+        </div> -->
       </div>
 
 
