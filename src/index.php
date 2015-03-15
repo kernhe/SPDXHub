@@ -110,14 +110,14 @@
 
       <div class="row">
         <div class="col-sm-12">
-          <table width = "100%" class="sortable">
+          <table class="table table-striped  table-responsive sortable">
             
             <thead>
-              <tr bgcolor="#00FFFF">
-                <th width="29%">Document Name</th>
-                <th width="15%">Created On</th>
-                <th width="14%" class="sorttable_nosort">Licences</th>
-                <th width="23%" class="sorttable_nosort" align="center">Action</th>
+              <tr>
+                <th>Document Name</th>
+                <th>Created On</th>
+                <th class="sorttable_nosort">Licences</th>
+                <th class="sorttable_nosort" align="center">Action</th>
               </tr>
             </thead> 
 
@@ -125,7 +125,7 @@
               <?php
                 $count = 0;
                 $result = getSPDX_DocList($name);
-                while(($row = mysql_fetch_assoc($result)) && $count < 10) {
+                while(($row = mysql_fetch_assoc($result)) && $count < 6) {
                     echo '<tr>';
                     echo     '<td>';
                     echo         '<a href="spdx_doc.php?doc_id=' . $row['id'] . '">' . $row['upload_file_name'] . '</a>';
@@ -136,7 +136,7 @@
 			              echo     '<td>';
                     echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
                     echo     '</td>';
-                    echo     '<td style="text-align:right;">';
+                    echo     '<td>';
                     echo         '<div>';
                     echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['id'] . '\'">View Details</button>';
                     echo             '<button type="button" class="btn">Download</button>'; 

@@ -17,6 +17,8 @@
     background-color: black;
 }
 
+
+
 table.sortable th::after, th.sorttable_sorted::after, th.sorttable_sorted_reverse::after {
   content: " ";
   display: inline-block;
@@ -32,37 +34,3 @@ th.sorttable_sorted_reverse::after {
   background-size: cover;
 }
 
-
-/*div.container .row.search-block {
-    background-color: pink;
-    height: 400px;
-}*/
-
-/*div.container .row.search-block div {
-    margin-top: 45%;
-}*/
-
-
-
-
-/*.search-bar {
-    margin-top: 100px;
-}
-
-.draw-line {
-    width: 1px;
-    height: 50px;
-    background-color: black;
-}
-
-.search-bar input {
-    width: 80%;
-    padding-right: 2%;
-    display: inline-block;
-
-}
-
-.search-block button {
-    width: 125px;
-}
-*/
