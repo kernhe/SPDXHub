@@ -14,13 +14,11 @@
       <div class="row search-block">
         <div class="col-sm-12">
           <form action="index.php" method="post" >
-            <!-- style="width:100%;" -->
             <input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
-            <!-- style="display:inline-block;width:70%;"  -->
             <button type="submit" class="btn pull-right">Search</button>
           </form>
+          
           <div class="draw-line"></div>
-        
         </div>
       </div>
           
@@ -90,59 +88,55 @@
               </fieldset>
             </div></td>
           </tr>
-          <tr>
-            <td><div class="row">
-              <div class="row">
-                <div class="col-sm-12">
-                  <table width = "100%" class="sortable">
-                    <thead>
-                      <tr bgcolor="#00FFFF">
-                        <th width="19%">Document #</th>
-                        <th width="29%">Document Name</th>
-                        <th width="15%">Created On</th>
-                        <th width="14%" class="sorttable_nosort">Licences</th>
-                        <th width="23%" class="sorttable_nosort" align="center">Action</th>
-                      </tr>
-                    </thead> -->
-                    
+          <tr> -->
+            
+      <div class="row">
+        <div class="col-sm-12">
+          <table width = "100%" class="sortable">
+            
+            <thead>
+              <tr bgcolor="#00FFFF">
+                <th width="19%">Document #</th>
+                <th width="29%">Document Name</th>
+                <th width="15%">Created On</th>
+                <th width="14%" class="sorttable_nosort">Licences</th>
+                <th width="23%" class="sorttable_nosort" align="center">Action</th>
+              </tr>
+            </thead> 
 
+            <tbody>
+              <?php
+                $count = 0;
+                $result = getSPDX_DocList($name);
+                while(($row = mysql_fetch_assoc($result)) && $count < 10) {
+                    echo '<tr>';
+                    echo     '<td>';
+                    echo         $row['id'];
+                    echo     '</td>';
+                    echo     '<td>';
+                    echo         '<a href="spdx_doc.php?doc_id=' . $row['id'] . '">' . $row['upload_file_name'] . '</a>';
+                    echo     '</td>';
+                    echo     '<td>';
+                    echo         date('m/d/Y', strtotime($row['created_at'])); 
+                    echo     '</td>';
+			              echo     '<td>';
+                    echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
+                    echo     '</td>';
+                    echo     '<td style="text-align:right;">';
+                    echo         '<div>';
+                    echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['id'] . '\'">View Details</button>';
+                    echo             '<button type="button" class="btn">Download</button>'; 
+                    echo         '</div>';
+                    echo     '</td>';
+                    echo '</tr>';
 
-                    <tbody>
-                      <?php
-                        $count = 0;
-                        $result = getSPDX_DocList($name);
-                        while(($row = mysql_fetch_assoc($result)) && $count < 10) {
-                            echo '<tr>';
-                            echo     '<td>';
-                            echo         $row['id'];
-                            echo     '</td>';
-                            echo     '<td>';
-                            echo         '<a href="spdx_doc.php?doc_id=' . $row['id'] . '">' . $row['upload_file_name'] . '</a>';
-                            echo     '</td>';
-                            echo     '<td>';
-                            echo         date('m/d/Y', strtotime($row['created_at'])); 
-                            echo     '</td>';
-							echo     '<td>';
-                            echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
-                            echo     '</td>';
-                            echo     '<td style="text-align:right;">';
-                            echo         '<div>';
-                            echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['id'] . '\'">View Details</button>';
-                            echo             '<button type="button" class="btn">Download</button>'; 
-                            echo         '</div>';
-                            echo     '</td>';
-                            echo '</tr>';
-
-                            $count++;
-                        }
-                        ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div></td>
-          </tr>
-        </table>
+                    $count++;
+                }
+                ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
         <?php include("inc/_footer.php"); ?>
 
