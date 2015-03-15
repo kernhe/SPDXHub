@@ -96,7 +96,6 @@
             
             <thead>
               <tr bgcolor="#00FFFF">
-                <th width="19%">Document #</th>
                 <th width="29%">Document Name</th>
                 <th width="15%">Created On</th>
                 <th width="14%" class="sorttable_nosort">Licences</th>
@@ -110,9 +109,6 @@
                 $result = getSPDX_DocList($name);
                 while(($row = mysql_fetch_assoc($result)) && $count < 10) {
                     echo '<tr>';
-                    echo     '<td>';
-                    echo         $row['id'];
-                    echo     '</td>';
                     echo     '<td>';
                     echo         '<a href="spdx_doc.php?doc_id=' . $row['id'] . '">' . $row['upload_file_name'] . '</a>';
                     echo     '</td>';
