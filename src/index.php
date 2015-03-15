@@ -11,40 +11,32 @@
 
     <div class="container">
 
-        <table width="100%" border="0">
-          <tr>
-            <td><div class="row search-block">
-              <div class="col-sm-12">
-                <form action="index.php" method="post" >
-                  <!-- style="width:100%;" -->
-                  <input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
-                  <!-- style="display:inline-block;width:70%;"  -->
-                  <button type="submit" class="btn pull-right">Search</button>
-                </form>
-                <div class="draw-line"></div>
-              </div>
-              <div class="col-sm-12">
-                <div class="draw-line"></div>
-              </div>
-              <br />
-            </div></td>
-          </tr>
-          <tr>
-            <td><div class="col-sm-12">
+      <div class="row search-block">
+        <div class="col-sm-12">
+          <form action="index.php" method="post" >
+            <!-- style="width:100%;" -->
+            <input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
+            <!-- style="display:inline-block;width:70%;"  -->
+            <button type="submit" class="btn pull-right">Search</button>
+          </form>
+          <div class="draw-line"></div>
+        
+        </div>
+      </div>
+          
+
+          <!--   <div class="col-sm-12">
             
               <legend id="moreOptions"><img src="images/arrow-closed.png" /> More Options</legend>
 
                 <div class="row">
                 <table id="toggleTable">
                     <tbody>
-                      <tr>
-                        <td colspan="5"><input type="radio" name="group" id="urigroup_no" value="0" checked="checked" />
+                     <input type="radio" name="group" id="urigroup_no" value="0" checked="checked" />
                             <label for="docnumber">Document Name</label>
                             <input type="radio" name="group" id="docnumber" value="1" />
-                            <label for="docnumname">Document ID</label></td>
-                      </tr>
-                      <tr>
-                        <td colspan="5"><label for="uri-charset"><strong>Licences</strong></label></td>
+                            <label for="docnumname">Document ID</label>
+                            <label for="uri-charset"><strong>Licences</strong></label></td>
                       </tr>
                       <tr>
                         <td><input id="uri-outline" name="outline" type="checkbox" value="1" />
@@ -111,7 +103,10 @@
                         <th width="14%" class="sorttable_nosort">Licences</th>
                         <th width="23%" class="sorttable_nosort" align="center">Action</th>
                       </tr>
-                    </thead>
+                    </thead> -->
+                    
+
+
                     <tbody>
                       <?php
                         $count = 0;
