@@ -12,6 +12,7 @@
     <div class="container">
 
       <div class="row search-block">
+        
         <div class="col-sm-12">
           <form action="index.php" method="post" >
             <input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
@@ -21,9 +22,25 @@
           <div class="draw-line"></div>
         </div>
       </div>
-          
+      
+      <div class="row">
+        
+        <div class="col-sm-12">
+          <label class="switch">
+            <input type="checkbox" class="switch-input">
+            <span class="switch-label" data-on="On" data-off="Off">Name</span>
+            <span class="switch-handle">License</span>
+          </label>
+        </div>
+        
+        <div class="col-sm-12">
+           <div class="draw-line"></div>
+        </div>
+      </div>
 
-          <!--   <div class="col-sm-12">
+
+
+     <!--        <div class="col-sm-12">
             
               <legend id="moreOptions"><img src="images/arrow-closed.png" /> More Options</legend>
 
@@ -31,10 +48,10 @@
                 <table id="toggleTable">
                     <tbody>
                      <input type="radio" name="group" id="urigroup_no" value="0" checked="checked" />
-                            <label for="docnumber">Document Name</label>
-                            <input type="radio" name="group" id="docnumber" value="1" />
-                            <label for="docnumname">Document ID</label>
-                            <label for="uri-charset"><strong>Licences</strong></label></td>
+                    <label for="docnumber">Document Name</label>
+                    <input type="radio" name="group" id="docnumber" value="1" />
+                    <label for="docnumname">Document ID</label>
+                    <label for="uri-charset"><strong>Licences</strong></label></td>
                       </tr>
                       <tr>
                         <td><input id="uri-outline" name="outline" type="checkbox" value="1" />
@@ -89,7 +106,8 @@
             </div></td>
           </tr>
           <tr> -->
-            
+        
+
       <div class="row">
         <div class="col-sm-12">
           <table width = "100%" class="sortable">
