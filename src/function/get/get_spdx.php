@@ -1,6 +1,8 @@
 <?php
-    function getSPDX($myString, $docFile, $filePath){
+    function getSPDX($myFile, $docFile, $filePath){
     	//SPDX DOC
+    	$myString = $myFile;
+    	
     	$spdxArray = array (
 			$spdx_version = "",
 			$data_license = "",

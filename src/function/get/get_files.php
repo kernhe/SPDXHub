@@ -1,6 +1,11 @@
 <?php
-    function getFiles($myString, $docFile, $filePath){	
+    function getFiles($myFile, $docFile, $filePath){	
 		//FILES
+    	$myString = "";
+    	if (preg_match('/' . "<spdx:referencesFile>(?P<name>.*?)<\/spdx:referencesFile>" . '/', $myFile, $matches)) {
+			$myString = $matches[1] ?: NULL;
+		}		
+
 		$fileArray = array(
 			$file_name = "",
 			$file_type = "",

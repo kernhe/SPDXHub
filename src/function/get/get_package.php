@@ -1,7 +1,11 @@
 <?php
-    function getPackage($myString, $docFile, $filePath){
+    function getPackage($myFile, $docFile, $filePath){
     	// PACKAGE
-    	
+    	$myString = "";
+    	if (preg_match('/' . "<spdx:Package(?P<name>.*?)<\/spdx:Package>" . '/', $myFile, $matches)) {
+			$myString = $matches[1] ?: NULL;
+		}		
+		
     	$packageArray = array(
 			$p_name = $docFile ?: NULL,
 			$p_file_name = $docFile ?: NULL,

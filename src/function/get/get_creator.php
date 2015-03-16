@@ -1,6 +1,11 @@
 <?php
-	function getCreator($myString, $docFile, $filePath, $ID){
+	function getCreator($myFile, $docFile, $filePath, $ID){
     	// CREATOR
+    	$myString = "";
+    	if (preg_match('/' . "<spdx:CreationInfo>(?P<name>.*?)<\/spdx:CreationInfo>" . '/', $myFile, $matches)) {
+			$myString = $matches[1] ?: NULL;
+		}
+
     	$creatorArray = array(
 			$c_generated_at = "",
 			$c_creator_comments= "",
