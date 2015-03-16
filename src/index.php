@@ -38,60 +38,72 @@
                 <table id="toggleTable">
                     <tbody>
                       <tr>
-                        <td colspan="5"><input type="radio" name="group" id="urigroup_no" value="0" checked="checked" />
+                        <td colspan="5"><input type="radio" name="group" id="group_no" value="0" checked="checked" />
                             <label for="docnumber">Document Name</label>
                             <input type="radio" name="group" id="docnumber" value="1" />
-                            <label for="docnumname">Document ID</label></td>
+                            <label for="docnumname">License Name</label></td>
                       </tr>
                       <tr>
                         <td colspan="5"><label for="uri-charset"><strong>Licences</strong></label></td>
                       </tr>
                       <tr>
                         <td><input id="uri-outline" name="outline" type="checkbox" value="1" />
-                            <label title="Show an Outline of the document" for="uri-outline">OSI Approved</label>                        </td>
-                        <td width="160" colspan="2"><input id="uri-No200" name="No200" type="checkbox" value="1" />
-                            <label title="Validate also pages for which the HTTP status code indicates an error" for="uri-No200">OSI Not Approved</label></td>
-                        <td width="128"><input id="uri-verbose2" name="uri-verbose" type="checkbox" value="1" />
-                            <label title="Verbose Output" for="uri-verbose2">No license</label></td>
+                            <label title="Show an Outline of the document" for="uri-outline">SPDX approved</label></td>
+                        <td colspan="2"><input id="uri-No200" name="No200" type="checkbox" value="1" />
+                            <label title="Validate also pages for which the HTTP status code indicates an error" for="uri-No200">SPDX Not Approved</label></td>
+                      <td width="170"><input id="uri-verbose2" name="uri-verbose" type="checkbox" value="1" />
+                            <label title="Verbose Output" for="uri-verbose2">Not in SPDX list</label></td>
                         <td><label title="Verbose Output" for="uri-verbose"></label></td>
                       </tr>
                       <tr>
-                        <th width="136"> Full name </th>
-                        <td colspan="2"><select id="uri-charset" name="charset">
-                            <option value="(license names)" selected="selected">(license names)</option>
-                            <option value="utf-8">3dfx Glide License</option>
-                            <option value="utf-16">Abstyles License</option>
-                            <option value="iso-8859-1">Academic Free License v1.1</option>
-                            <option value="iso-8859-2">Artistic License 1.0 w/clause 8</option>
-                            <option value="iso-8859-3">Borceux license</option>
+                        <th width="242"> License name</th>
+                      <td colspan="2"><select class="LicenseListDropDown" name="charset">
+                            <option value="(license identifier)" selected="selected">(license names)</option>
+                            <?php
+                       		 $resultlist = getSPDX_LicenseList();
+                        		while($row = mysql_fetch_assoc($resultlist)) {
+                          
+									echo '<option value="' . $row['license_identifier'] . '">';
+									echo         $row['license_fullname'];
+									echo     '</option>';
+                      	 		 }
+                        ?>
                           </select>                        </td>
-                        <td>Identifier </td>
-                        <td width="118"><select id="uri-doctype" name="doctype">
-                          <option value="Identifier" selected="selected">(Identifier)</option>
-                          <option value="HTML5">Glide</option>
-                          <option value="XHTML 1.0 Strict">AFL-3.0</option>
-                          <option value="XHTML 1.0 Transitional">AMDPLPA</option>
-                          <option value="XHTML 1.0 Frameset">APSL-1.0</option>
-                          <option value="HTML 4.01 Strict">Artistic-2.0</option>
-                          <option value="HTML 4.01 Transitional">CECILL-1.1</option>
-                        </select></td>
+                        <td><div align="center"><strong>Identifier</strong></div></td>
+                        <td width="162"><div id="identifier">Identifier</div></td>
                       </tr>
                       <tr>
-                        <th colspan="5" width="100%"><table border="0">
+                        <th colspan="5">&nbsp;</th>
+                      </tr>
+                      <tr>
+                        <th colspan="5"><table border="0">
                           <tr>
                             <td width="101"><strong>Date created</strong></td>
                             <td width="88">&nbsp;</td>
                             <td width="71"><strong>from</strong></td>
-                            <td width="99">mm/dd/yyyy</td>
-                            <td width="35"><strong>to </strong></td>
-                            <td width="82">mm/dd/yyyy</td>
+                            <td width="99"><input type="text" id="datepicker1" value = "mm/dd/yyyy" /></td>
+                            <td width="35"><div align="right"><strong>to </strong></div></td>
+                            <td width="82"><input type="text" id="datepicker2" value = "mm/dd/yyyy" /></td>
                           </tr>
-                        </table>
-                        </th>
+                        </table></th>
+                      </tr>
+                      <tr>
+                        <th colspan="5"><table border="0">
+                          <tr>
+                            <td width="101"><strong>Last edited</strong></td>
+                            <td width="88">&nbsp;</td>
+                            <td width="71"><strong>from</strong></td>
+                            <td width="99"><input type="text" id="datepicker3" value = "mm/dd/yyyy"></td>
+                            <td width="35"><div align="right"><strong>to </strong></div></td>
+                            <td width="82"><input type="text" id="datepicker4" value = "mm/dd/yyyy"></td>
+                          </tr>
+                        </table>                        </th>
                       </tr>
                     </tbody>
                   </table>
-              <div class="col-sm-12">
+                
+                <br />
+                <div class="col-sm-12">
                 <div class="draw-line"></div>
               </div>
                 </div>
@@ -152,12 +164,24 @@
         <?php include("inc/_footer.php"); ?>
 
 	<script>
+			$("#toggleTable").hide();
 			$(document).ready(function(){
 				$("#moreOptions").click(function(){
 					$("#toggleTable").toggle();
 				});
 
 			});
+			
+
+$( ".LicenseListDropDown" )
+  .change(function () {
+    var str = "";
+    $( "select option:selected" ).each(function() {
+      str += $( this ).val() + " ";
+    });
+    $( "#identifier" ).text( str );
+  })
+  .change();
 </script>
 <script>
 function myFunction() {

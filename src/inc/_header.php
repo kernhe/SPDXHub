@@ -27,7 +27,24 @@ limitations under the License.
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/bootstrap-theme.css" rel="stylesheet">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+ 		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script type="text/javascript" async="" src="js/sorttable.js"></script>
+         <script>
+ 		 $(function() {
+   		 $( "#datepicker1").datepicker();
+ 			 });
+		$(function() {
+   		 $( "#datepicker2").datepicker();
+ 			 });
+			 $(function() {
+   		 $( "#datepicker3").datepicker();
+ 			 });
+			 $(function() {
+   		 $( "#datepicker4").datepicker();
+ 			 });
+ 		 </script>
    </head>
     <body>
         

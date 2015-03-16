@@ -90,6 +90,24 @@
         return $qrySpdxDocs;
 
     }
+	 function getSPDX_LicenseList() {
+        //Create Database connection
+        include("Data_Source.php");
+        mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
+        mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
+
+        $query = "SELECT license_fullname, license_identifier 
+                  FROM spdx_license_list";
+
+
+        //Execute Query
+        $qrySpdxList = mysql_query($query);
+        
+        //Close Connection
+        mysql_close();
+        return $qrySpdxList;
+
+    }
     function updateSPDX_Doc($spdx_doc_id, $document_comment = "", $spdx_version = "", $data_license = "") {
         //Create Database connection
         include("Data_Source.php");
