@@ -1,5 +1,5 @@
 <?php
-    include("inc/_header.php");
+    include("function/_header.php");
     include("function/spdx_doc.php");
     include("function/creator.php");
     include("function/package.php");
@@ -353,6 +353,6 @@
     }
 </script>
 <?php
-    include("inc/_footer.php");
+    include("function/_footer.php");
 ?>
 

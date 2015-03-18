@@ -17,7 +17,7 @@ limitations under the License.
 -->
 <?php
 	$title = "Upload";
-	include("inc/_header.php");
+	include("function/_header.php");
 	include("function/Data_Source.php");
 	include("function/read_file.php");
     $packagefilePath            = (isset($_FILES['package']["tmp_name"]) ? $_FILES['package']["tmp_name"] : null);
@@ -96,5 +96,5 @@ limitations under the License.
     	echo "<div align=\"center\">Document successfully uploaded.</div>";
    	}
    
-	include("inc/_footer.php");
+	include("function/_footer.php");
 ?>

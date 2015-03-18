@@ -16,7 +16,7 @@ limitations under the License.
 -->
 <?php
 	$title = "Upload";
-    include("inc/_header.php");
+    include("function/_header.php");
     include("js/upload.js");
 ?>
 
@@ -97,6 +97,6 @@ limitations under the License.
     </form>
 </div>
 <?php
-    include("inc/_footer.php");
+    include("function/_footer.php");
 ?>
 

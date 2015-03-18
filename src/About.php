@@ -16,7 +16,7 @@ limitations under the License.
 -->
 <?php
     $title = "About";
-    include("inc/_header.php");
+    include("function/_header.php");
 ?>
 <script type="text/javascript">
     function filter (term, _id, cellNr) {
@@ -71,5 +71,5 @@ limitations under the License.
 </div>
 
 <?php
-    include("inc/_footer.php");
+    include("function/_footer.php");
 ?>

@@ -1,6 +1,6 @@
     <?php
     $title = "SPDX";
-    include("inc/_header.php");
+    include("function/_header.php");
     include("function/spdx_doc.php");
     $name = "";
     if(array_key_exists('doc_name',$_POST)) {
@@ -155,6 +155,7 @@
             
             <thead>
               <tr>
+              	<th>#</th>
                 <th>Document Name</th>
                 <th>Created On</th>
                 <th class="sorttable_nosort">Licences</th>
@@ -193,7 +194,7 @@
         </div>
       </div>
 
-        <?php include("inc/_footer.php"); ?>
+        <?php include("function/_footer.php"); ?>
 
 	<script>
 			$("#toggleTable").hide();
