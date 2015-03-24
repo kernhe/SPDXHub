@@ -146,8 +146,11 @@
               <?php
                 $count = 0;
                 $result = getSPDX_DocList($name);
-                while(($row = mysql_fetch_assoc($result)) && $count < 6) {
+                while(($row = mysql_fetch_assoc($result)) && $count < 10) {
                     echo '<tr>';
+					echo     '<td>';
+                    echo       $count+1;
+                    echo     '</td>';
                     echo     '<td>';
                     echo         '<a href="spdx_doc.php?doc_id=' . $row['id'] . '">' . $row['upload_file_name'] . '</a>';
                     echo     '</td>';
