@@ -66,7 +66,7 @@
         return $qrySPDX_Doc;
     }
 
-    function getSPDX_DocList($name = "") {
+    function getSPDX_DocList($name ="", $date_cr_fr = "",$date_cr_to = "", $date_md_fr = "",$date_md_to ="") {
         //Create Database connection
         include("Data_Source.php");
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
@@ -74,11 +74,17 @@
 
         $query = "SELECT id,
                          upload_file_name,
-                         created_at 
+                         created_at, updated_at 
                   FROM spdx_docs ";
 
        	if($name != "") {
        		$query .= "WHERE upload_file_name LIKE '%" . $name . "%' ";
+       	}
+		if($date_cr_fr != "" && $date_cr_to != "") {
+       		$query .= "AND WHERE created_at BETWEEN '" . $date_cr_fr . "' AND '" . $date_cr_to . "'";
+       	}
+		if($date_md_fr != "" && $date_md_to != "") {
+       		$query .= "AND WHERE updated_at BETWEEN '" . $date_md_fr . "' AND '" . $date_md_to . "'";
        	}
         $query .= "ORDER BY created_at ASC";
 

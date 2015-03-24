@@ -3,11 +3,28 @@
     include("function/_header.php");
     include("function/spdx_doc.php");
     $name = "";
+	$date_cr_fr = "";
+	$date_cr_to = "";
+	$date_md_fr = "";
+	$date_md_to = "";
     if(array_key_exists('doc_name',$_POST)) {
     	$name = $_POST['doc_name'];
     }
+	if(array_key_exists('datepicker1',$_POST)) {
+    	$name = $_POST['datepicker1'];
+    }
+	 if(array_key_exists('datepicker2',$_POST)) {
+    	$name = $_POST['datepicker2'];
+    }
+	if(array_key_exists('datepicker3',$_POST)) {
+    	$name = $_POST['datepicker3'];
+    }
+	 if(array_key_exists('datepicker4',$_POST)) {
+    	$name = $_POST['datepicker4'];
+    }
+	
 ?>
-    <!-- <button type="button" class="btn btn-primary" onclick="window.location='upload.php'" style="display:inline-block;width:11.5%;margin-left:10px;">Upload Package</button> -->
+    
 
     <div class="container">
 
@@ -23,7 +40,7 @@
                 <button class="btn btn-default" type="button">Go!</button>
               </span>
             </div>
-          </form>
+           </form>
           
           <div class="col-sm-6">
             <label class="switch">
@@ -36,7 +53,7 @@
             <div class="draw-line"></div>
           </div>
     
-      </div>
+     
       
       <div class="row">
       </div>
@@ -46,8 +63,7 @@
        <div class="col-sm-12">
             
               <legend id="moreOptions"><img src="images/arrow-closed.png" /> More Options</legend>
-
-                <div class="row">
+				<form action="index.php" method="post" >
                 <table id="toggleTable">
                     <tbody>
 
@@ -62,12 +78,12 @@
 
                       </tr>
                       <tr>
-                        <td><input id="uri-outline" name="outline" type="checkbox" value="1" />
-                            <label title="SPDX approved" for="uri-outline">SPDX approved</label></td>
-                        <td colspan="2"><input id="uri-No200" name="No200" type="checkbox" value="1" />
-                            <label title="SPDX Not Approved" for="uri-No200">SPDX Not Approved</label></td>
-                      <td width="170"><input id="uri-verbose2" name="uri-verbose" type="checkbox" value="1" />
-                            <label title="Not in SPDX list" for="uri-verbose2">Not in SPDX list</label></td>
+                        <td><input id="" name="outline" type="checkbox" value="1" />
+                            <label title="SPDX approved" for="">SPDX approved</label></td>
+                        <td colspan="2"><input id="" name="No200" type="checkbox" value="1" />
+                            <label title="SPDX Not Approved" for="">SPDX Not Approved</label></td>
+                      <td width="170"><input id="uri-verbose2" name="" type="checkbox" value="1" />
+                            <label title="Not in SPDX list" for="">Not in SPDX list</label></td>
                         <td></td>
                       </tr>
                       <tr>
@@ -96,9 +112,9 @@
                             <td width="101"><strong>Date created</strong></td>
                             <td width="88">&nbsp;</td>
                             <td width="71"><strong>from</strong></td>
-                            <td width="99"><input type="text" id="datepicker1" value = "mm/dd/yyyy" /></td>
+                            <td width="99"><input type="text" name="datepicker1" id="datepicker1" value = "<?php echo $date_cr_fr; ?>" /></td>
                             <td width="35"><div align="right"><strong>to </strong></div></td>
-                            <td width="82"><input type="text" id="datepicker2" value = "mm/dd/yyyy" /></td>
+                            <td width="82"><input type="text" name="datepicker2" id="datepicker2" value = "<?php echo $date_cr_fr; ?>" /></td>
                           </tr>
                         </table></th>
                       </tr>
@@ -108,15 +124,19 @@
                             <td width="101"><strong>Last edited</strong></td>
                             <td width="88">&nbsp;</td>
                             <td width="71"><strong>from</strong></td>
-                            <td width="99"><input type="text" id="datepicker3" value = "mm/dd/yyyy"></td>
+                            <td width="99"><input type="text" id="datepicker3" value = "<?php echo $date_md_fr; ?>"></td>
                             <td width="35"><div align="right"><strong>to </strong></div></td>
-                            <td width="82"><input type="text" id="datepicker4" value = "mm/dd/yyyy"></td>
+                            <td width="82"><input type="text" id="datepicker4" value = "<?php echo $date_md_to; ?>"></td>
                           </tr>
-                        </table>                        </th>
+                        </table>  <p align="right">
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-refresh"></span> Refresh
+        </button>
+      </p>                     </th>
                       </tr>
                     </tbody>
-                  </table>
-                
+                  </table></form> 
+               
                 <br />
                 <div class="col-sm-12">
                 <div class="draw-line"></div>
@@ -136,7 +156,8 @@
               <tr>
               	<th>#</th>
                 <th>Document Name</th>
-                <th>Created On</th>
+                <th>Created on</th>
+                <th>Last updated</th>
                 <th class="sorttable_nosort">Licences</th>
                 <th class="sorttable_nosort" align="center">Action</th>
               </tr>
@@ -145,7 +166,7 @@
             <tbody>
               <?php
                 $count = 0;
-                $result = getSPDX_DocList($name);
+                $result = getSPDX_DocList($name, $date_cr_fr, $date_cr_to , $date_md_fr ,$date_md_to);
                 while(($row = mysql_fetch_assoc($result)) && $count < 10) {
                     echo '<tr>';
 					echo     '<td>';
@@ -157,7 +178,10 @@
                     echo     '<td>';
                     echo         date('m/d/Y', strtotime($row['created_at'])); 
                     echo     '</td>';
-			              echo     '<td>';
+					echo     '<td>';
+                    echo         date('m/d/Y', strtotime($row['updated_at'])); 
+                    echo     '</td>';
+			        echo     '<td>';
                     echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
                     echo     '</td>';
                     echo     '<td>';
