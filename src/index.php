@@ -14,14 +14,11 @@
       <div class="row search-block">
         
         <div class="col-sm-6">
-          <!-- <form action="index.php" method="post" >
-          <input type="text" class="form-control " tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
-          <button type="submit" class="btn pull-right">Search</button>
-            </form> -->
+       
         
           <form action="index.php" method="post" >
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
+              <input type="text" class="form-control" placeholder="Search for..." value="<?php echo $name; ?>" name="doc_name"/>
               <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
               </span>
@@ -42,18 +39,6 @@
       </div>
       
       <div class="row">
-        
-<!-- <div class="col-sm-12">
-          <label class="switch">
-            <input type="checkbox" class="switch-input">
-            <span class="switch-label" data-on="On" data-off="Off">Name</span>
-            <span class="switch-handle">License</span>
-          </label>
-        </div>
-        
-        <div class="col-sm-12">
-           <div class="draw-line"></div>
-        </div> -->
       </div>
 
 
@@ -67,12 +52,6 @@
                     <tbody>
 
                       <tr>
-                        <td colspan="5"><input type="radio" name="group" id="group_no" value="0" checked="checked" />
-                            <label for="docnumber">Document Name</label>
-                            <input type="radio" name="group" id="docnumber" value="1" />
-                            <label for="docnumname">License Name</label></td>
-                      </tr>
-                      <tr>
                         <td colspan="5"><label for="uri-charset"><strong>Licences</strong></label></td>
 
                      <input type="radio" name="group" id="urigroup_no" value="0" checked="checked" />
@@ -84,12 +63,12 @@
                       </tr>
                       <tr>
                         <td><input id="uri-outline" name="outline" type="checkbox" value="1" />
-                            <label title="Show an Outline of the document" for="uri-outline">SPDX approved</label></td>
+                            <label title="SPDX approved" for="uri-outline">SPDX approved</label></td>
                         <td colspan="2"><input id="uri-No200" name="No200" type="checkbox" value="1" />
-                            <label title="Validate also pages for which the HTTP status code indicates an error" for="uri-No200">SPDX Not Approved</label></td>
+                            <label title="SPDX Not Approved" for="uri-No200">SPDX Not Approved</label></td>
                       <td width="170"><input id="uri-verbose2" name="uri-verbose" type="checkbox" value="1" />
-                            <label title="Verbose Output" for="uri-verbose2">Not in SPDX list</label></td>
-                        <td><label title="Verbose Output" for="uri-verbose"></label></td>
+                            <label title="Not in SPDX list" for="uri-verbose2">Not in SPDX list</label></td>
+                        <td></td>
                       </tr>
                       <tr>
                         <th width="242"> License name</th>
