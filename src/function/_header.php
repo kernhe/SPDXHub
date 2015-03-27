@@ -17,7 +17,7 @@ limitations under the License.
 <!DOCTYPE html>
 <html lang="en" ng-app="dashApp">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $title; ?></title>
@@ -25,27 +25,38 @@ limitations under the License.
         <link href="css/style.css" rel="stylesheet">
         <link href="css/upload_style.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/demo_table.css" rel="stylesheet">
         <link href="css/bootstrap-theme.css" rel="stylesheet">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
- 		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script type="text/javascript" async="" src="js/sorttable.js"></script>
-         <script>
- 		 $(function() {
-   		 $( "#datepicker1").datepicker();
- 			 });
-		$(function() {
-   		 $( "#datepicker2").datepicker();
- 			 });
-			 $(function() {
-   		 $( "#datepicker3").datepicker();
- 			 });
-			 $(function() {
-   		 $( "#datepicker4").datepicker();
- 			 });
- 		 </script>
+        
+        <script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="js/jquery-ui.js" type="text/javascript"></script>    
+        <script src="js/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
+       <script type="text/javascript">
+		$(document).ready(function(){
+						$.datepicker.regional[""].dateFormat = 'dd/mm/yy';
+						$.datepicker.setDefaults($.datepicker.regional['']);
+			 $('#mytablesorter').dataTable({
+				
+				"aoColumns": [ null,
+					{ "sWidth": "200px" },
+					null,null, null,
+					null
+				]
+			} )
+				  .columnFilter({ sPlaceHolder: "head:before",
+					aoColumns: [ null,null,
+							 { type: "date-range" },
+							{ type: "date-range"  },null,null
+						]
+		
+				});
+		});
+
+		</script>
    </head>
     <body>
         
