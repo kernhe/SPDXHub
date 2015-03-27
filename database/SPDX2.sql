@@ -48,7 +48,7 @@ CREATE TABLE spdx_package_info (
 
 
 CREATE TABLE spdx_file_info (
-    	file_info_pk		bigserial,  -- Primary Key
+    	file_info_pk		integer,  -- Primary Key
 	fspdx_id		text NOT NULL,
     	filename		text,
     	filetype		text,
@@ -65,7 +65,7 @@ CREATE TABLE spdx_file_info (
 	file_contributor 	text,
 	package_info_fk		integer NOT NULL,
 	spdx_fk			integer NOT NULL,
-    CONSTRAINT spdx_file_info_pk PRIMARY KEY (file_info_pk,package_info_pk,spdx_fk)
+    CONSTRAINT spdx_file_info_pk PRIMARY KEY (file_info_pk,package_info_fk,spdx_fk)
 );
 
 
@@ -79,15 +79,8 @@ CREATE TABLE spdx_extracted_lic_info (
     CONSTRAINT spdx_extracted_lic_info_pk PRIMARY KEY (identifier,spdx_fk)
 );
 
-CREATE TABLE spdx_license_list (
-    license_list_pk        integer,  -- Primary Key
-    license_identifier       text NOT NULL,
-    license_fullname         text NOT NULL,
-    license_matchname_1   text,
-    license_matchname_2        text,
-    license_matchname_3         text,
-    CONSTRAINT spdx_license_list_pk PRIMARY KEY (license_list_pk)
-);
+
+
 
 CREATE TABLE spdx_annotations_create (
     annotator_info_pk		integer,  -- Primary Key
@@ -121,13 +114,13 @@ CREATE TABLE IF NOT EXISTS `relationship` (
   `spdx_id1` int(11) NOT NULL,
   `spdx_id2` int(11) NOT NULL,
   `relationship_id` int(11) NOT NULL,
-  `spdx_fk` int(11) NOT NULL
+  `spdx_fk` int(11) NOT NULL,
 CONSTRAINT spdx_package_info_pk PRIMARY KEY (spdx_fk)
 ) ;
 
 
 
-CREATE TABLE IF NOT EXISTS `spdx_license_list` (
+CREATE TABLE IF NOT EXISTS `spdx_license_list_insert` (
   `license_list_pk` int(30) NOT NULL,
   `license_identifier` varchar(50) NOT NULL,
   `license_fullname` varchar(100) NOT NULL,
@@ -138,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `spdx_license_list` (
 ) ;
 
 
-INSERT INTO `spdx_license_list` (`license_list_pk`, `license_identifier`, `license_fullname`, `license_matchname_1`, `license_matchname_2`, `license_matchname_3`) VALUES
+INSERT INTO `spdx_license_list_insert` (`license_list_pk`, `license_identifier`, `license_fullname`, `license_matchname_1`, `license_matchname_2`, `license_matchname_3`) VALUES
 (1, 'Glide', '3dfx Glide License', 'Glide', '', ''),
 (2, 'Abstyles', 'Abstyles License', 'Abstyles', '', ''),
 (3, 'AFL-1.1', 'Academic Free License v1.1', 'AFL-1.1', 'AFL 1.1', 'AFL1.1'),
@@ -448,14 +441,14 @@ INSERT INTO `spdx_license_list` (`license_list_pk`, `license_identifier`, `licen
 
 
 
-CREATE TABLE IF NOT EXISTS `spdx_relationship` (
+CREATE TABLE IF NOT EXISTS `spdx_relationship_insert` (
   `relationship_id_pk` int(10) NOT NULL,
   `relationship_type` varchar(50) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`relationship_id_pk`)
 ) ;
 
 
-INSERT INTO `spdx_relationship` (`relationship_id_pk`, `relationship_type`) VALUES
+INSERT INTO `spdx_relationship_insert` (`relationship_id_pk`, `relationship_type`) VALUES
 (1, 'contains'),
 (2, 'containedBy'),
 (3, 'generates'),
