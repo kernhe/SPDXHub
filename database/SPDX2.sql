@@ -65,7 +65,6 @@ CREATE TABLE spdx_file_info (
 	file_contributor 	text,
 	package_info_fk		integer NOT NULL,
 	spdx_fk			integer NOT NULL,
-	package_info_fk		integer NOT NULL,
     CONSTRAINT spdx_file_info_pk PRIMARY KEY (file_info_pk,package_info_fk,spdx_fk)
 );
 
