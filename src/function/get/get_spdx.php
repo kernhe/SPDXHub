@@ -4,27 +4,33 @@
     	$myString = $myFile;
     	
     	$spdxArray = array (
-			$spdx_version = "",
+			$version = "",
 			$data_license = "",
-			$upload_file_name = $docFile ?: NULL,
-			$upload_content_type = "",
-			$upload_file_size = filesize($filePath),
-			$upload_updated_at = "",
+			$document_name = "",
+			$document_namespace = "",
+			$external_dic_ref = "",
+			$license_list_version = "",
 			$document_comment = "",
-			$created_at = "",
-			$updated_at = "",
+			$creator = "",
+			$creator_optional1 = "",
+			$creator_optional2 = "",
+			$created_date = "",
+			$creator_comment = "",
 		);
     	
 		$rdf_regex = array(
-			$spdx_version = "<spdx:specVersion>(?P<name>.*?)<\/spdx:specVersion>",
+			$version = "<spdx:specVersion>(?P<name>.*?)<\/spdx:specVersion>",
 			$data_license = "<spdx:dataLicense rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
-			$upload_file_name = NULL,
-			$upload_content_type = "\.(?P<name>.*)",
-			$upload_file_size = NULL,
-			$upload_updated_at = NULL,
+			$document_name = "\.(?P<name>.*)",
+			$document_namespace = NULL,
+			$external_dic_ref = NULL,
+			$license_list_version = NULL,
 			$document_comment = NULL,
-			$created_at = "<spdx:created>(?P<name>.*?)<\/spdx:created>",
-			$updated_at = NULL,
+			$creator = NULL,
+			$creator_optional1 = NULL,
+			$creator_optional2 = NULL,
+			$created_date = "<spdx:created>(?P<name>.*?)<\/spdx:created>",
+			$creator_comment = NULL,
 		);
 		
 		$regex = array(
@@ -40,12 +46,12 @@
 			}
 		}
 		
-			
-
-        $query	=	"INSERT INTO `spdx_docs` (`spdx_version`, `data_license`, `upload_file_name`, `upload_content_type`,
-					`upload_file_size`, `upload_updated_at`, `document_comment`, `created_at`, `updated_at`) 
+        $query	=	"INSERT INTO `spdx_file` (`version`, `data_license`, `document_name`, `document_namespace`,
+					`external_dic_ref`, `license_list_version`, `document_comment`, `creator`, `creator_optional1`,
+					`creator_optional2`, `created_date`, `creator_comment`) 
 					VALUES('$spdxArray[0]', '$spdxArray[1]', '$spdxArray[2]', '$spdxArray[3]', '$spdxArray[4]',
-					'$spdxArray[5]', '$spdxArray[6]', '$spdxArray[7]', '$spdxArray[8]')";
+					'$spdxArray[5]', '$spdxArray[6]', '$spdxArray[7]', '$spdxArray[8]', '$spdxArray[9]', '$spdxArray[10]',
+					'$spdxArray[11]')";
 					
 		return $query;
         
