@@ -1,5 +1,5 @@
 <?php
-    function getPackage($myFile, $docFile, $filePath){
+    function getPackage($myFile, $docFile, $filePath, $docID){
     	// PACKAGE
     	$myString = "";
     	if (preg_match('/' . "<spdx:Package(?P<name>.*?)<\/spdx:Package>" . '/', $myFile, $matches)) {
@@ -29,6 +29,7 @@
 			$summary_description = "",
 			$package_detailed_description = "",
 			$package_comment = "",
+			$spdx_fk = $docID,
 		);
 		
 		$rdf_regex = array(
@@ -54,8 +55,7 @@
 			$summary_description = NULL,
 			$package_detailed_description = NULL,
 			$package_comment = NULL,
-			
-			
+			$spdx_fk = NULL,
 		);
 		
 		$regex = array(
@@ -76,11 +76,11 @@
 					`home_page`, `source_Information`, `source_info`, `license_declared`,
 					`license_concluded`, `license_info_from_files`, `license_comment`, `package_copyright_text`,
 					`summary`, `description`, `summary_description`, `package_detailed_description`,
-					`package_comment`) 
+					`package_comment`, `spdx_fk`) 
 					VALUES ('$packageArray[0]', '$packageArray[1]', '$packageArray[2]', '$packageArray[3]', '$packageArray[4]', '$packageArray[5]',
 					'$packageArray[6]', '$packageArray[7]', '$packageArray[8]', '$packageArray[9]', '$packageArray[10]', '$packageArray[11]',
 					'$packageArray[12]', '$packageArray[13]', '$packageArray[14]', '$packageArray[15]', '$packageArray[16]',
-					'$packageArray[17]', '$packageArray[18]', '$packageArray[19]', $packageArray[20]', $packageArray[21]')";
+					'$packageArray[17]', '$packageArray[18]', '$packageArray[19]', '$packageArray[20]', '$packageArray[21]', '$packageArray[22]')";
 					
 		return $query;
     }

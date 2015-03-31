@@ -45,7 +45,7 @@
 		}
 		
 		// Get File Query
-        $sql  = getFiles($myString, $docFile, $filePath);
+        $sql  = getFiles($myString, $docFile, $filePath, $docID, $packageID);
         
         //Execute File Query
 		if (mysql_query($sql)){

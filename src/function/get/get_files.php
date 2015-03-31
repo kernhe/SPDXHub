@@ -1,5 +1,5 @@
 <?php
-    function getFiles($myFile, $docFile, $filePath){	
+    function getFiles($myFile, $docFile, $filePath, $docID, $packageID){	
 		//FILES
     	$myString = "";
     	if (preg_match('/' . "<spdx:referencesFile>(?P<name>.*?)<\/spdx:referencesFile>" . '/', $myFile, $matches)) {
@@ -20,8 +20,8 @@
 			$file_comment = "",
 			$file_notice = "",
 			$file_contributor = "",
-			$package_info_fk = "",
-			$spdx_fk = "",
+			$package_info_fk = $packageID,
+			$spdx_fk = $docID,
 		);
 		
 		$rdf_regex = array(
@@ -38,6 +38,8 @@
 			$file_comment = NULL,
 			$file_notice = NULL,
 			$file_contributor = NULL,	
+			$package_info_fk = NULL,
+			$spdx_fk = NULL,
 		);
 		
 		$regex = array(
