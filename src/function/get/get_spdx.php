@@ -21,7 +21,7 @@
 		$rdf_regex = array(
 			$version = "<spdx:specVersion>(?P<name>.*?)<\/spdx:specVersion>",
 			$data_license = "<spdx:dataLicense rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
-			$document_name = "\.(?P<name>.*)",
+			$document_name = NULL,
 			$document_namespace = NULL,
 			$external_dic_ref = NULL,
 			$license_list_version = NULL,
@@ -36,6 +36,11 @@
 		$regex = array(
 			'rdf' => $rdf_regex,
 		);	
+		
+		
+		if (preg_match('/' . "(?P<name>.*)\." . '/', $docFile, $matches)) {
+			$spdxArray[2] = $matches[1] ?: NULL;
+		}
 		
     	for($x = 0; $x < sizeof($regex['rdf']); $x++){ 
     		if ($regex['rdf'][$x] == NULL){
