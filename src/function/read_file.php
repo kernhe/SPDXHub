@@ -19,8 +19,21 @@
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
         
         
+        // Get SPDX Query
+        $sql  = getSPDX($myString, $docFile, $filePath);
+        
+        //Execute SPDX Query
+		if (mysql_query($sql)){
+    		echo "New record created successfully";
+    		$docID = mysql_insert_id();
+		} else {
+   		 	echo "Error: " . mysql_error();
+   		 	$docID = NULL;
+		}
+        
+     
         // Get Package Query
-        $sql  = getPackage($myString, $docFile, $filePath);
+        $sql  = getPackage($myString, $docFile, $filePath, $docID);
         
         //Execute Package Query
 		if (mysql_query($sql)){
@@ -30,31 +43,6 @@
    		 	echo "Error: " . mysql_error();
    		 	$packageID = NULL;
 		}
-		
-		
-        // Get DOC Query
-        $sql  = getSPDX($myString, $docFile, $filePath);
-        
-        //Execute DOC Query
-		if (mysql_query($sql)){
-    		echo "New record created successfully";
-    		$docID = mysql_insert_id();
-		} else {
-   		 	echo "Error: " . mysql_error();
-   		 	$docID = NULL;
-		}
-		
-		
-		// Get Creator Query
-        $sql  = getCreator($myString, $docFile, $filePath, $docID);
-        
-        //Execute Creator Query
-		if (mysql_query($sql)){
-    		echo "New record created successfully";
-		} else {
-   		 	echo "Error: " . mysql_error();
-		}
-		
 		
 		// Get File Query
         $sql  = getFiles($myString, $docFile, $filePath);
@@ -67,18 +55,6 @@
    		 	echo "Error: " . mysql_error();
    		 	$fileID = NULL;
 		}
-		
-		
-		//Query
-        $sql  = "INSERT INTO `doc_file_package_associations` (`spdx_doc_id`,`package_id`,`package_file_id`,`created_at`,`updated_at`) 
-        		VALUES ('$docID', '$packageID', '$fileID', NOW(), NULL)";
-        
-        //Execute Query
-		if (mysql_query($sql)){
-    		echo "New record created successfully";
-		} else {
-   		 	echo "Error: " . mysql_error();
-		}		
 		
 		
         mysql_close();

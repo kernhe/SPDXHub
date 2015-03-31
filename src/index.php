@@ -1,11 +1,11 @@
-    <?php
+<?php
     $title = "SPDX";
     include("function/_header.php");
     include("function/spdx_doc.php");
     $name = "";
 
-    if(array_key_exists('doc_name',$_POST)) {
-    	$name = $_POST['doc_name'];
+    if(array_key_exists('document_name',$_POST)) {
+    	$name = $_POST['document_name'];
     }
 ?>
 <legend id="moreOptions"><img src="images/arrow-closed.png" /> More Options</legend>
@@ -35,7 +35,7 @@
                           
 									echo '<option value="' . $row['license_identifier'] . '">';
 									echo         $row['license_fullname'];
-									echo     '</option>';
+									echo '</option>';
                       	 		 }
                         ?>
                           </select>                        </td>
@@ -83,20 +83,20 @@
                     echo       $count+1;
                     echo     '</td>';
                     echo     '<td>';
-                    echo         '<a href="spdx_doc.php?doc_id=' . $row['id'] . '">' . $row['upload_file_name'] . '</a>';
+                    echo         '<a href="spdx_doc.php?doc_id=' . $row['spdx_id'] . '">' . $row['document_name'] . '</a>';
                     echo     '</td>';
                     echo     '<td>';
-                    echo         date('m/d/Y', strtotime($row['created_at'])); 
+                    echo         date('m/d/Y', strtotime($row['created_date'])); 
                     echo     '</td>';
 					echo     '<td>';
-                    echo         date('m/d/Y', strtotime($row['updated_at'])); 
+                    echo         date('m/d/Y', strtotime($row['created_date'])); 
                     echo     '</td>';
 			        echo     '<td>';
                     echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
                     echo     '</td>';
                     echo     '<td>';
                     echo         '<div>';
-                    echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['id'] . '\'">View Details</button>';
+                    echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['spdx_id'] . '\'">View Details</button>';
                     echo             '<button type="button" class="btn">Download</button>'; 
                     echo         '</div>';
                     echo     '</td>';

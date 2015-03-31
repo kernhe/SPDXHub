@@ -66,22 +66,22 @@
         return $qrySPDX_Doc;
     }
 
-    function getSPDX_DocList($name ="") {
+    function getSPDX_DocList($name = "") {
         //Create Database connection
         include("Data_Source.php");
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
 
-        $query = "SELECT id,
-                         upload_file_name,
-                         created_at, updated_at 
-                  FROM spdx_docs ";
+        $query = "SELECT spdx_id,
+                         document_name,
+                         created_date
+                  FROM spdx_file ";
 
        	if($name != "") {
-       		$query .= "WHERE upload_file_name LIKE '%" . $name . "%' ";
+       		$query .= "WHERE document_name LIKE '%" . $name . "%' ";
        	}
 		
-        $query .= "ORDER BY created_at ASC";
+        $query .= "ORDER BY created_date ASC";
 
         //Execute Query
         $qrySpdxDocs = mysql_query($query);
@@ -128,7 +128,7 @@
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
 
         $query = "SELECT license_fullname, license_identifier 
-                  FROM spdx_license_list";
+                  FROM spdx_license_list_insert";
 
 
         //Execute Query
