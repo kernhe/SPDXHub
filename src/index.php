@@ -9,40 +9,43 @@
     }
 ?>
 			
-<div id="container toggleTable">
-
-  <h1 id="moreOptions"><img src="images/arrow-closed.png" /> More Options</h1>
-
-  <label for="uri-charset"><strong>Licences</strong></label>
-
-  <input id="" name="outline" type="checkbox" value="1" />
-  <label title="SPDX approved" for="">SPDX approved</label>
-
-  <input id="" name="No200" type="checkbox" value="1" />
-  <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
-
-  <input id="uri-verbose2" name="" type="checkbox" value="1" />
-  <label title="Not in SPDX list" for="">Not in SPDX list</label>
-
+<div class="container" >
+  <div class="col-xs-12">
+    <h1 id="moreOptions"><img src="images/arrow-closed.png" />More Options</h1>
     
-  
+    <div class="col-xs-12" id="toggleTable">
+      <label for="uri-charset"><strong>Licences</strong></label>
 
-  <h2>License name</h2>
+      <input id="" name="outline" type="checkbox" value="1" />
+      <label title="SPDX approved" for="">SPDX approved</label>
+
+      <input id="" name="No200" type="checkbox" value="1" />
+      <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
+
+      <input id="uri-verbose2" name="" type="checkbox" value="1" />
+      <label title="Not in SPDX list" for="">Not in SPDX list</label>
+    </div>
+  </div>
   
-  <select class="LicenseListDropDown" name="charset">
-    <option value="(license identifier)" selected="selected">(license names)</option>
-    <?php
-   	$resultlist = getSPDX_LicenseList();
-  		while($row = mysql_fetch_assoc($resultlist)) {
-        echo '<option value="' . $row['license_identifier'] . '">';
-        echo         $row['license_fullname'];
-        echo '</option>';
-	 		 }
-    ?>
-  </select>                     
+  <div class="col-xs-12">
     
-  <div align="center"><strong>Identifier</strong></div>
-  <div id="identifier">Identifier</div>
+    <h2>License name</h2>
+    
+    <select class="LicenseListDropDown" name="charset">
+      <option value="(license identifier)" selected="selected">(license names)</option>
+      <?php
+     	$resultlist = getSPDX_LicenseList();
+    		while($row = mysql_fetch_assoc($resultlist)) {
+          echo '<option value="' . $row['license_identifier'] . '">';
+          echo         $row['license_fullname'];
+          echo '</option>';
+  	 		 }
+      ?>
+    </select>                     
+      
+    <div align="center"><strong>Identifier</strong></div>
+    <div id="identifier">Identifier</div>
+  </div>
 
 </div>
         
@@ -104,12 +107,15 @@
                 ?>
             </tbody>
           </table>
+
+
+
 </div>
  
 
-        <?php include("function/_footer.php"); ?>
+<?php include("function/_footer.php"); ?>
 
-	<script>
+<script>
 			$("#toggleTable").hide();
 			$(document).ready(function(){
 				$("#moreOptions").click(function(){
