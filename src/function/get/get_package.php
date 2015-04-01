@@ -2,7 +2,7 @@
     function getPackage($myFile, $docFile, $filePath, $docID){
     	// PACKAGE
     	$myString = "";
-    	if (preg_match('/' . "<spdx:Package(?P<name>.*?)<\/spdx:Package>" . '/', $myFile, $matches)) {
+    	if (preg_match('/' . "(?P<name><spdx:Package.*<\/spdx:Package>)" . '/s', $myFile, $matches)) {
 			$myString = $matches[1] ?: NULL;
 		}		
 		

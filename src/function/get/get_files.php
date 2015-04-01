@@ -2,10 +2,10 @@
     function getFiles($myFile, $docFile, $filePath, $docID, $packageID){	
 		//FILES
     	$myString = "";
-    	if (preg_match('/' . "<spdx:referencesFile>(?P<name>.*?)<\/spdx:referencesFile>" . '/', $myFile, $matches)) {
+    	if (preg_match('/' . "(?P<name><spdx:referencesFile.*<\/spdx:referencesFile>)" . '/s', $myFile, $matches)) {
 			$myString = $matches[1] ?: NULL;
 		}		
-
+		echo $myString;
 		$fileArray = array(
 			$filename = "",
 			$filetype = "",
@@ -25,13 +25,13 @@
 		);
 		
 		$rdf_regex = array(
-			$filename = "<spdx:referencesFile>.*<spdx:fileName>(?P<name>.*?)<\/spdx:fileName>",
-			$filetype = "<spdx:referencesFile>.*<spdx:fileType rdf:resource=\"http:\/\/spdx.org\/rdf\/terms(?P<name>.*?)\"\/>",
-			$checksum = "<spdx:referencesFile>.*<spdx:checksumValue>(?P<name>.*?)<\/spdx:checksumValue>",
-			$license_concluded = "<spdx:referencesFile>.*<spdx:licenseConcluded rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
-			$license_info_in_file = "<spdx:referencesFile>.*<spdx:licenseInfoInFile rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
-			$license_comment = "<spdx:referencesFile>.*<spdx:licenseComments>(?P<name>.*?)<\/spdx:licenseComments>",
-			$file_copyright_text = "<spdx:referencesFile>.*<spdx:copyrightText>(?P<name>.*?)<\/spdx:copyrightText>",
+			$filename = "<spdx:fileName>(?P<name>.*?)<\/spdx:fileName>",
+			$filetype = "<spdx:fileType rdf:resource=\"http:\/\/spdx.org\/rdf\/terms(?P<name>.*?)\"\/>",
+			$checksum = "<spdx:checksumValue>(?P<name>.*?)<\/spdx:checksumValue>",
+			$license_concluded = "<spdx:licenseConcluded rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
+			$license_info_in_file = "<spdx:licenseInfoInFile rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
+			$license_comment = "<spdx:licenseComments>(?P<name>.*?)<\/spdx:licenseComments>",
+			$file_copyright_text = "<spdx:copyrightText>(?P<name>.*?)<\/spdx:copyrightText>",
 			$artifact_of_project = NULL,
 			$artifact_of_homepage = NULL,
 			$artifact_of_url = NULL,

@@ -1,5 +1,5 @@
 CREATE TABLE spdx_file ( 
-    spdx_pk	 integer,  -- Primary Key
+    spdx_pk	 integer AUTO_INCREMENT,  -- Primary Key
     spdx_id text NOT NULL,
     version	 text NOT NULL,
     data_license text NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE spdx_file (
 
 
 CREATE TABLE spdx_package_info (
-    	package_info_pk		integer,  -- Primary Key
+    	package_info_pk		integer AUTO_INCREMENT,  -- Primary Key
     	pfile_fk			integer NOT NULL,
     	name				text NOT NULL,
 	pspdx_id			text NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE spdx_package_info (
 
 
 CREATE TABLE spdx_file_info (
-    	file_info_pk		integer,  -- Primary Key
+    	file_info_pk		integer AUTO_INCREMENT,  -- Primary Key
 	fspdx_id		text NOT NULL,
     	filename		text,
     	filetype		text,
@@ -70,7 +70,7 @@ CREATE TABLE spdx_file_info (
 
 
 CREATE TABLE spdx_extracted_lic_info (
-    identifier			integer NOT NULL,
+    identifier			integer NOT NULL AUTO_INCREMENT,
     licensename			text NOT NULL,
     license_display_name	text NOT NULL,
     cross_ref_url		text,
@@ -83,7 +83,7 @@ CREATE TABLE spdx_extracted_lic_info (
 
 
 CREATE TABLE spdx_annotations_create (
-    annotator_info_pk		integer,  -- Primary Key
+    annotator_info_pk		integer AUTO_INCREMENT,  -- Primary Key
     annotator 			text NOT NULL,
     annotator_date	timestamp NOT NULL,
     annotator_type	text NOT NULL,
@@ -94,14 +94,14 @@ CREATE TABLE spdx_annotations_create (
 );
 
 CREATE TABLE spdx_relationships_create (
-    relationships_info_pk		integer,  -- Primary Key
+    relationships_info_pk		integer AUTO_INCREMENT,  -- Primary Key
     relationship 			text NOT NULL,
     CONSTRAINT relationships_info_pk PRIMARY KEY (relationships_info_pk)
 );
 
 CREATE TABLE spdx_relationships_docs (
     
-    relationships_info_pk		integer,  -- Primary Key
+    relationships_info_pk		integer AUTO_INCREMENT,  -- Primary Key
     rspdx1_id				text NOT NULL,
     rspdx2_id				text NOT NULL,
     relationship_comment		text NOT NULL,
@@ -121,7 +121,7 @@ CONSTRAINT spdx_package_info_pk PRIMARY KEY (spdx_fk)
 
 
 CREATE TABLE IF NOT EXISTS `spdx_license_list_insert` (
-  `license_list_pk` int(30) NOT NULL,
+  `license_list_pk` int(30) NOT NULL AUTO_INCREMENT,
   `license_identifier` varchar(50) NOT NULL,
   `license_fullname` varchar(100) NOT NULL,
   `license_matchname_1` varchar(30) NOT NULL,
