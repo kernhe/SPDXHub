@@ -8,47 +8,44 @@
     	$name = $_POST['document_name'];
     }
 ?>
-<legend id="moreOptions"><img src="images/arrow-closed.png" /> More Options</legend>
 			
-<table id="toggleTable">
-                    <tbody>
+<div id="container toggleTable">
 
-                      <tr>
-                        <td colspan="5"><label for="uri-charset"><strong>Licences</strong></label></td>
-                      </tr>
-                      <tr>
-                        <td><input id="" name="outline" type="checkbox" value="1" />
-                            <label title="SPDX approved" for="">SPDX approved</label></td>
-                        <td colspan="2"><input id="" name="No200" type="checkbox" value="1" />
-                            <label title="SPDX Not Approved" for="">SPDX Not Approved</label></td>
-                      <td width="170"><input id="uri-verbose2" name="" type="checkbox" value="1" />
-                            <label title="Not in SPDX list" for="">Not in SPDX list</label></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <th width="242">License name</th>
-                      <td colspan="2"><select class="LicenseListDropDown" name="charset">
-                            <option value="(license identifier)" selected="selected">(license names)</option>
-                            <?php
-                       		 $resultlist = getSPDX_LicenseList();
-                        		while($row = mysql_fetch_assoc($resultlist)) {
-                          
-									echo '<option value="' . $row['license_identifier'] . '">';
-									echo         $row['license_fullname'];
-									echo '</option>';
-                      	 		 }
-                        ?>
-                          </select>                        </td>
-                        <td><div align="center"><strong>Identifier</strong></div></td>
-                        <td width="140"><div id="identifier">Identifier</div></td>
-                      </tr>
-                     
-                     
-                    </tbody>
-</table>
+  <h1 id="moreOptions"><img src="images/arrow-closed.png" /> More Options</h1>
+
+  <label for="uri-charset"><strong>Licences</strong></label>
+
+  <input id="" name="outline" type="checkbox" value="1" />
+  <label title="SPDX approved" for="">SPDX approved</label>
+
+  <input id="" name="No200" type="checkbox" value="1" />
+  <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
+
+  <input id="uri-verbose2" name="" type="checkbox" value="1" />
+  <label title="Not in SPDX list" for="">Not in SPDX list</label>
+
+    
+  
+
+  <h2>License name</h2>
+  
+  <select class="LicenseListDropDown" name="charset">
+    <option value="(license identifier)" selected="selected">(license names)</option>
+    <?php
+   	$resultlist = getSPDX_LicenseList();
+  		while($row = mysql_fetch_assoc($resultlist)) {
+        echo '<option value="' . $row['license_identifier'] . '">';
+        echo         $row['license_fullname'];
+        echo '</option>';
+	 		 }
+    ?>
+  </select>                     
+    
+  <div align="center"><strong>Identifier</strong></div>
+  <div id="identifier">Identifier</div>
+
+</div>
         
-
-          <br />
 <div id="container">
  			 <table id = "mytablesorter" class="display">
             
