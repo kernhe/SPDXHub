@@ -10,18 +10,18 @@
     $spdxId = $_GET["doc_id"];
     if(array_key_exists('action',$_POST)){
         if($_POST["action"] == "update"){
-            updateSPDX_Doc($spdxId, $_POST["document_comment"], $_POST["version"], $_POST["data_license"], $_POST["creator"], $_POST["creator_comment"]);
+            updateSPDX_Doc($spdxId, $_POST["document_comment"], $_POST["spdx_version"], $_POST["data_license"], $_POST["creator"], $_POST["creator_comments"]);
             updatePackage($spdxId, 
-                          $_POST["name"], 
-                          $_POST["version"], 
-                          $_POST["download_location"], 
-                          $_POST["summary"], 
-                          $_POST["filename"],
-                          $_POST["supplier"],
-                          $_POST["originator"],
-                          $_POST["description"],
+                          $_POST["package_name"], 
+                          $_POST["package_version"], 
+                          $_POST["package_download_location"], 
+                          $_POST["package_summary"], 
+                          $_POST["package_file_name"],
+                          $_POST["package_supplier"],
+                          $_POST["package_originator"],
+                          $_POST["package_description"],
                           $_POST["package_copyright_text"],
-                          $_POST["license_concluded"]);
+                          $_POST["package_license_concluded"]);
         }
     }
     $doc = mysql_fetch_assoc(getSPDX_Doc($spdxId));

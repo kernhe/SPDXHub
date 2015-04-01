@@ -32,7 +32,7 @@ limitations under the License.
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
         
         //Query
-        $sql  = "UPDATE spdx_package_info
+        $sql  = "UPDATE spdx_package_info packages
                  SET packages.name = '" . $name . "',
                      packages.version = '" . $version . "',
                      packages.download_location = '" . $download_location . "',
@@ -43,14 +43,13 @@ limitations under the License.
                      packages.description = '" . $description . "',
                      packages.package_copyright_text = '" . $package_copyright_text . "',
                      packages.license_concluded = '" . $license_concluded . "'
-                   WHERE spdx_package_info.spdx_fk = " . $spdx_doc_id;
+                   WHERE packages.spdx_fk = " . $spdx_doc_id;
         
         //Execute Query
         $qryUpdatePackage = mysql_query($sql);
 		if (mysql_query($sql)) {
-    		echo "New record created successfully";
 		} else {
-   		 	echo "Error: ";
+   		 	echo "Error: " . mysql_error();
 		}
         //Close Connection
         mysql_close();

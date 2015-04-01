@@ -24,7 +24,6 @@
         
         //Execute SPDX Query
 		if (mysql_query($sql)){
-    		echo "New record created successfully";
     		$docID = mysql_insert_id();
 		} else {
    		 	echo "Error: " . mysql_error();
@@ -37,7 +36,6 @@
         
         //Execute Package Query
 		if (mysql_query($sql)){
-    		echo "New record created successfully";
     		$packageID = mysql_insert_id();
 		} else {
    		 	echo "Error: " . mysql_error();
@@ -49,7 +47,6 @@
         
         //Execute File Query
 		if (mysql_query($sql)){
-    		echo "New record created successfully";
     		$fileID = mysql_insert_id();
 		} else {
    		 	echo "Error: " . mysql_error();

@@ -157,7 +157,11 @@
 
         //Execute Query
         $qryUpdateDoc = mysql_query($sql);
-
+		if (mysql_query($sql)) {
+		} else {
+   		 	echo "Error: " . mysql_error();
+		}
+		
         //Close Connection
         mysql_close();
     } 
