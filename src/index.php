@@ -83,7 +83,7 @@
                     echo       $count+1;
                     echo     '</td>';
                     echo     '<td>';
-                    echo         '<a href="spdx_doc.php?doc_id=' . $row['spdx_id'] . '">' . $row['document_name'] . '</a>';
+                    echo         '<a href="spdx_doc.php?doc_id=' . $row['spdx_pk'] . '">' . $row['document_name'] . '</a>';
                     echo     '</td>';
                     echo     '<td>';
                     echo         date('m/d/Y', strtotime($row['created_date'])); 
@@ -96,7 +96,7 @@
                     echo     '</td>';
                     echo     '<td>';
                     echo         '<div>';
-                    echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['spdx_id'] . '\'">View Details</button>';
+                    echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['spdx_pk'] . '\'">View Details</button>';
                     echo             '<button type="button" class="btn">Download</button>'; 
                     echo         '</div>';
                     echo     '</td>';

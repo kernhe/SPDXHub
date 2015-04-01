@@ -10,19 +10,18 @@
     $spdxId = $_GET["doc_id"];
     if(array_key_exists('action',$_POST)){
         if($_POST["action"] == "update"){
-            updateSPDX_Doc($spdxId, $_POST["document_comment"], $_POST["spdx_version"], $_POST["data_license"]);
-            updateCreator($spdxId, $_POST["creator"], $_POST["creator_comments"]);
+            updateSPDX_Doc($spdxId, $_POST["document_comment"], $_POST["version"], $_POST["data_license"], $_POST["creator"], $_POST["creator_comment"]);
             updatePackage($spdxId, 
-                          $_POST["package_name"], 
-                          $_POST["package_version"], 
-                          $_POST["package_download_location"], 
-                          $_POST["package_summary"], 
-                          $_POST["package_file_name"],
-                          $_POST["package_supplier"],
-                          $_POST["package_originator"],
-                          $_POST["package_description"],
+                          $_POST["name"], 
+                          $_POST["version"], 
+                          $_POST["download_location"], 
+                          $_POST["summary"], 
+                          $_POST["filename"],
+                          $_POST["supplier"],
+                          $_POST["originator"],
+                          $_POST["description"],
                           $_POST["package_copyright_text"],
-                          $_POST["package_license_concluded"]);
+                          $_POST["license_concluded"]);
         }
     }
     $doc = mysql_fetch_assoc(getSPDX_Doc($spdxId));
@@ -83,11 +82,11 @@
         <table id="tblMain" class="table table-bordered table-striped table-doc">
             <thead>
                 <tr>
-                    <th colspan=2><?php echo $doc["package_name"]; ?>
+                    <th colspan=2><?php echo $doc["document_name"]; ?>
                         <div style="display:inline-block;float:right;">
-                            <button id="download_top" type="button"  class="btn btn-primary" onclick="window.open('download.php?doc_id=<?php echo $spdxId; ?>&format=RDF&doc_name=<?php echo $doc["package_name"];?>','_blank');">Download RDF</button>
-                            <button id="download_top" type="button"  class="btn btn-primary" onclick="window.open('download.php?doc_id=<?php echo $spdxId; ?>&format=TAG&doc_name=<?php echo $doc["package_name"];?>','_blank');">Download TAG</button>
-                            <button id="download_top" type="button"  class="btn btn-primary" onclick="window.open('download.php?doc_id=<?php echo $spdxId; ?>&format=JSON&doc_name=<?php echo $doc["package_name"];?>','_blank');">Download JSON</button>
+                            <button id="download_top" type="button"  class="btn btn-primary" onclick="window.open('download.php?doc_id=<?php echo $spdxId; ?>&format=RDF&doc_name=<?php echo $doc["name"];?>','_blank');">Download RDF</button>
+                            <button id="download_top" type="button"  class="btn btn-primary" onclick="window.open('download.php?doc_id=<?php echo $spdxId; ?>&format=TAG&doc_name=<?php echo $doc["name"];?>','_blank');">Download TAG</button>
+                            <button id="download_top" type="button"  class="btn btn-primary" onclick="window.open('download.php?doc_id=<?php echo $spdxId; ?>&format=JSON&doc_name=<?php echo $doc["name"];?>','_blank');">Download JSON</button>
                             <button id="edit_doc"     type="button"  class="btn btn-primary view"/>Edit</button>
                             <button id="save_doc"     type="submit"  class="btn btn-primary edit" style="display:none;">Save</button>
                         </div>
@@ -98,9 +97,9 @@
                 <tr>
                     <td title="Version of the SPDX spcification used to create this document.">Version</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="spdx_version" class='form-control'><?php echo $doc["spdx_version"]; ?></textarea>
+                        <textarea name="spdx_version" class='form-control'><?php echo $doc["version"]; ?></textarea>
                        </td>
-                    <td class="view"><?php echo $doc["spdx_version"]; ?></td>
+                    <td class="view"><?php echo $doc["version"]; ?></td>
                 </tr>
                 <tr>
                     <td title="License of the content within this SPDX document.">Data License</td>
@@ -132,18 +131,18 @@
                 </tr>
                 <tr>
                     <td title="When was this SPDX document created.">Created</td>
-                    <td><?php echo date('m/d/Y', strtotime($doc["created_at"])); ?></td>
+                    <td><?php echo date('m/d/Y', strtotime($doc["created_date"])); ?></td>
                 </tr>
                 <tr>
                     <td title="When was this document last updated.">Updated</td>
-                    <td><?php echo date('m/d/Y', strtotime($doc["updated_at"])); ?></td>
+                    <td><?php echo date('m/d/Y', strtotime($doc["created_date"])); ?></td>
                 </tr>
                 <tr>
                     <td title="Additional comments from during the creation of this document.">Creator Comment</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="creator_comments" class='form-control'><?php echo $doc["creator_comments"]; ?></textarea>
+                        <textarea name="creator_comments" class='form-control'><?php echo $doc["creator_comment"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["creator_comments"]; ?></td>
+                    <td class="view"><?php echo $doc["creator_comment"]; ?></td>
                 </tr>
             </tbody>
             <thead>
@@ -155,66 +154,66 @@
                 <tr>
                     <td title="Name of the package this SPDX document was created for.">Package Name</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="package_name" class='form-control'><?php echo $doc["package_name"]; ?></textarea>
+                        <textarea name="package_name" class='form-control'><?php echo $doc["name"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["package_name"]; ?></td>
+                    <td class="view"><?php echo $doc["name"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Version number of the package this SPDX document was created for.">Package Version</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="package_version" class='form-control'><?php echo $doc["package_version"]; ?></textarea>
+                        <textarea name="package_version" class='form-control'><?php echo $doc["version"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["package_version"]; ?></td>
+                    <td class="view"><?php echo $doc["version"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Where this package was downloaded from (URL).">Package Download Location</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="package_download_location" class='form-control'><?php echo $doc["package_download_location"]; ?></textarea>
+                        <textarea name="package_download_location" class='form-control'><?php echo $doc["download_location"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["package_download_location"]; ?></td>
+                    <td class="view"><?php echo $doc["download_location"]; ?></td>
                 </tr>
                 <tr>
                     <td title="This field is a short description of the package.">Package Summary</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="package_summary" class='form-control'><?php echo $doc["package_summary"]; ?></textarea>
+                        <textarea name="package_summary" class='form-control'><?php echo $doc["summary"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["package_summary"]; ?></td>
+                    <td class="view"><?php echo $doc["summary"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Name of the file that contains this package.">Package File Name</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="package_file_name" class='form-control'><?php echo $doc["package_file_name"]; ?></textarea>
+                        <textarea name="package_file_name" class='form-control'><?php echo $doc["filename"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["package_file_name"]; ?></td>
+                    <td class="view"><?php echo $doc["filename"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Original source of this package.">Package Supplier</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="package_supplier" class='form-control'><?php echo $doc["package_supplier"]; ?></textarea>
+                        <textarea name="package_supplier" class='form-control'><?php echo $doc["supplier"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["package_supplier"]; ?></td>
+                    <td class="view"><?php echo $doc["supplier"]; ?></td>
                 </tr>
                 <tr>
                     <td title="If this SPDX document came from a different source, what was that source.">Package Originator</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="package_originator" class='form-control'><?php echo $doc["package_originator"]; ?></textarea>
+                        <textarea name="package_originator" class='form-control'><?php echo $doc["originator"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["package_originator"]; ?></td>
+                    <td class="view"><?php echo $doc["originator"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Unique identifier for the original package archive file.">Package Checksum</td>
-                    <td><?php echo $doc["package_checksum"]; ?></td>
+                    <td><?php echo $doc["checksum"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Unique identifier for the package as a whole.">Package Verification Code</td>
-                    <td><?php echo $doc["package_verification_code"]; ?></td>
+                    <td><?php echo $doc["verificationcode"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Short description of the package.">Package Description</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="package_description" class='form-control'><?php echo $doc["package_description"]; ?></textarea>
+                        <textarea name="package_description" class='form-control'><?php echo $doc["description"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["package_description"]; ?></td>
+                    <td class="view"><?php echo $doc["description"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Any text related to a copyright notice within this package.">Package Copyright Text</td>
@@ -225,14 +224,14 @@
                 </tr>
                 <tr>
                     <td title="License declared by the authors of this package.">License Declared</td>
-                    <td><?php echo $doc["package_license_declared"]; ?></td>
+                    <td><?php echo $doc["license_declared"]; ?></td>
                 </tr>
                 <tr>
                     <td title="The governing license of this package.">Package License Concluded</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="package_license_concluded" class='form-control'><?php echo $doc["package_license_concluded"]; ?></textarea>
+                        <textarea name="package_license_concluded" class='form-control'><?php echo $doc["license_concluded"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $doc["package_license_concluded"]; ?></td>
+                    <td class="view"><?php echo $doc["license_concluded"]; ?></td>
                 </tr>
             </tbody>
             <thead>
@@ -320,6 +319,7 @@
         </table>
     </form>
 </div>
+
 <script>
     var pieData = [
        <?php $count = 0;?>

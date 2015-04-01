@@ -6,56 +6,56 @@
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
 
         //Query
-        $query = "SELECT sd.id
-                        ,sd.spdx_version
-                        ,sd.data_license
-                        ,sd.document_comment
-                        ,sd.updated_at
-                        ,c.creator
-                        ,c.created_at
-                        ,c.creator_comments
-                        ,p.package_name
-                        ,p.package_version
-                        ,p.package_download_location
-                        ,p.package_summary
-                        ,p.package_file_name
-                        ,p.package_supplier
-                        ,p.package_originator
-                        ,p.package_checksum
-                        ,p.package_verification_code
-                        ,p.package_description
+        $query = "SELECT sf.spdx_id
+                        ,sf.version
+                        ,sf.data_license
+                        ,sf.document_name
+                        ,sf.document_comment
+                        ,sf.created_date
+                        ,sf.creator
+                        ,sf.created_date
+                        ,sf.creator_comment
+                        ,p.name
+                        ,p.version
+                        ,p.download_location
+                        ,p.summary
+                        ,p.filename
+                        ,p.supplier
+                        ,p.originator
+                        ,p.checksum
+                        ,p.verificationcode
+                        ,p.description
                         ,p.package_copyright_text
-                        ,p.package_license_declared
-                        ,p.package_license_concluded
+                        ,p.license_declared
+                        ,p.license_concluded
 
-                 FROM spdx_docs sd
-                      LEFT OUTER JOIN creators c ON sd.id = c.spdx_doc_id
-                      LEFT OUTER JOIN doc_file_package_associations dfpa ON sd.id = dfpa.spdx_doc_id
-                      LEFT OUTER JOIN packages p ON dfpa.package_id = p.id
+                 FROM spdx_file sf
+                      LEFT OUTER JOIN spdx_package_info p ON p.spdx_fk = sf.spdx_pk
 
-                WHERE sd.id = " . $spdx_doc_id . "
+                WHERE sf.spdx_pk = " . $spdx_doc_id . "
 
-                GROUP BY sd.id
-                        ,sd.spdx_version
-                        ,sd.data_license
-                        ,sd.document_comment
-                        ,sd.updated_at
-                        ,c.creator
-                        ,c.created_at
-                        ,c.creator_comments
-                        ,p.package_name
-                        ,p.package_version
-                        ,p.package_download_location
-                        ,p.package_summary
-                        ,p.package_file_name
-                        ,p.package_supplier
-                        ,p.package_originator
-                        ,p.package_checksum
-                        ,p.package_verification_code
-                        ,p.package_description
+                GROUP BY sf.spdx_id
+                        ,sf.version
+                        ,sf.data_license
+                        ,sf.document_name
+                        ,sf.document_comment
+                        ,sf.created_date
+                        ,sf.creator
+                        ,sf.created_date
+                        ,sf.creator_comment
+                        ,p.name
+                        ,p.version
+                        ,p.download_location
+                        ,p.summary
+                        ,p.filename
+                        ,p.supplier
+                        ,p.originator
+                        ,p.checksum
+                        ,p.verificationcode
+                        ,p.description
                         ,p.package_copyright_text
-                        ,p.package_license_declared
-                        ,p.package_license_concluded";
+                        ,p.license_declared
+                        ,p.license_concluded";
         
         //Execute Query
         $qrySPDX_Doc = mysql_query($query);
@@ -72,7 +72,7 @@
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
 
-        $query = "SELECT spdx_id,
+        $query = "SELECT spdx_pk,
                          document_name,
                          created_date
                   FROM spdx_file ";
@@ -139,19 +139,21 @@
         return $qrySpdxList;
 
     }
-    function updateSPDX_Doc($spdx_doc_id, $document_comment = "", $spdx_version = "", $data_license = "") {
+    
+    function updateSPDX_Doc($spdx_doc_id, $document_comment = "", $spdx_version = "", $data_license = "", $creator = "", $creator_comment = "") {
         //Create Database connection
         include("Data_Source.php");
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
 
         //Query
-        $sql  = "UPDATE spdx_docs 
-                SET document_comment= '" . $document_comment . "', 
-                    spdx_version = '" . $spdx_version ."', 
+        $sql  = "UPDATE spdx_file 
+                SET document_comment = '" . $document_comment . "', 
+                    version = '" . $spdx_version ."', 
                     data_license = '" . $data_license . "', 
-                    updated_at = now() 
-                WHERE id =" . $spdx_doc_id;
+                    creator = '" . $creator . "', 
+                    creator_comment = '" . $creator_comment . "' 
+                WHERE spdx_pk = " . $spdx_doc_id;
 
         //Execute Query
         $qryUpdateDoc = mysql_query($sql);

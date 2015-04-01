@@ -5,7 +5,7 @@
     	if (preg_match('/' . "(?P<name><spdx:referencesFile.*<\/spdx:referencesFile>)" . '/s', $myFile, $matches)) {
 			$myString = $matches[1] ?: NULL;
 		}		
-		echo $myString;
+
 		$fileArray = array(
 			$filename = "",
 			$filetype = "",
