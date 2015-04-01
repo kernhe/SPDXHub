@@ -64,9 +64,11 @@
 </style>
 <script src="js/Chart.js"></script>
 <script>
-    $(document).on('click','#edit_doc', function() {
-        $('.edit').show();
-        $('.view').hide();
+    $(document).ready(function() {
+    	$("#edit_doc").click(function () {
+    		$('.edit').show();
+        	$('.view').hide();
+        });
     });
 </script>
 <div class="container">
