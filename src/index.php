@@ -51,12 +51,11 @@
 
 </div>
         
-<div id="container">
+<div id="container" class="container">
  	<div class="col-xs-12">	 
        
     <table id="mytablesorter" class=" table display">
-      
-      <thead>
+
         <tr>
           <th>#</th>
           <th>Document Name</th>
@@ -65,9 +64,6 @@
           <th>Licences</th>
           <th>Action</th>
         </tr>
-      </thead>  
-
-      <tbody>
         <?php
           $count = 0;
 		
@@ -76,7 +72,7 @@
           while($row = mysql_fetch_assoc($result)) {
             echo '<tr>';
 	          echo     '<td>';
-            echo       $count+1;
+            echo        '<p>';++$count;'</p>';
             echo     '</td>';
             echo     '<td>';
             echo         '<a href="spdx_doc.php?doc_id=' . $row['spdx_pk'] . '">' . $row['document_name'] . '</a>';
@@ -97,11 +93,10 @@
             echo         '</div>';
             echo     '</td>';
             echo '</tr>';
-
-            $count++;
+            ++$count;
           }
+
         ?>
-      </tbody>
 
     </table>
   </div>     
@@ -111,28 +106,26 @@
 <?php include("function/_footer.php"); ?>
 
 <script>
-			$("#toggleTable").hide();
-			$(document).ready(function(){
-				$("#moreOptions").click(function(){
-					$("#toggleTable").toggle();
-				});
+	$("#toggleTable").hide();
+	$(document).ready(function(){
+		$("#moreOptions").click(function(){
+			$("#toggleTable").toggle();
+		});
 
-			});
-			
+	});
+	
 
-$( ".LicenseListDropDown" )
-  .change(function () {
-    var str = "";
-    $( "select option:selected" ).each(function() {
-      str += $( this ).val() + " ";
-    });
-    $( "#identifier" ).text( str );
-  })
-  .change();
-</script>
-<script>
-function myFunction() {
-    var x = document.getElementById("myBtn").value;
-    document.getElementById("demo").innerHTML = x;
-}
+  $( ".LicenseListDropDown" )
+    .change(function () {
+      var str = "";
+      $( "select option:selected" ).each(function() {
+        str += $( this ).val() + " ";
+      });
+      $( "#identifier" ).text( str );
+    }).change();
+
+  function myFunction() {
+      var x = document.getElementById("myBtn").value;
+      document.getElementById("demo").innerHTML = x;
+  }
 </script>
