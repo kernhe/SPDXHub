@@ -11,32 +11,19 @@
 			
 <div class="container" >
 
-  <div class="col-xs-12 blue-bord">
-    
-    <h4 class="search-header">Search by Licence</h4>
-    <select class="LicenseListDropDown" name="charset">
-      <option value="(license identifier)" selected="selected">license name</option>
-      <?php
-     	$resultlist = getSPDX_LicenseList();
-    		while($row = mysql_fetch_assoc($resultlist)) {
-          echo '<option value="' . $row['license_identifier'] . '">';
-          echo $row['license_fullname'];
-          echo '</option>';
-  	 		 }
-      ?>
-    </select>                     
-      
-    <div><strong>Identifier</strong></div>
-    <div id="identifier">Identifier</div> 
-
+  <div class="col-xs-12 blue-bord" style="height: 50px">
+    <p>Search bar need to go here</p> 
   </div>
   <div class="col-xs-12 blue-bord">
     
     <h4 class="search-header"> <!-- id="moreOptions"  -->Advanced Search</h4>
   </div>
 
-  <div class="col-xs-6 red-bord">
-
+  <div class="col-xs-12 col-md-6 red-bord">
+    
+    <div><strong>Identifier</strong></div>
+    <div id="identifier">Identifier</div> 
+    
     <select class="LicenseListDropDown" name="charset">
       <option value="(license identifier)" selected="selected">license name</option>
       <?php
@@ -47,14 +34,10 @@
           echo '</option>';
          }
       ?>
-    </select>                     
-       
-    <div><strong>Identifier</strong></div>
-    <div id="identifier">Identifier</div> 
-
+    </select>                
   </div>
 
-  <div class="col-xs-6 red-bord">
+  <div class="col-xs-12 col-md-6  red-bord">
     <form>
       <h5>Licences</h5>
       <!-- <label for="uri-charset"><strong>Licences</strong></label> -->
