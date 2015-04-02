@@ -121,11 +121,11 @@
             </tbody>
             <thead>
                 <tr>
-                    <th colspan=2>Creation Information</th>
+                    <th colspan=2 id = "CreatingInfo">Creation Information</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id = "CreatingInfoContent">
+                <tr >
                     <td title="Who created this SPDX document.">Creator</td>
                     <td class="edit" style="display:none;">
                         <textarea name="creator" class='form-control'><?php echo $doc["creator"]; ?></textarea>
@@ -150,10 +150,10 @@
             </tbody>
             <thead>
                 <tr>
-                    <th colspan=2>Package Information</th>
+                    <th colspan=2 id="PackInfo">Package Information</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="PackInfoContent">
                 <tr>
                     <td title="Name of the package this SPDX document was created for.">Package Name</td>
                     <td class="edit" style="display:none;">
@@ -239,10 +239,10 @@
             </tbody>
             <thead>
                 <tr>
-                    <th colspan=2>Files</th>
+                    <th colspan=2 id="tfiles">Files</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tfilesContent">
                     <tr>
             <td colspan="2">
                     <?php

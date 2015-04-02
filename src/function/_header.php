@@ -55,7 +55,18 @@ limitations under the License.
 		
 				});
 		});
-
+		// hide / show toggler for subparts in spdx_doc page
+		$(document).ready(function(){
+			$("#CreatingInfo").click(function(){
+				$("#CreatingInfoContent").slideToggle();
+			});
+			$("#PackInfo").click(function(){
+				$("#PackInfoContent").slideToggle();
+			});
+			$("#tfiles").click(function(){
+				$("#tfilesContent").slideToggle();
+			});
+		});
 		</script>
    </head>
     
