@@ -13,10 +13,9 @@
 
   <div class="col-xs-12">
     
-    <h3>License name</h3>
-    
+    <h4 class="search-header">Search by Licence</h4>
     <select class="LicenseListDropDown" name="charset">
-      <option value="(license identifier)" selected="selected">(license names)</option>
+      <option value="(license identifier)" selected="selected">license name</option>
       <?php
      	$resultlist = getSPDX_LicenseList();
     		while($row = mysql_fetch_assoc($resultlist)) {
@@ -27,16 +26,20 @@
       ?>
     </select>                     
       
-    <div align="center"><strong>Identifier</strong></div>
-    <div id="identifier">Identifier</div>
+    <!--<div><strong>Identifier</strong></div>
+    <div id="identifier">Identifier</div> --> <!-- WHAT IS THIS ? -->
   </div>
 
   <div class="col-xs-12">
     
-    <h3 id="moreOptions"><!-- <img src="images/arrow-closed.png" /> -->Advanced Search</h3>
+    <h4 id="moreOptions" class="search-header">
+      <img src="images/arrow-closed.png" />
+      Advanced Search
+    </h4>
     
-    <div id="toggleTable">
-      <label for="uri-charset"><strong>Licences</strong></label>
+    <form id="toggleTable">
+      <h5>Licences </h5>
+      <!-- <label for="uri-charset"><strong>Licences</strong></label> -->
 
       <input id="" name="outline" type="checkbox" value="1" />
       <label title="SPDX approved" for="">SPDX approved</label>
@@ -46,25 +49,33 @@
 
       <input id="uri-verbose2" name="" type="checkbox" value="1" />
       <label title="Not in SPDX list" for="">Not in SPDX list</label>
-    </div>
+    </form>
   </div>
 
 </div>
+
+<div class="container">
+  <div class="col-xs-12">  
+    
+  </div>
+</div>
         
-<div id="container" class="container">
+<div class="container">
  	<div class="col-xs-12">	 
        
-    <table id="mytablesorter" class=" table display">
-
-        <tr>
-          <th>#</th>
-          <th>Document Name</th>
-          <th>Created on</th>
-          <th>Last updated</th>
-          <th>Licences</th>
-          <th>Action</th>
-        </tr>
-        
+    <table id="mytablesorter" class="table display">
+        <thead> 
+          <tr>
+            <th>#</th>
+            <th>Document Name</th>
+            <th>Created on</th>
+            <!-- <th>Last updated</th> -->
+            <th>Licences</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+  
+        <tbody>
         <?php
           
           $count = 0;
@@ -81,9 +92,6 @@
             echo     '<td>';
             echo         date('m/d/Y', strtotime($row['created_date'])); 
             echo     '</td>';
-	          echo     '<td>';
-            echo         date('m/d/Y', strtotime($row['created_date'])); 
-            echo     '</td>';
             echo     '<td>';
             echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
             echo     '</td>';
@@ -98,7 +106,7 @@
           }
 
         ?>
-
+        </tbody>
     </table>
 
 

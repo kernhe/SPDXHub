@@ -17,8 +17,12 @@
     background-color: black;
 }
 
+.search-header {
+	font-size: 20px;
+	border-bottom: solid 1px grey;
+}
 
-table.tablesorter {
+/*table.tablesorter {
 	font-family:arial;
 	background-color: #CDCDCD;
 	margin:10px 0pt 15px;
@@ -56,4 +60,4 @@ table.tablesorter thead tr .headerSortDown {
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 background-color: #8dbdd8;
 }
-
+*/
