@@ -58,24 +58,33 @@ limitations under the License.
 
 		</script>
    </head>
-    <body>
-        
-        <div class="navbar navbar-default navbar-static-top">
-            <div class="navbar-inner">
-               <div class="container-fluid">
-                   <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                       <span class="icon-bar"></span>
-                    </a>
-                    <div class="container-fluid nav-collapse">
-                        <ul class="nav">
-                     	<li><a class="navbar-brand" href="index.php">Home</a></li>
-                     	<li><a class="navbar-brand" href="https://fossologyspdx.ist.unomaha.edu/" target="_blank">Fossology+SPDX</a></li>
-                     	<li><a class="navbar-brand" href="About.php">About</a></li>   
-                     	<li><a class="navbar-brand navbar-upload" href="upload.php">Upload</a></li>   
-                        </ul>
-                    </div>
-                </div>
+    
+
+<body>
+    <header class="navbar navbar-default navbar-fixed-top bs-docs-nav" id="top" role="banner" > 
+        <!-- class="navbar navbar-static-top bs-docs-nav" id="top" role="banner" -->
+        <!-- class="navbar navbar-default navbar-fixed-top" -->
+        <div class="container">
+            
+            <div class="navbar-header">
+              <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
             </div>
+
+            <nav class="collapse navbar-collapse bs-navbar-collapse">
+                <ul class="nav navbar-nav">
+                 	<li><a href="index.php">Home</a></li>
+                 	<li><a href="https://fossologyspdx.ist.unomaha.edu/" target="_blank">Fossology+SPDX</a></li>
+                 	<li><a href="About.php">About</a></li>   
+                    <li><a class="btn btn-default navbar-upload" role="button" href="upload.php">Upload</a></li> 
+                </ul>
+            </nav>
+            <!-- <div class="pull-right">
+                <a class="btn btn-default navbar-upload" role="button" href="upload.php">Upload</a>
+            </div> -->
         </div>
+    </header>
