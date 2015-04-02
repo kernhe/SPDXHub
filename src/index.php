@@ -64,9 +64,10 @@
           <th>Licences</th>
           <th>Action</th>
         </tr>
+        
         <?php
+          
           $count = 0;
-		
 		      $result = getSPDX_DocList($name);
 		
           while($row = mysql_fetch_assoc($result)) {
@@ -99,6 +100,8 @@
         ?>
 
     </table>
+
+
   </div>     
 </div>
  
