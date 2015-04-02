@@ -1,4 +1,5 @@
 <?php
+	$title = "Drill Down";
     include("function/_header.php");
     include("function/spdx_doc.php");
     include("function/creator.php");

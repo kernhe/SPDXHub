@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `relationship` (
 --
 
 CREATE TABLE IF NOT EXISTS `spdx_annotations_create` (
-  `annotator_info_pk` int(11) NOT NULL DEFAULT '0',
+  `annotator_info_pk` int(11) AUTO_INCREMENT,
   `annotator` text NOT NULL,
   `annotator_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `annotator_type` text NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `spdx_extracted_lic_info` (
 --
 
 CREATE TABLE IF NOT EXISTS `spdx_file` (
-  `spdx_pk` int(11) NOT NULL DEFAULT '0',
+  `spdx_pk` int(11) AUTO_INCREMENT,
   `spdx_id` text NOT NULL,
   `version` text NOT NULL,
   `data_license` text NOT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `spdx_file` (
 --
 
 CREATE TABLE IF NOT EXISTS `spdx_file_info` (
-  `file_info_pk` int(11) NOT NULL DEFAULT '0',
+  `file_info_pk` int(11) AUTO_INCREMENT,
   `fspdx_id` text NOT NULL,
   `filename` text,
   `filetype` text,
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `spdx_file_info` (
 --
 
 CREATE TABLE IF NOT EXISTS `spdx_license_list_insert` (
-  `license_list_pk` int(30) NOT NULL,
+  `license_list_pk` int(30) AUTO_INCREMENT,
   `license_identifier` varchar(50) NOT NULL,
   `license_fullname` varchar(100) NOT NULL,
   `license_matchname_1` varchar(30) NOT NULL,
@@ -478,7 +478,7 @@ INSERT INTO `spdx_license_list_insert` (`license_list_pk`, `license_identifier`,
 --
 
 CREATE TABLE IF NOT EXISTS `spdx_package_info` (
-  `package_info_pk` int(11) NOT NULL DEFAULT '0',
+  `package_info_pk` int(11) AUTO_INCREMENT,
   `pfile_fk` int(11) NOT NULL,
   `name` text NOT NULL,
   `pspdx_id` text NOT NULL,
@@ -518,7 +518,7 @@ CREATE TABLE IF NOT EXISTS `spdx_package_info` (
 --
 
 CREATE TABLE IF NOT EXISTS `spdx_relationships_create` (
-  `relationships_info_pk` int(11) NOT NULL DEFAULT '0',
+  `relationships_info_pk` int(11) AUTO_INCREMENT,
   `relationship` text NOT NULL,
   PRIMARY KEY (`relationships_info_pk`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -535,7 +535,7 @@ CREATE TABLE IF NOT EXISTS `spdx_relationships_create` (
 --
 
 CREATE TABLE IF NOT EXISTS `spdx_relationships_docs` (
-  `relationships_info_pk` int(11) NOT NULL DEFAULT '0',
+  `relationships_info_pk` int(11) AUTO_INCREMENT,
   `rspdx1_id` text NOT NULL,
   `rspdx2_id` text NOT NULL,
   `relationship_comment` text NOT NULL,
@@ -555,7 +555,7 @@ CREATE TABLE IF NOT EXISTS `spdx_relationships_docs` (
 --
 
 CREATE TABLE IF NOT EXISTS `spdx_relationship_insert` (
-  `relationship_id_pk` int(10) NOT NULL,
+  `relationship_id_pk` int(10) AUTO_INCREMENT,
   `relationship_type` varchar(50) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`relationship_id_pk`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
