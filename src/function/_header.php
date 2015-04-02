@@ -61,6 +61,13 @@ limitations under the License.
     
 
 <body>
+    <!-- 
+
+
+    Please leave header as is for now. I need to figure out how to make the navigation work correctly. 
+
+
+     -->
     <header class="navbar navbar-default navbar-fixed-top bs-docs-nav" id="top" role="banner" > 
         <!-- class="navbar navbar-static-top bs-docs-nav" id="top" role="banner" -->
         <!-- class="navbar navbar-default navbar-fixed-top" -->
