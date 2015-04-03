@@ -1,5 +1,5 @@
 <?php
-	function getCreator($myFile, $docFile, $filePath, $ID){
+	function getCreator($myFile, $docFile, $fileType, $ID){
     	// CREATOR
     	if (preg_match('/' . "(?P<name><spdx:CreationInfo>.*<\/spdx:CreationInfo>)" . '/s', $myFile, $matches)) {
 			$myString = $matches[1] ?: NULL;
@@ -27,11 +27,11 @@
 			'rdf' => $rdf_regex,
 		);
     	
-    	for($x = 0; $x < sizeof($regex['rdf']); $x++){ 
+    	for($x = 0; $x < sizeof($regex[$fileType]); $x++){ 
     		if ($regex['rdf'][$x] == NULL){
     			continue;
     		}
-    		if (preg_match('/' . $regex['rdf'][$x] . '/', $myString, $matches)) {
+    		if (preg_match('/' . $regex[$fileType][$x] . '/', $myString, $matches)) {
 		  		$creatorArray[$x] = $matches[1] ?: NULL;
 			}
 		}

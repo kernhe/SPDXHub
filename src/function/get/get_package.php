@@ -1,5 +1,5 @@
 <?php
-    function getPackage($myFile, $docFile, $filePath, $docID){
+    function getPackage($myFile, $docFile, $fileType, $docID){
     	// PACKAGE
     	
     	$myString = "";
@@ -59,15 +59,42 @@
 			$spdx_fk = NULL,
 		);
 		
+		$tag_regex = array(
+			$name = NULL,
+			$pspdx_id = NULL,
+			$version = NULL,
+			$filename = NULL,
+			$supplier = NULL,
+			$originator = NULL,
+			$download_location = NULL,
+			$checksum = NULL,
+			$verificationcode = NULL,
+			$home_page = NULL,
+			$source_Information = NULL,
+			$source_info = NULL,
+			$license_declared =NULL,
+			$license_concluded = NULL,
+			$license_info_from_files = NULL,
+			$license_comment = NULL,
+			$package_copyright_text = NULL,
+			$summary = NULL,
+			$description = NULL,
+			$summary_description = NULL,
+			$package_detailed_description = NULL,
+			$package_comment = NULL,
+			$spdx_fk = NULL,
+		);
+		
 		$regex = array(
 			'rdf' => $rdf_regex,
+			'tag' => $tag_regex,
 		);
 
-    	for($x = 0; $x < sizeof($regex['rdf']); $x++){ 
+    	for($x = 0; $x < sizeof($regex[$fileType]); $x++){ 
     		if ($regex['rdf'][$x] == NULL){
     			continue;
     		}
-    		if (preg_match('/' . $regex['rdf'][$x] . '/', $myString, $matches)) {
+    		if (preg_match('/' . $regex[$fileType][$x] . '/', $myString, $matches)) {
 		  		$packageArray[$x] = $matches[1] ?: NULL;
 			}
 		}

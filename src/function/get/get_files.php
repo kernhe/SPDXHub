@@ -1,5 +1,5 @@
 <?php
-    function getFiles($myFile, $docFile, $filePath, $docID, $packageID){	
+    function getFiles($myFile, $docFile, $docID, $packageID){	
 		//FILES
     	$myString = "";
     	if (preg_match('/' . "(?P<name><spdx:referencesFile.*<\/spdx:referencesFile>)" . '/s', $myFile, $matches)) {
