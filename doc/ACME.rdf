@@ -69,7 +69,7 @@
 
         <spdx:copyrightText> Copyright 2014, Acme</spdx:copyrightText>
 
-        <spdx:licenseComments></spdx:licenseComments>
+        <spdx:licenseComments>TEST</spdx:licenseComments>
 
         <spdx:licenseInfoInFile rdf:resource="http://spdx.org/licenses/MIT"/>
 
@@ -95,12 +95,9 @@
 
     </spdx:referencesFile>
 
+
+
     <spdx:referencesFile>
-
-
-
-
-
 
       <spdx:File rdf:ID="SPDXRef-2">
 
@@ -131,6 +128,8 @@
       </spdx:File>
 
     </spdx:referencesFile>
+
+    
 
     <spdx:referencesFile>
 

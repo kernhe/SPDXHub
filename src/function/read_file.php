@@ -1,10 +1,19 @@
 <?php
     function upload_file($filePath, $docFile) {
 		$file = file_get_contents($filePath);
-		match_doc($file, $docFile, $filePath);
+		if (preg_match('/' . ".*\.(?P<name>.*?)$" . '/', $docFile, $matches)) {
+			$fileType = $matches[1] ?: NULL;
+			$fileType = preg_replace('/[A-Z]/', '/[a-z]/', $fileType);
+		}
+		if ($fileType == 'rdf' | $fileType == 'tag'){
+			match_doc($file, $docFile, $fileType);
+			return 1;
+		} else{
+			return 0;
+		}
     }
     
-    function match_doc($myString, $docFile, $filePath){
+    function match_doc($myString, $docFile, $fileType){
     	include("Data_Source.php");
     	include ("get/get_package.php");
     	include ("get/get_files.php");
@@ -20,7 +29,8 @@
         
         
         // Get SPDX Query
-        $sql  = getSPDX($myString, $docFile, $filePath);
+        $sql  = getSPDX($myString, $docFile, $fileType);
+        if ($sql == NULL){exit;}
         
         //Execute SPDX Query
 		if (mysql_query($sql)){
@@ -29,10 +39,21 @@
    		 	echo "Error: " . mysql_error();
    		 	$docID = NULL;
 		}
+		
+        // Get Creators
+        $sql  = getCreator($myString, $docFile, $fileType, $docID);
+        if ($sql == NULL){exit;}
+        
+        //Execute SPDX Query
+		if (mysql_query($sql)){
+		} else {
+   		 	echo "Error: " . mysql_error();
+		}
         
      
         // Get Package Query
-        $sql  = getPackage($myString, $docFile, $filePath, $docID);
+        $sql  = getPackage($myString, $docFile, $fileType, $docID);
+        if ($sql == NULL){exit;}
         
         //Execute Package Query
 		if (mysql_query($sql)){
@@ -43,7 +64,8 @@
 		}
 		
 		// Get File Query
-        $sql  = getFiles($myString, $docFile, $filePath, $docID, $packageID);
+        $sql  = getFiles($myString, $docFile, $fileType, $docID, $packageID);
+        if ($sql == NULL){exit;}
         
         //Execute File Query
 		if (mysql_query($sql)){
