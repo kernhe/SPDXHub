@@ -35,7 +35,7 @@
 		
 		$rdf_regex = array(
 			$name = "<spdx:name>(?P<name>.*?)<\/spdx:name>",
-			$pspdx_id = "<Package.*?ID=\"(?P<name>.*?)\".*>",
+			$pspdx_id = "<spdx:Package.*?ID=\"(?P<name>.*?)\".*>",
 			$version = "<spdx:versionInfo>(?P<name>.*?)<\/spdx:versionInfo>",
 			$filename = "<spdx:packageFileName>(?P<name>.*?)<\/spdx:packageFileName>",
 			$supplier = "<spdx:supplier>(?P<name>.*?)<\/spdx:supplier>",
