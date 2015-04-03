@@ -33,7 +33,7 @@
 			$license_comment = "<spdx:licenseComments>(?P<name>.*?)<\/spdx:licenseComments>",
 			$file_copyright_text = "<spdx:copyrightText>(?P<name>.*?)<\/spdx:copyrightText>",
 			$artifact_of_project = "<doap:name>(?P<name>.*?)<\/doap:name>",
-			$artifact_of_homepage = "<doap:homepage rdf:resource="(?P<name>.*?)"\/>"
+			$artifact_of_homepage = "<doap:homepage rdf:resource=\"(?P<name>.*?)\"\/>",
 			$artifact_of_url = NULL,
 			$file_comment = "<rdfs:comment>(?P<name>.*?)<\/rdfs:comment>",
 			$file_notice = "<noticeText>(?P<name>.*?)<\/noticeText>",
