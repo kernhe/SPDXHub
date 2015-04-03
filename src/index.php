@@ -3,42 +3,43 @@
     include("function/_header.php");
     include("function/spdx_doc.php");
     $name = "";
-
-    if(array_key_exists('document_name',$_POST)) {
-    	$name = $_POST['document_name'];
+    if(array_key_exists('doc_name',$_POST)) {
+    	$name = $_POST['doc_name'];
     }
 ?>
 			
 <div class="container" >
 
-  <div class="col-xs-12">
+  <div class="col-xs-12 blue-bord" style="height: 50px">
+    <form action="index.php" method="post" >
+            		<input type="text" class="" size="150" tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
+            		<button type="submit" class="btn pull-right">Search</button>
+            	</form>
+  </div>
+  <div class="col-xs-12 blue-bord">
     
-    <h4 class="search-header">Search by Licence</h4>
+    <h4 class="search-header">Advanced Search</h4>
+  </div>
+
+  <div class="col-xs-12 col-md-6 red-bord">
+    
     <select class="LicenseListDropDown" name="charset">
       <option value="(license identifier)" selected="selected">license name</option>
       <?php
-     	$resultlist = getSPDX_LicenseList();
-    		while($row = mysql_fetch_assoc($resultlist)) {
+      $resultlist = getSPDX_LicenseList();
+        while($row = mysql_fetch_assoc($resultlist)) {
           echo '<option value="' . $row['license_identifier'] . '">';
           echo         $row['license_fullname'];
           echo '</option>';
-  	 		 }
+         }
       ?>
-    </select>                     
-      
-    <!--<div><strong>Identifier</strong></div>
-    <div id="identifier">Identifier</div> --> <!-- WHAT IS THIS ? -->
-  </div>
+    </select>                
+  </div><div><strong>Identifier</strong></div>
+    <div id="identifier">Identifier</div> 
 
-  <div class="col-xs-12">
-    
-    <h4 id="moreOptions" class="search-header">
-      <img src="images/arrow-closed.png" />
-      Advanced Search
-    </h4>
-    
-    <form id="toggleTable">
-      <h5>Licences </h5>
+  <div class="col-xs-12 col-md-6  red-bord">
+    <form>
+      <h5>Licences</h5>
       <!-- <label for="uri-charset"><strong>Licences</strong></label> -->
 
       <input id="" name="outline" type="checkbox" value="1" />
@@ -51,7 +52,7 @@
       <label title="Not in SPDX list" for="">Not in SPDX list</label>
     </form>
   </div>
-
+ 
 </div>
 
 <div class="container">
@@ -79,7 +80,7 @@
         <?php
           
           $count = 0;
-		      $result = getSPDX_DocList($name);
+		  $result = getSPDX_DocList($name);
 		
           while($row = mysql_fetch_assoc($result)) {
             echo '<tr>';
@@ -104,7 +105,6 @@
             echo '</tr>';
             ++$count;
           }
-
         ?>
         </tbody>
     </table>
@@ -117,15 +117,6 @@
 <?php include("function/_footer.php"); ?>
 
 <script>
-	$("#toggleTable").hide();
-	$(document).ready(function(){
-		$("#moreOptions").click(function(){
-			$("#toggleTable").toggle();
-		});
-
-	});
-	
-
   $( ".LicenseListDropDown" )
     .change(function () {
       var str = "";
@@ -134,9 +125,4 @@
       });
       $( "#identifier" ).text( str );
     }).change();
-
-  function myFunction() {
-      var x = document.getElementById("myBtn").value;
-      document.getElementById("demo").innerHTML = x;
-  }
 </script>
