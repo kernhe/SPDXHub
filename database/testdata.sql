@@ -43,11 +43,21 @@ INSERT INTO `spdx_file_info` (`file_info_pk`,`filename`,`filetype`,`file_copyrig
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
 
-INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1001, 34, "Beerware", "Beerware License", NOW());
-INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1002, 170, "JSON", "JSON License", NOW());
-INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1003, 189, "MIT", "MIT License", NOW());
-INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1004, 189, "MIT", "MIT License", NOW());
-INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1004, 21, "Apache-2.0", "Apache License 2.0", NOW());
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1001, 34, "Beerware", "Beerware License", NOW());
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1002, 170, "JSON", "JSON License", NOW());
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1003, 189, "MIT", "MIT License", NOW());
+
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1004, 189, "MIT", "MIT License", NOW());
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1005, 21, "Apache-2.0", "Apache License 2.0", NOW());
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1006, 34, "Beerware", "Beerware License", NOW());
+
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1007, 170, "JSON", "JSON License", NOW());
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1008, 189, "MIT", "MIT License", NOW());
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1009, 189, "MIT", "MIT License", NOW());
+
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1010, 21, "Apache-2.0", "Apache License 2.0", NOW());
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1011, 34, "Beerware", "Beerware License", NOW());
+INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`license_identifier`,`license_fullname`, `created_at`) VALUES (1012, 170, "JSON", "JSON License", NOW());
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
