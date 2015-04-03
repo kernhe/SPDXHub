@@ -16,18 +16,17 @@
 
 
   <div class="col-xs-12 col-md-6 red-bord">
-	<form action="index.php" method="post" >
-            		<input type="text" class="" size="60" tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php 		echo $name; ?>" name="doc_name"/>
-            		<button type="submit" class="btn pull-right">Search</button>
-            	</form>
+       <form action="index.php" method="post" >
+    		<input type="text" class="" size="60" tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php 		echo $name; ?>" name="doc_name"/>
+    		<button type="submit" class="btn pull-right">Search</button>
+    	</form>
   </div>
+  
   <div class="col-xs-12 blue-bord">
-    
     <h4 class="search-header">Advanced Search</h4>
   </div>
 
-  <div class="col-xs-12 col-md-6 red-bord">
-    
+  <div class="col-xs-12 col-md-6 red-bord">   
     <h6>Identifier</strong></h6>
     <div id="identifier">Identifier</div> 
     
@@ -43,9 +42,8 @@
       ?>
     </select>                
 
-  </div><div><strong>Identifier</strong></div>
+    <div><strong>Identifier</strong></div>
     <div id="identifier">Identifier</div> 
-
   </div>
 
 
