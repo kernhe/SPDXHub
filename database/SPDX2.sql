@@ -112,6 +112,19 @@ CREATE TABLE IF NOT EXISTS `spdx_file` (
 
 -- --------------------------------------------------------
 
+CREATE TABLE IF NOT EXISTS `spdx_license_associations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `spdx_pk` int(11) NOT NULL,
+  `license_list_pk` int(11) NOT NULL,
+  `license_identifier` varchar(255) NOT NULL,
+  `license_fullname` varchar(255) NOT NULL,
+  `license_comments` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`spdx_pk`) REFERENCES spdx_file(`spdx_pk`),
+  FOREIGN KEY (`license_list_pk`) REFERENCES spdx_license_list_insert(`license_list_pk`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 --
 -- Table structure for table `spdx_file_info`
 --

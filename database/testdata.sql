@@ -43,13 +43,11 @@ INSERT INTO `spdx_file_info` (`file_info_pk`,`filename`,`filetype`,`file_copyrig
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
 
-INSERT INTO `spdx_extracted_lic_info` (`identifier`,`spdx_fk`) VALUES (1, 1001);
-
-INSERT INTO `spdx_extracted_lic_info` (`identifier`,`spdx_fk`) VALUES (2, 1002);
-
-INSERT INTO `spdx_extracted_lic_info` (`identifier`,`spdx_fk`) VALUES (3, 1003);
-
-INSERT INTO `spdx_extracted_lic_info` (`identifier`,`spdx_fk`) VALUES (4, 1004);
+INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`) VALUES (1001, 34, "Beerware", "Beerware License");
+INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`) VALUES (1002, 170, "JSON", "JSON License");
+INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`) VALUES (1003, 189, "MIT", "MIT License");
+INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`) VALUES (1004, 189, "MIT", "MIT License");
+INSERT INTO `spdx_license_associations` (`spdx_pk`,`license_list_pk`,`license_identifier`,`license_fullname`) VALUES (1004, 21, "Apache-2.0", "Apache License 2.0");
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
