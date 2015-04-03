@@ -18,7 +18,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `spdx`
 --
-
+CREATE DATABASE IF NOT EXISTS `SPDX`;
+USE `SPDX`;
 -- --------------------------------------------------------
 
 --
