@@ -96,8 +96,8 @@
 		
 		public function printTreeNew($n){
 	        	
-			//$html = '<li><a>'.$n->getValue().'</a>';
-		    //if($n != null){
+			$html = '<li><a>'.$n->getValue().'</a>';
+		    if($n != null){
 			    if($n->hasChildNodes()){
 					$html = '<li><a>'.$n->getValue().'</a>';
 					$html = $html.'<ul>';
@@ -111,10 +111,10 @@
 				   }//end foreach
 				   $html = $html.'</ul></li>';
 				}else{
-					//$html = $html.'</li>';
-					$html = '<li>'.$n->getValue().'</li>';
+					$html = $html.'</li>';
+					//$html = '<li>'.$n->getValue().'</li>';
 				}
-			//}
+			}
 			
 			return $html;
 		}

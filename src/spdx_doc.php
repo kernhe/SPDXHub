@@ -252,7 +252,7 @@
                         while($row = mysql_fetch_assoc($files)) {
                             $all_files[$row['relative_path']]=$row['id'];
                             $file_licenses[$row['relative_path']]['license_id'] = $row['license_id'];
-                            $file_licenses[$row['relative_path']]['license_name'] = $row['license_name'];
+                            $file_licenses[$row['relative_path']]['licensename'] = $row['licensename'];
                         }
                         
                         $mAllTrees = array();
@@ -277,14 +277,14 @@
                                }
                                $tree->addFileToPath($path,
                                                     $fileName . ' - <a href="file.php?file_id=' . $all_files[$file]. '&doc_id=' . $spdxId . '">View File Details</a> - ' .
-                                                        $file_licenses[$file]['license_name'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_id'] . '&doc_id=' . $spdxId . '">View License Details</a>',
+                                                        $file_licenses[$file]['licensename'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_id'] . '&doc_id=' . $spdxId . '">View License Details</a>',
                                                     $all_files[$file]);
                             }
                             else{
                                 $tree = new Tree();
                                 $tree->setSpdxId($spdxId);
                                 $tree->createNode($file . ' - <a href="file.php?file_id=' . $all_files[$file]. '&doc_id=' . $spdxId . '">View File Details</a> - ' . 
-                                        $file_licenses[$file]['license_name'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_id'] . '&doc_id=' . $spdxId . '">View License Details</a>'
+                                        $file_licenses[$file]['licensename'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_id'] . '&doc_id=' . $spdxId . '">View License Details</a>'
                                                   ,null);
                                 $tree->addFieldId($file,$all_files[$file]);
                                 $mAllTrees[$file] = $tree;
@@ -329,7 +329,7 @@
        <?php while($row = mysql_fetch_assoc($licCounts)):?>
             {
                 value: <?php echo $row['numLicenses']; ?>,
-                label: "<?php echo str_replace(array("\r\n", "\n", "\r"), '', $row['license_name']); ?>",
+                label: "<?php echo str_replace(array("\r\n", "\n", "\r"), '', $row['licensename']); ?>",
                 color: getRandomColor(),
                 highlight: '#D8D8D8'
             }

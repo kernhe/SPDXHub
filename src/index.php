@@ -1,4 +1,3 @@
-		
 <div class="container" >
 
   <div class="col-xs-12 blue-bord" style="height: 50px">
@@ -43,8 +42,6 @@
       ?>
     </select>                
 
-  </div><div><strong>Identifier</strong></div>
-    <div id="identifier">Identifier</div> 
 
   </div>
 
@@ -76,7 +73,7 @@
 <div class="container">
  	<div class="col-xs-12">	 
        
-    <table id="mytablesorter" class="table display">
+    <table id="tablesorter" class="table display">
         <thead> 
           <tr>
             <th>#</th>
@@ -91,33 +88,31 @@
         <tbody>
         <?php
           
-          $count = 0;
-		  $result = getSPDX_DocList($name);
-		
-          while($row = mysql_fetch_assoc($result)) {
-            echo '<tr>';
-	          echo     '<td>';
-            echo        '<p>';++$count;'</p>';
-            echo     '</td>';
-            echo     '<td>';
-            echo         '<a href="spdx_doc.php?doc_id=' . $row['spdx_pk'] . '">' . $row['document_name'] . '</a>';
-            echo     '</td>';
-            echo     '<td>';
-            echo         date('m/d/Y', strtotime($row['created_date'])); 
-            echo     '</td>';
-            echo     '<td>';
-            echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
-            echo     '</td>';
-            echo     '<td>';
-            echo         '<div>';
-            echo             '<button type="button" class="btn" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['spdx_pk'] . '\'">View Details</button>';
-            echo             '<button type="button" class="btn">Download</button>'; 
-            echo         '</div>';
-            echo     '</td>';
-            echo '</tr>';
-            ++$count;
-          }
-        ?>
+          $result = getSPDX_DocList($name);
+                    while($row = mysql_fetch_assoc($result)) {
+                        echo '<tr>';
+                        echo     '<td>';
+                        echo         $row['spdx_pk'];
+                        echo     '</td>';
+                        echo     '<td>';
+                        echo         '<a href="spdx_doc.php?doc_id=' . $row['spdx_pk'] . '">' . $row['document_name'] . '</a>';
+                        echo     '</td>';
+                        echo     '<td>';
+                        echo         date('m/d/Y', strtotime($row['created_date'])); 
+                        echo     '</td>';
+						echo     '<td>';
+						echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
+						echo     '</td>';
+                        echo     '<td style="text-align:right;">';
+                        echo         '<div>';
+                        echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['spdx_pk'] . '&format=RDF&doc_name=' . $row['document_name'] . '\',\'_blank\');">Download RDF</button>';
+                        echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['spdx_pk'] . '&format=TAG&doc_name=' . $row['document_name'] . '\',\'_blank\');">Download TAG</button>';
+                        echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['spdx_pk'] . '&format=JSON&doc_name=' . $row['document_name'] . '\',\'_blank\');">Download JSON</button>';
+                        echo         '</div>';
+                        echo     '</td>';
+                        echo '</tr>';
+                    }
+                ?>
         </tbody>
     </table>
 
@@ -129,18 +124,8 @@
 <?php include("function/_footer.php"); ?>
 
 <script>
-<<<<<<< HEAD
-=======
-	// $("#toggleTable").hide();
-	// $(document).ready(function(){
-	// 	$("#moreOptions").click(function(){
-	// 		$("#toggleTable").toggle();
-	// 	});
 
-	// });
-	
 
->>>>>>> d971b8edb0330bee00d703f456cba9afaba4cf94
   $( ".LicenseListDropDown" )
     .change(function () {
       var str = "";
