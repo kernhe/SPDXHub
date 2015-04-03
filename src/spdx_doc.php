@@ -137,10 +137,6 @@
                     <td><?php echo date('m/d/Y', strtotime($doc["created_date"])); ?></td>
                 </tr>
                 <tr>
-                    <td title="When was this document last updated.">Updated</td>
-                    <td><?php echo date('m/d/Y', strtotime($doc["created_date"])); ?></td>
-                </tr>
-                <tr>
                     <td title="Additional comments from during the creation of this document.">Creator Comment</td>
                     <td class="edit" style="display:none;">
                         <textarea name="creator_comments" class='form-control'><?php echo $doc["creator_comment"]; ?></textarea>
