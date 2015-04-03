@@ -2,7 +2,7 @@
     function getFiles($myFile, $docFile, $fileType, $docID, $packageID){	
 		//FILES
     	$myString = "";	
-    	if (preg_match('/' . "(?P<name><spdx:File.*<\/spdx:File>)" . '/s', $myFile, $matches)) {
+    	if (preg_match('/' . "(?P<name><spdx:File.*?<\/spdx:File>)" . '/s', $myFile, $matches)) {
 			$myString = $matches[1] ?: NULL;
 		}	
 			
@@ -25,7 +25,7 @@
 		);
 		
 		$rdf_regex = array(
-			$filename = "<spdx:fileName>(?P<name>.*?)<\/spdx:fileName>",
+			$filename = "<spdx:fileName>.*?(?:(?P<name>\w*)\.?\w*)<\/spdx:fileName>",
 			$filetype = "<spdx:fileType rdf:resource=\".*fileType_(?P<name>.*?)\"\/>",
 			$checksum = "<spdx:checksumValue>(?P<name>.*?)<\/spdx:checksumValue>",
 			$license_concluded = "<spdx:licenseConcluded rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
