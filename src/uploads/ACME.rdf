@@ -89,7 +89,7 @@
 
         </spdx:checksum>
 
-        <spdx:fileName>dao</spdx:fileName>
+        <spdx:fileName>src/org/acme/dao.java</spdx:fileName>
 
       </spdx:File>
 

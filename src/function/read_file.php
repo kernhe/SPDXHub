@@ -63,18 +63,26 @@
    		 	$packageID = NULL;
 		}
 		
-		// Get File Query
-        $sql  = getFiles($myString, $docFile, $fileType, $docID, $packageID);
-        if ($sql == NULL){exit;}
-        
-        //Execute File Query
-		if (mysql_query($sql)){
-    		$fileID = mysql_insert_id();
-		} else {
-   		 	echo "Error: " . mysql_error();
-   		 	$fileID = NULL;
-		}
-		
+		// Get Files Loop/Query
+    	if (preg_match_all('/' . "(?P<name><spdx:File.*?<\/spdx:File>)" . '/s', $myString, $files)) {
+			#$myString = $matches[1] ?: NULL;
+	    	for($x = 0; $x < sizeof($files[0]); $x++){ 
+	    		$sql  = getFiles($files[0][$x], $docFile, $fileType, $docID, $packageID);
+	    		if ($sql == NULL){break;}
+	    		
+			   	//Execute File Query
+				if (mysql_query($sql)){
+		    		$fileID = mysql_insert_id();
+				} else {
+		   		 	echo "Error: " . mysql_error();
+		   		 	$fileID = NULL;
+				}
+	    		
+			}
+		}	
+        #$sql  = getFiles($myString, $docFile, $fileType, $docID, $packageID);
+        #if ($sql == NULL){exit;}
+		#SQL EXECUTE		
 		
         mysql_close();
     }

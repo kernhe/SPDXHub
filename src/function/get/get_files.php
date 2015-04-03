@@ -1,11 +1,8 @@
 <?php
     function getFiles($myFile, $docFile, $fileType, $docID, $packageID){	
 		//FILES
-    	$myString = "";	
-    	if (preg_match('/' . "(?P<name><spdx:File.*?<\/spdx:File>)" . '/s', $myFile, $matches)) {
-			$myString = $matches[1] ?: NULL;
-		}	
-			
+    	$myString = $myFile;	
+
 		$fileArray = array(
 			$filename = "",
 			$filetype = "",
