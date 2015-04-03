@@ -41,12 +41,8 @@
       ?>
     </select>                
 
-<<<<<<< HEAD
-
-=======
     <div><strong>Identifier</strong></div>
     <div id="identifier">Identifier</div> 
->>>>>>> 24fe6ef1519c7a6ba266dbcfe46da778030408eb
   </div>
 
 
