@@ -1,3 +1,7 @@
+		
+<div class="container" >
+
+  <div class="col-xs-12 blue-bord" style="height: 50px">
 <?php
     $title = "SPDX";
     include("function/_header.php");
@@ -7,12 +11,13 @@
     	$name = $_POST['doc_name'];
     }
 ?>
-			
-<div class="container" >
+    
+  </div>
 
-  <div class="col-xs-12 blue-bord" style="height: 50px">
-    <form action="index.php" method="post" >
-            		<input type="text" class="" size="150" tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
+
+  <div class="col-xs-12 col-md-6 red-bord">
+	<form action="index.php" method="post" >
+            		<input type="text" class="" size="80" tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php 		echo $name; ?>" name="doc_name"/>
             		<button type="submit" class="btn pull-right">Search</button>
             	</form>
   </div>
@@ -22,6 +27,9 @@
   </div>
 
   <div class="col-xs-12 col-md-6 red-bord">
+    
+    <div><strong>Identifier</strong></div>
+    <div id="identifier">Identifier</div> 
     
     <select class="LicenseListDropDown" name="charset">
       <option value="(license identifier)" selected="selected">license name</option>
@@ -34,8 +42,12 @@
          }
       ?>
     </select>                
+
   </div><div><strong>Identifier</strong></div>
     <div id="identifier">Identifier</div> 
+
+  </div>
+
 
   <div class="col-xs-12 col-md-6  red-bord">
     <form>
@@ -117,6 +129,18 @@
 <?php include("function/_footer.php"); ?>
 
 <script>
+<<<<<<< HEAD
+=======
+	// $("#toggleTable").hide();
+	// $(document).ready(function(){
+	// 	$("#moreOptions").click(function(){
+	// 		$("#toggleTable").toggle();
+	// 	});
+
+	// });
+	
+
+>>>>>>> d971b8edb0330bee00d703f456cba9afaba4cf94
   $( ".LicenseListDropDown" )
     .change(function () {
       var str = "";
