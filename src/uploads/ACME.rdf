@@ -1,9 +1,5 @@
 
-
   <SpdxDocument rdf:ID="spdxdoc" about="www.thisisaurl.com">
-
-      <spdx:Package rdf:ID="SPDXRef-1">
-
         <spdx:licenseComments></spdx:licenseComments>
 
         <spdx:copyrightText> Copyright 2014, Acme</spdx:copyrightText>

@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php
-    include("function/headerfooter.php");
+    include("function/_header.php");
     include("function/package_files.php");
     
     $fileId = $_GET['file_id'];
@@ -178,5 +178,5 @@ limitations under the License.
     </div>
 </div>
 <?php
-    incFooter();
+    include("function/_footer.php");
 ?>

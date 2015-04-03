@@ -1,22 +1,29 @@
+		
+<div class="container" >
+
+  <div class="col-xs-12 blue-bord" style="height: 50px">
 <?php
     $title = "SPDX";
     include("function/_header.php");
     include("function/spdx_doc.php");
     $name = "";
-
-    if(array_key_exists('document_name',$_POST)) {
-    	$name = $_POST['document_name'];
+    if(array_key_exists('doc_name',$_POST)) {
+    	$name = $_POST['doc_name'];
     }
 ?>
-			
-<div class="container" >
+    
+  </div>
 
-  <div class="col-xs-12 blue-bord" style="height: 50px">
-    <p>Search bar need to go here</p> 
+
+  <div class="col-xs-12 col-md-6 red-bord">
+	<form action="index.php" method="post" >
+            		<input type="text" class="" size="60" tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php 		echo $name; ?>" name="doc_name"/>
+            		<button type="submit" class="btn pull-right">Search</button>
+            	</form>
   </div>
   <div class="col-xs-12 blue-bord">
     
-    <h4 class="search-header"> <!-- id="moreOptions"  -->Advanced Search</h4>
+    <h4 class="search-header">Advanced Search</h4>
   </div>
 
   <div class="col-xs-12 col-md-6 red-bord">
@@ -35,7 +42,12 @@
          }
       ?>
     </select>                
+
+  </div><div><strong>Identifier</strong></div>
+    <div id="identifier">Identifier</div> 
+
   </div>
+
 
   <div class="col-xs-12 col-md-6  red-bord">
     <form>
@@ -80,7 +92,7 @@
         <?php
           
           $count = 0;
-		      $result = getSPDX_DocList($name);
+		  $result = getSPDX_DocList($name);
 		
           while($row = mysql_fetch_assoc($result)) {
             echo '<tr>';
@@ -105,7 +117,6 @@
             echo '</tr>';
             ++$count;
           }
-
         ?>
         </tbody>
     </table>
@@ -118,6 +129,8 @@
 <?php include("function/_footer.php"); ?>
 
 <script>
+<<<<<<< HEAD
+=======
 	// $("#toggleTable").hide();
 	// $(document).ready(function(){
 	// 	$("#moreOptions").click(function(){
@@ -127,6 +140,7 @@
 	// });
 	
 
+>>>>>>> d971b8edb0330bee00d703f456cba9afaba4cf94
   $( ".LicenseListDropDown" )
     .change(function () {
       var str = "";
@@ -135,9 +149,4 @@
       });
       $( "#identifier" ).text( str );
     }).change();
-
-  function myFunction() {
-      var x = document.getElementById("myBtn").value;
-      document.getElementById("demo").innerHTML = x;
-  }
 </script>

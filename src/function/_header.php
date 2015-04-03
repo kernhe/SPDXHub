@@ -37,7 +37,7 @@ limitations under the License.
         <script src="js/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
        <script type="text/javascript">
 		$(document).ready(function(){
-						$.datepicker.regional[""].dateFormat = 'dd/mm/yy';
+						$.datepicker.regional[""].dateFormat = 'mm/dd/yy';
 						$.datepicker.setDefaults($.datepicker.regional['']);
 			 $('#mytablesorter').dataTable({
 				
@@ -57,6 +57,9 @@ limitations under the License.
 		});
 		// hide / show toggler for subparts in spdx_doc page
 		$(document).ready(function(){
+			$("#filename").click(function(){
+				$("#filenameContent").slideToggle();
+			});
 			$("#CreatingInfo").click(function(){
 				$("#CreatingInfoContent").slideToggle();
 			});
@@ -101,8 +104,6 @@ limitations under the License.
                     <li><a class="btn btn-default navbar-upload" role="button" href="upload.php">Upload</a></li> 
                 </ul>
             </nav>
-            <!-- <div class="pull-right">
-                <a class="btn btn-default navbar-upload" role="button" href="upload.php">Upload</a>
-            </div> -->
+           
         </div>
     </header>
