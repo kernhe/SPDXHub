@@ -21,7 +21,7 @@
 
   <div class="col-xs-12 col-md-6 red-bord">
     
-    <div><strong>Identifier</strong></div>
+    <h6>Identifier</strong></h6>
     <div id="identifier">Identifier</div> 
     
     <select class="LicenseListDropDown" name="charset">

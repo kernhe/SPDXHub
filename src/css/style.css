@@ -22,6 +22,15 @@
 	border-bottom: solid 1px grey;
 }
 
+
+.red-bord {
+	border: dotted 1px red;
+
+}
+
+.col-xs-12 {
+	border: solid 1px blue;
+}
 /*table.tablesorter {
 	font-family:arial;
 	background-color: #CDCDCD;
