@@ -7,6 +7,9 @@
 		}
 		if ($fileType == 'rdf' | $fileType == 'tag'){
 			match_doc($file, $docFile, $fileType);
+			return 1;
+		} else{
+			return 0;
 		}
     }
     
@@ -61,7 +64,7 @@
 		}
 		
 		// Get File Query
-        $sql  = getFiles($myString, $docFile, $docID, $packageID);
+        $sql  = getFiles($myString, $docFile, $fileType, $docID, $packageID);
         if ($sql == NULL){exit;}
         
         //Execute File Query

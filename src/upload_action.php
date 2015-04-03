@@ -92,8 +92,11 @@ limitations under the License.
    	    move_uploaded_file($docfilePath,"uploads/$docfileName");
     	while (!file_exists("uploads/$docfileName")) sleep(1);
     	
-    	upload_file("uploads/$docfileName", "$docfileName");
-    	echo "<div align=\"center\">Document successfully uploaded.</div>";
+    	if (upload_file("uploads/$docfileName", "$docfileName")){
+    		echo '<div align="center"><h4><p class="text-success">Successfully uploaded document.</p></h4></div>';
+    	} else{
+    		echo '<div align="center"><h4><p class="text-danger">Unable to upload document.</p></h4></div>';
+    	}
    	}
    
 	include("function/_footer.php");

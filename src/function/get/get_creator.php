@@ -23,8 +23,18 @@
 			$creator_comment = "<rdfs:comment>(?P<name>.*?)<\/rdfs:comment>",
 		);
 		
+		$tag_regex = array(
+			$license_list_version = "LicenseListVersion:(?P<name>.*?)\n",
+			$creator = "Creator:(?P<name>.*?)\n",
+			$creator_optional1 = "Creator:(?P<name>.*?)\n",
+			$creator_optional2 = "Creator:(?P<name>.*?)\n",
+			$created_date = "Created:(?P<name>.*?)\n",
+			$creator_comment = "CreatorComment:.*<text>(?P<name>.*?)<\/text>",
+		);
+		
 		$regex = array(
 			'rdf' => $rdf_regex,
+			'tag' => $tag_regex,
 		);
     	
     	for($x = 0; $x < sizeof($regex[$fileType]); $x++){ 

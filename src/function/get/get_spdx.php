@@ -29,13 +29,13 @@
 		);
 		
 		$tag_regex = array(
-			$spdx_id = NULL,
-			$version = NULL,
-			$data_license = NULL,
+			$spdx_id = "SPDXID:(?P<name>.*?)\n",
+			$version = "SPDXVersion:(?P<name>.*?)\n",
+			$data_license = "DataLicense:(?P<name>.*?)\n",
 			$document_name = NULL,
-			$document_namespace = NULL,
+			$document_namespace = "DocumentID:(?P<name>.*?)\n",
 			$external_dic_ref = NULL,
-			$document_comment = NULL, 
+			$document_comment = "DocumentComment:.*<text>(?P<name>.*?)<\/text>",
 		);
 		
 		$regex = array(

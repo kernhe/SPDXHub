@@ -1,11 +1,11 @@
 <?php
-    function getFiles($myFile, $docFile, $docID, $packageID){	
+    function getFiles($myFile, $docFile, $fileType, $docID, $packageID){	
 		//FILES
-    	$myString = "";
-    	if (preg_match('/' . "(?P<name><spdx:referencesFile.*<\/spdx:referencesFile>)" . '/s', $myFile, $matches)) {
+    	$myString = "";	
+    	if (preg_match('/' . "(?P<name><spdx:File.*<\/spdx:File>)" . '/s', $myFile, $matches)) {
 			$myString = $matches[1] ?: NULL;
-		}		
-
+		}	
+			
 		$fileArray = array(
 			$filename = "",
 			$filetype = "",
@@ -26,31 +26,50 @@
 		
 		$rdf_regex = array(
 			$filename = "<spdx:fileName>(?P<name>.*?)<\/spdx:fileName>",
-			$filetype = "<spdx:fileType rdf:resource=\"http:\/\/spdx.org\/rdf\/terms(?P<name>.*?)\"\/>",
+			$filetype = "<spdx:fileType rdf:resource=\".*fileType_(?P<name>.*?)\"\/>",
 			$checksum = "<spdx:checksumValue>(?P<name>.*?)<\/spdx:checksumValue>",
 			$license_concluded = "<spdx:licenseConcluded rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
-			$license_info_in_file = "<spdx:licenseInfoInFile rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
+			$license_info_in_file = NULL,
 			$license_comment = "<spdx:licenseComments>(?P<name>.*?)<\/spdx:licenseComments>",
 			$file_copyright_text = "<spdx:copyrightText>(?P<name>.*?)<\/spdx:copyrightText>",
-			$artifact_of_project = NULL,
-			$artifact_of_homepage = NULL,
+			$artifact_of_project = "<doap:name>(?P<name>.*?)<\/doap:name>",
+			$artifact_of_homepage = "<doap:homepage rdf:resource="(?P<name>.*?)"\/>"
 			$artifact_of_url = NULL,
-			$file_comment = NULL,
-			$file_notice = NULL,
-			$file_contributor = NULL,	
+			$file_comment = "<rdfs:comment>(?P<name>.*?)<\/rdfs:comment>",
+			$file_notice = "<noticeText>(?P<name>.*?)<\/noticeText>",
+			$file_contributor = "<fileContributor>(?P<name>.*?)<\/fileContributor>",	
+			$package_info_fk = NULL,
+			$spdx_fk = NULL,
+		);
+		
+		$tag_regex = array(
+			$filename = "FileName:(?P<name>.*?)\n",
+			$filetype = "FileType:(?P<name>.*?)\n",
+			$checksum = "FileChecksum:(?P<name>.*?)\n",
+			$license_concluded = "LicenseConcluded:(?P<name>.*?)\n",
+			$license_info_in_file = NULL,
+			$license_comment = "LicenseComments:.*<text>(?P<name>.*?)<\/text>",
+			$file_copyright_text = "FileCopyrightText:.*<text>(?P<name>.*?)<\/text>",
+			$artifact_of_project = "ArtifactOfProjectName:(?P<name>.*?)\n",
+			$artifact_of_homepage = "ArtifactOfProjectURI:(?P<name>.*?)\n",
+			$artifact_of_url = "ArtifactOfProjectURI:(?P<name>.*?)\n",
+			$file_comment = "FileComment:.*<text>(?P<name>.*?)<\/text>",
+			$file_notice = "FileNotice:.*<text>(?P<name>.*?)<\/text>",
+			$file_contributor = "FileContributor:(?P<name>.*?)\n",
 			$package_info_fk = NULL,
 			$spdx_fk = NULL,
 		);
 		
 		$regex = array(
 			'rdf' => $rdf_regex,
+			'tag' => $tag_regex,
 		);
 
-    	for($x = 0; $x < sizeof($regex['rdf']); $x++){ 
+    	for($x = 0; $x < sizeof($regex[$fileType]); $x++){ 
     		if ($regex['rdf'][$x] == NULL){
     			continue;
     		}
-    		if (preg_match('/' . $regex['rdf'][$x] . '/', $myString, $matches)) {
+    		if (preg_match('/' . $regex[$fileType][$x] . '/', $myString, $matches)) {
 		  		$fileArray[$x] = $matches[1] ?: NULL;
 			}
 		}
