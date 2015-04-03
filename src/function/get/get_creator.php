@@ -1,7 +1,7 @@
 <?php
 	function getCreator($myFile, $docFile, $filePath, $ID){
     	// CREATOR
-    	if (preg_match('/' . "(?P<name><CreationInfo>.*<\/CreationInfo>)" . '/s', $myFile, $matches)) {
+    	if (preg_match('/' . "(?P<name><spdx:CreationInfo>.*<\/spdx:CreationInfo>)" . '/s', $myFile, $matches)) {
 			$myString = $matches[1] ?: NULL;
 		}	
 
@@ -15,11 +15,11 @@
 		);
 		
 		$rdf_regex = array(
-			$license_list_version = "<licenseListVersion>(?P<name>.*?)<\/licenseListVersion> ",
-			$creator = "<creator>(?P<name>.*?)<\/creator>",
-			$creator_optional1 = "<creator>(?P<name>.*?)<\/creator>",
-			$creator_optional2 = "<creator>(?P<name>.*?)<\/creator>",
-			$created_date = "<created>(?P<name>.*?)<\/created>",
+			$license_list_version = "<spdx:licenseListVersion>(?P<name>.*?)<\/spdx:licenseListVersion> ",
+			$creator = "<spdx:creator>(?P<name>.*?)<\/spdx:creator>",
+			$creator_optional1 = "<spdx:creator>(?P<name>.*?)<\/spdx:creator>",
+			$creator_optional2 = "<spdx:creator>(?P<name>.*?)<\/spdx:creator>",
+			$created_date = "<spdx:created>(?P<name>.*?)<\/spdx:created>",
 			$creator_comment = "<rdfs:comment>(?P<name>.*?)<\/rdfs:comment>",
 		);
 		

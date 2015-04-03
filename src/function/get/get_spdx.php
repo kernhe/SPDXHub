@@ -1,7 +1,7 @@
 <?php
     function getSPDX($myFile, $docFile, $filePath){
 
-    	if (preg_match('/' . "(?P<name><SpdxDocument.*<\/SpdxDocument>)" . '/s', $myFile, $matches)) {
+    	if (preg_match('/' . "(?P<name><spdx:SpdxDocument.*<\/spdx:SpdxDocument>)" . '/s', $myFile, $matches)) {
 			$myString = $matches[1] ?: NULL;
 		}	
 		else{
@@ -22,7 +22,7 @@
 			$spdx_id = "<spdx:SpdxDocument.*?ID=\"(?P<name>.*?)\".*>",
 			$version = "<spdx:specVersion>(?P<name>.*?)<\/spdx:specVersion>",
 			$data_license = "<spdx:dataLicense rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
-			$document_name = "<name>(?P<name>.*?)<\/name>",
+			$document_name = NULL,
 			$document_namespace = "<spdx:SpdxDocument.*?about=\"(?P<name>.*?)\".*>",
 			$external_dic_ref = NULL,
 			$document_comment = NULL, #"<rdfs:comment>(?P<name>.*?)<\/rdfs:comment>",
@@ -32,6 +32,9 @@
 			'rdf' => $rdf_regex,
 		);	
 		
+		if (preg_match('/' . "(?P<name>.*?)\..*$" . '/', $docFile, $matches)) {
+			$spdxArray[3] = $matches[1] ?: NULL;
+		}
 		
     	for($x = 0; $x < sizeof($regex['rdf']); $x++){ 
     		if ($regex['rdf'][$x] == NULL){
