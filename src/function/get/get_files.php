@@ -5,6 +5,7 @@
 
 		$fileArray = array(
 			$filename = "",
+			$fspdx_id = "",
 			$filetype = "",
 			$checksum = "",
 			$license_concluded = "",
@@ -23,6 +24,7 @@
 		
 		$rdf_regex = array(
 			$filename = "<spdx:fileName>.*\/(?:(?P<name>.*)\..*?)<\/spdx:fileName>",
+			$fspdx_id = "<spdx:File.*?ID=\"(?P<name>.*?)\".*>",
 			$filetype = "<spdx:fileType rdf:resource=\".*fileType_(?P<name>.*?)\"\/>",
 			$checksum = "<spdx:checksumValue>(?P<name>.*?)<\/spdx:checksumValue>",
 			$license_concluded = "<spdx:licenseConcluded rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
@@ -41,6 +43,7 @@
 		
 		$tag_regex = array(
 			$filename = "FileName:(?P<name>.*?)\n",
+			$fspdx_id = "SPDXID:(?P<name>.*?)\n",
 			$filetype = "FileType:(?P<name>.*?)\n",
 			$checksum = "FileChecksum:(?P<name>.*?)\n",
 			$license_concluded = "LicenseConcluded:(?P<name>.*?)\n",
@@ -71,12 +74,12 @@
 			}
 		}
 		
-        $query	= 	"INSERT INTO `spdx_file_info` (`filename`,`filetype`,`checksum`,`license_concluded`,
+        $query	= 	"INSERT INTO `spdx_file_info` (`filename`,`fspdx_id`,`filetype`,`checksum`,`license_concluded`,
 	        		`license_info_in_file`,`license_comment`,`file_copyright_text`,`artifact_of_project`,`artifact_of_homepage`,
 	        		`artifact_of_url`,`file_comment`,`file_notice`,`file_contributor`,`package_info_fk`,`spdx_fk`) 
 	        		VALUES ('$fileArray[0]', '$fileArray[1]', '$fileArray[2]', '$fileArray[3]', '$fileArray[4]',
 					'$fileArray[5]', '$fileArray[6]', '$fileArray[7]', '$fileArray[8]', '$fileArray[9]',
-					'$fileArray[10]', '$fileArray[11]', '$fileArray[12]', '$fileArray[13]', '$fileArray[14]')";
+					'$fileArray[10]', '$fileArray[11]', '$fileArray[12]', '$fileArray[13]', '$fileArray[14]','$fileArray[15]')";
 					
 		return $query;
     }
