@@ -85,7 +85,7 @@
         <table id="tblMain" class="table table-bordered table-striped table-doc">
             <thead>
                 <tr>
-                    <th colspan=2><?php echo $doc["document_name"]; ?>
+                    <th colspan=2 id = "filename"><?php echo $doc["document_name"]; ?>
                         <div style="display:inline-block;float:right;">
                             <button id="download_top" type="button"  class="btn btn-primary" onclick="window.open('download.php?doc_id=<?php echo $spdxId; ?>&format=RDF&doc_name=<?php echo $doc["name"];?>','_blank');">Download RDF</button>
                             <button id="download_top" type="button"  class="btn btn-primary" onclick="window.open('download.php?doc_id=<?php echo $spdxId; ?>&format=TAG&doc_name=<?php echo $doc["name"];?>','_blank');">Download TAG</button>
@@ -96,7 +96,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id = "filenameContent">
                 <tr>
                     <td title="Version of the SPDX spcification used to create this document.">Version</td>
                     <td class="edit" style="display:none;">
