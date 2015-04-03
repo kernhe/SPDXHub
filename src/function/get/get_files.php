@@ -22,7 +22,7 @@
 		);
 		
 		$rdf_regex = array(
-			$filename = "<spdx:fileName>.*?(?:(?P<name>\w*)\.?\w*)<\/spdx:fileName>",
+			$filename = "<spdx:fileName>.*\/(?:(?P<name>.*)\..*?)<\/spdx:fileName>",
 			$filetype = "<spdx:fileType rdf:resource=\".*fileType_(?P<name>.*?)\"\/>",
 			$checksum = "<spdx:checksumValue>(?P<name>.*?)<\/spdx:checksumValue>",
 			$license_concluded = "<spdx:licenseConcluded rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",

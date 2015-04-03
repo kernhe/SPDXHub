@@ -76,13 +76,9 @@
 				} else {
 		   		 	echo "Error: " . mysql_error();
 		   		 	$fileID = NULL;
-				}
-	    		
+				}	
 			}
-		}	
-        #$sql  = getFiles($myString, $docFile, $fileType, $docID, $packageID);
-        #if ($sql == NULL){exit;}
-		#SQL EXECUTE		
+		}		
 		
         mysql_close();
     }
