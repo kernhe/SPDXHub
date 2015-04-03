@@ -21,6 +21,7 @@
         
         // Get SPDX Query
         $sql  = getSPDX($myString, $docFile, $filePath);
+        if ($sql == NULL){exit;}
         
         //Execute SPDX Query
 		if (mysql_query($sql)){
@@ -29,10 +30,21 @@
    		 	echo "Error: " . mysql_error();
    		 	$docID = NULL;
 		}
+		
+        // Get Creators
+        $sql  = getCreator($myString, $docFile, $filePath, $docID);
+        if ($sql == NULL){exit;}
+        
+        //Execute SPDX Query
+		if (mysql_query($sql)){
+		} else {
+   		 	echo "Error: " . mysql_error();
+		}
         
      
         // Get Package Query
         $sql  = getPackage($myString, $docFile, $filePath, $docID);
+        if ($sql == NULL){exit;}
         
         //Execute Package Query
 		if (mysql_query($sql)){
@@ -44,6 +56,7 @@
 		
 		// Get File Query
         $sql  = getFiles($myString, $docFile, $filePath, $docID, $packageID);
+        if ($sql == NULL){exit;}
         
         //Execute File Query
 		if (mysql_query($sql)){

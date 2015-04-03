@@ -1,6 +1,6 @@
 
 
-  <spdx:SpdxDocument rdf:ID="spdxdoc">
+  <SpdxDocument rdf:ID="spdxdoc" about="www.thisisaurl.com">
 
       <spdx:Package rdf:ID="SPDXRef-1">
 
@@ -33,7 +33,7 @@
 
         <doap:homepage>http://www.spdx.org/tools</doap:homepage>
 
-        <spdx:name>Acme Package</spdx:name>
+        <name>Acme Package</name>
 
 
      </spdx:Package>
@@ -41,19 +41,18 @@
     </spdx:describesPackage>
 
 
-    <spdx:creationInfo>
 
-      <spdx:CreationInfo>
 
-        <spdx:licenseListVersion>1.19</spdx:licenseListVersion>
+      <CreationInfo>
 
-        <spdx:created>2014-07-02T00:00:00Z</spdx:created>
+        <licenseListVersion>1.19</licenseListVersion>
 
-        <spdx:creator>Organization: Acme</spdx:creator>
+        <created>2014-07-02T00:00:00Z</created>
 
-      </spdx:CreationInfo>
+        <creator>Organization: Acme</creator>
 
-    </spdx:creationInfo>
+      </CreationInfo>
+
 
     <spdx:dataLicense rdf:resource="http://spdx.org/licenses/CC0-1.0"/>
 
@@ -194,6 +193,6 @@
 
     </spdx:referencesFile>
 
-  </spdx:SpdxDocument>
+  </SpdxDocument>
 
 </rdf:RDF>
