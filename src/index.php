@@ -17,7 +17,7 @@
 
   <div class="col-xs-12 col-md-6 red-bord">
 	<form action="index.php" method="post" >
-            		<input type="text" class="" size="80" tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php 		echo $name; ?>" name="doc_name"/>
+            		<input type="text" class="" size="60" tabindex="2" autofocus="autofocus" placeholder="Search" value="<?php 		echo $name; ?>" name="doc_name"/>
             		<button type="submit" class="btn pull-right">Search</button>
             	</form>
   </div>
