@@ -246,9 +246,9 @@
                         $all_files = array();
                         $file_licenses = array();
                         while($row = mysql_fetch_assoc($files)) {
-                            $all_files[$row['relative_path']]=$row['id'];
+                            $all_files[$row['relative_path']]=$row['spdx_pk'];
                             $file_licenses[$row['relative_path']]['license_id'] = $row['license_id'];
-                            $file_licenses[$row['relative_path']]['licensename'] = $row['licensename'];
+                            $file_licenses[$row['relative_path']]['license_name'] = $row['license_name'];
                         }
                         
                         $mAllTrees = array();

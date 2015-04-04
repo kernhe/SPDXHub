@@ -8,15 +8,15 @@
         //Query
         $sql  = "SELECT DISTINCT pf.*,
                                  dfpa.relative_path,
-                                 LENGTH( dfpa.relative_path ) - LENGTH( REPLACE( dfpa.relative_path,  '/',  '' ) ) AS level,
+                                 LENGTH( pf.relative_path ) - LENGTH( REPLACE( dfpa.relative_path,  '/',  '' ) ) AS level,
                                  dfpa.package_id,
                                  dla.license_id,
-                                 le.licensename
+                                 le.license_fullname
                  FROM package_files pf
                       INNER JOIN doc_file_package_associations AS dfpa ON pf.id = dfpa.package_file_id
                       LEFT OUTER JOIN licensings AS l ON pf.id = l.package_file_id
                       LEFT OUTER JOIN doc_license_associations AS dla ON l.doc_license_association_id = dla.id
-                      LEFT OUTER JOIN spdx_license_list_insert AS le ON dla.license_id = le.id
+                      LEFT OUTER JOIN spdx_license_list_insert AS le ON dla.license_id = le.license_list_pk
                  WHERE dfpa.spdx_doc_id = " . $spdx_doc_id . "
                  ORDER BY dfpa.relative_path";
         
