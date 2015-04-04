@@ -81,9 +81,8 @@ limitations under the License.
                  	<li><a href="index.php">Home</a></li>
                  	<li><a href="https://fossologyspdx.ist.unomaha.edu/" target="_blank">Fossology+SPDX</a></li>
                  	<li><a href="About.php">About</a></li>   
-                    <li><a class="btn btn-default navbar-upload" role="button" href="upload.php">Upload</a></li> 
                 </ul>
+                <a class="upload btn btn-primary navbar-upload pull-right" role="button" href="upload.php">Upload</a>
             </nav>
-           
         </div>
     </header>

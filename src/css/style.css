@@ -1,3 +1,6 @@
+nav {
+	letter-spacing: .5px;
+}
 
 .search-block form {
     padding: 50px 0 0;
@@ -28,9 +31,22 @@
 
 }
 
-.	col-xs-12 {
+.col-xs-12 {
 	border: solid 1px blue;
 }
+
+
+
+
+a.upload.btn {
+	margin-top: 8px;
+	width: ;
+	letter-spacing: .5px;
+}
+
+
+
+
 /*table.tablesorter {
 	font-family:arial;
 	background-color: #CDCDCD;

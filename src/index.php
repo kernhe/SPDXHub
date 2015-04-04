@@ -1,3 +1,5 @@
+
+
 <div class="container" >
 
   <div class="col-xs-12 blue-bord" style="height: 50px">
@@ -73,7 +75,7 @@
 <div class="container">
  	<div class="col-xs-12">	 
        
-    <table id="tablesorter" class="table display">
+    <table id="tablesorter" class="table table-striped table-hover display">
         <thead> 
           <tr>
             <th>#</th>
@@ -85,34 +87,34 @@
           </tr>
         </thead>
   
-        <tbody>
-        <?php
-          
-          $result = getSPDX_DocList($name);
-                    while($row = mysql_fetch_assoc($result)) {
-                        echo '<tr>';
-                        echo     '<td>';
-                        echo         $row['spdx_pk'];
-                        echo     '</td>';
-                        echo     '<td>';
-                        echo         '<a href="spdx_doc.php?doc_id=' . $row['spdx_pk'] . '">' . $row['document_name'] . '</a>';
-                        echo     '</td>';
-                        echo     '<td>';
-                        echo         date('m/d/Y', strtotime($row['created_date'])); 
-                        echo     '</td>';
-						echo     '<td>';
-						echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
-						echo     '</td>';
-                        echo     '<td style="text-align:right;">';
-                        echo         '<div>';
-                        echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['spdx_pk'] . '&format=RDF&doc_name=' . $row['document_name'] . '\',\'_blank\');">Download RDF</button>';
-                        echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['spdx_pk'] . '&format=TAG&doc_name=' . $row['document_name'] . '\',\'_blank\');">Download TAG</button>';
-                        echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['spdx_pk'] . '&format=JSON&doc_name=' . $row['document_name'] . '\',\'_blank\');">Download JSON</button>';
-                        echo         '</div>';
-                        echo     '</td>';
-                        echo '</tr>';
-                    }
-                ?>
+        <tbody class="" >
+          <?php
+            
+            $result = getSPDX_DocList($name);
+            while($row = mysql_fetch_assoc($result)) {
+                echo '<tr>';
+                echo     '<td>';
+                echo         $row['spdx_pk'];
+                echo     '</td>';
+                echo     '<td>';
+                echo         '<a href="spdx_doc.php?doc_id=' . $row['spdx_pk'] . '">' . $row['document_name'] . '</a>';
+                echo     '</td>';
+                echo     '<td>';
+                echo         date('m/d/Y', strtotime($row['created_date'])); 
+                echo     '</td>';
+		            echo     '<td>';
+		            echo         '<img src="../src/images/flags.jpg" width="83" height="26" />';
+		            echo     '</td>';
+                echo     '<td style="text-align:right;">';
+                echo         '<div>';
+                echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['spdx_pk'] . '&format=RDF&doc_name=' . $row['document_name'] . '\',\'_blank\');">Download RDF</button>';
+                echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['spdx_pk'] . '&format=TAG&doc_name=' . $row['document_name'] . '\',\'_blank\');">Download TAG</button>';
+                echo             '<button type="button" class="btn" onclick="window.open(\'download.php?doc_id=' . $row['spdx_pk'] . '&format=JSON&doc_name=' . $row['document_name'] . '\',\'_blank\');">Download JSON</button>';
+                echo         '</div>';
+                echo     '</td>';
+                echo '</tr>';
+            }
+          ?>
         </tbody>
     </table>
 
