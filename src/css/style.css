@@ -2,9 +2,23 @@ nav {
 	letter-spacing: .5px;
 }
 
+div.search {
+	height: 100px;
+}
+
 .search-block form {
     padding: 50px 0 0;
 }
+
+ul.license-filter {
+	list-style: none;
+	padding-left: 0;
+} li {
+	display:inline-block;
+	padding-right: 5px;
+
+}
+
 
 /*.search-block form input {
     width: 70%;
@@ -20,22 +34,24 @@ nav {
     background-color: black;
 }
 
-.search-header {
-	font-size: 20px;
+div.search div h4 {
+	/*font-size: 20px;*/
 	border-bottom: solid 1px grey;
 }
 
 
-.red-bord {
+/*.container {
 	border: dotted 1px red;
 
 }
-
-.col-xs-12 {
+*/
+/*.col-xs-12 {
 	border: solid 1px blue;
 }
-
-
+*/
+.col-xs-6 {
+	border: solid 1px blue;
+}
 
 
 a.upload.btn {
@@ -43,6 +59,55 @@ a.upload.btn {
 	width: ;
 	letter-spacing: .5px;
 }
+
+div.adv-search-inner {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+td#breakdown {
+/*	background-color: grey;*/
+
+} 
+td#breakdown div {
+	margin-right: auto;
+	margin-bottom: auto;
+}
+
+#breakdown span {
+	height: 34px;
+	width: 34px;
+	border: 1px solid #fff;
+	border-radius: 4px; 
+	margin: 0 3px 0 0;
+	display: inline-block;
+}
+
+#breakdown .b-one {
+	background-color: blue;
+} .b-two {
+	background-color: green;
+} .b-three {
+	background-color: grey;
+}
+
+#action {
+	border-left: 1px solid #bfbfbf ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
