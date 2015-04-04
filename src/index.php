@@ -29,11 +29,6 @@
 <div class="container adv-search"> 
     
   <div class="col-xs-12">
-   <!--  <form>
-      <input type="text" />
-      <button type="submit">Search</button>
-    </form> -->
-
     <h4 class="search-header">Advanced Search</h4>
   </div>
   
@@ -82,7 +77,7 @@
 <div class="container">
  	<div class="col-xs-12">	 
        
-    <table id="tablesorter" class="table table-striped table-hover display">
+    <table id="tablesorter" class="table table-striped  display"> <!-- table-striped -->
         
         <thead> 
           <tr>
@@ -98,25 +93,25 @@
           <?php
             
             $result = getSPDX_DocList($name);
+            $count = 0;
             while($row = mysql_fetch_assoc($result)) {
                 echo '<tr>';
                 echo     '<td>';
-                echo         $row['spdx_pk'];
+                echo         ++$count; //$row['spdx_pk']
                 echo     '</td>';
                 echo     '<td>';
-                echo         '<a href="spdx_doc.php?doc_id=' . $row['spdx_pk'] . '">' . $row['document_name'] . '</a>';
+                echo         '<a  class="document-name" href="spdx_doc.php?doc_id=' . $row['spdx_pk'] . '">' . $row['document_name'] . '</a>';
                 echo     '</td>';
                 echo     '<td>';
                 echo         date('m/d/Y', strtotime($row['created_date'])); 
                 echo     '</td>'; ?>
-		            <!-- '<img src="../src/images/flags.jpg" width="83" height="26" />';  -->
-                  <td id="breakdown">
-                    <div>
-                      <span class="b-one"></span>
-                      <span class="b-two"></span>
-                      <span class="b-three"></span>
-                    </div>
-                  </td>
+                <td id="breakdown">
+                  <div>
+                    <span class="b-one">5</span>
+                    <span class="b-two">5</span>
+                    <span class="b-three">5</span>
+                  </div>
+                </td>
                 <?php
                 echo     '<td id="action">';
                 echo         '<div>';

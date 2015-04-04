@@ -6,10 +6,6 @@ div.search {
 	height: 100px;
 }
 
-.search-block form {
-    padding: 50px 0 0;
-}
-
 ul.license-filter {
 	list-style: none;
 	padding-left: 0;
@@ -33,12 +29,15 @@ ul.license-filter {
     height: 1px;
     background-color: black;
 }
-
-div.search div h4 {
-	/*font-size: 20px;*/
-	border-bottom: solid 1px grey;
+/*#f9f9f9*/
+/*.search-header{
+	font-size: 20px;
+	border-bottom: solid 2px #D1D2D4;
+}*/
+.adv-search-inner {
+	border-top: solid 2px #D1D2D4;
+	background-color: #f9f9f9; 
 }
-
 
 /*.container {
 	border: dotted 1px red;
@@ -76,24 +75,36 @@ td#breakdown div {
 }
 
 #breakdown span {
-	height: 34px;
-	width: 34px;
-	border: 1px solid #fff;
+	height: 35px;
+	width: 35px;
+	border: 1px solid #D1D2D4;
 	border-radius: 4px; 
 	margin: 0 3px 0 0;
 	display: inline-block;
+	text-align: center;
+	padding-top: 5px;
+	font-weight: bold;
+	color: #333;
 }
 
 #breakdown .b-one {
-	background-color: blue;
+	background-color: #B9D989;
 } .b-two {
-	background-color: green;
+	background-color: #F37A69;
 } .b-three {
-	background-color: grey;
+	background-color: #E6E7E8;
 }
 
 #action {
-	border-left: 1px solid #bfbfbf ;
+	border-left: 1px solid #D1D2D4;
+}
+
+#action button {
+	margin-right: 9px;
+}
+
+.document-name {
+	font-weight: bold;
 }
 
 
@@ -107,11 +118,7 @@ td#breakdown div {
 
 
 
-
-
-
-
-
+/*Remove if not needed*/
 /*table.tablesorter {
 	font-family:arial;
 	background-color: #CDCDCD;
