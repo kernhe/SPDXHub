@@ -315,7 +315,7 @@ limitations under the License.
                     ?>
                     <td>
                 </tr>
-            </tbody>
+            </tbody>         
             <thead>
                 <tr>
                     <td colspan="2">License Breakdown</td>
@@ -331,6 +331,29 @@ limitations under the License.
             		</td>
             	</tr>
             </tbody>
+			<thead>
+                <tr>
+                    <th colspan=2 id="Annotations">Annotations</th>
+                </tr>
+            </thead>
+			<tbody id="AnnotationsContent">  
+            <?php
+	            $result = getAnnotator_List($spdxId);
+	            $annotator = " ";
+	            while($row = mysql_fetch_assoc($result)) {
+	            	if ($annotator != $row['annotator']){
+	            		echo '<tr>';
+						echo 	'<td colspan="2" title="Name of annotator."><b>' . $row['annotator'] . '</b></td>';
+	                	echo '</tr>';
+	                }
+	                echo '<tr>';
+	                echo     '<td title="Date the annotation was made.">' . date('m/d/Y', strtotime($row['annotator_date'])) . '</td>';
+	                echo	 '<td title="Comment left by annotator.">' . $row['annotator_comment'] . '</td>';
+	                echo '</tr>';
+	                $annotator = $row['annotator'];
+	            }
+        	?>       
+		</tbody>
         </table>
     </form>
 </div>
