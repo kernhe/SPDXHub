@@ -45,10 +45,14 @@ limitations under the License.
     
     <div class="col-xs-12 adv-search-inner">
       
-      <div class="col-xs-12 col-md-6  ">
-        <h4>Licenses</h4>
-        <form>
-          <ul class="license-filter">
+      <div class="col-xs-12 col-md-6  license-filter">
+        <p>
+          <strong>Licence Recognition</strong>
+        </p>
+        <div class="is-line"></div>
+
+        <form class="col-xs-12">
+          <ul>
             <li>
               <input id="" name="outline" type="checkbox" value="1" />
               <label title="SPDX approved" for="">SPDX approved</label>
@@ -65,9 +69,13 @@ limitations under the License.
         </form>
       </div>
 
-      <div class="col-xs-12 col-md-6">   
+      <div class="col-xs-12 col-md-6 id-filter">   
         
-        <h5>Identifier: </strong></h><span id="identifier">Identifier</span> 
+        <p>
+          <strong>Identifier:</strong>
+          <span  id="identifier" class="pull-right">Identifier</span>
+        </p>       
+        <div class="is-line"></div>
         
         <select class="LicenseListDropDown" name="charset">
           <option value="(license identifier)" selected="selected">license name</option>
@@ -79,7 +87,7 @@ limitations under the License.
               echo '</option>';
              }
           ?>
-        </select>                
+        </select>         
       </div>
     </div>
 
