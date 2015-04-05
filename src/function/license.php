@@ -154,4 +154,21 @@ limitations under the License.
 
         return mysql_query($sql);
     }
+    
+    function getLicenseUnknown_Count($spdxDocId) {
+        //Create Database connection
+        include("Data_Source.php");
+        mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
+        mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
+
+        $sql = 	"SELECT COUNT(license_info_in_file) as unknownCount
+			FROM spdx_file_info sfi 
+			WHERE sfi.spdx_fk = " . $spdxDocId . " AND sfi.license_info_in_file NOT IN (SELECT license_identifier FROM spdx_license_list_insert )
+			GROUP BY license_info_in_file";
+
+        return mysql_query($sql);
+    }
+    
+
+    
 ?>

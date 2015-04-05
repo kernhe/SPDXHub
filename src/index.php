@@ -109,13 +109,18 @@ limitations under the License.
             while($row = mysql_fetch_assoc($result)) {
                 $approval_result = getLicenseApproval_Count($row['spdx_pk']);
                 $disapproval_result = getLicenseDisapproval_Count($row['spdx_pk']);
+                $unknown_result = getLicenseUnknown_Count($row['spdx_pk']);
                 $approval = 0;
                 $disapproval = 0;
+                $unknown = 0;
                 while($row_2 = mysql_fetch_assoc($approval_result)) {
                 	$approval += $row_2['approvalCount'];
                 }
                 while($row_3 = mysql_fetch_assoc($disapproval_result)) {
                 	$disapproval += $row_3['disapprovalCount'];
+                }
+                while($row_4 = mysql_fetch_assoc($unknown_result)) {
+                	$unknown += $row_4['unknownCount'];
                 }
 
                 echo '<tr>';
@@ -133,7 +138,7 @@ limitations under the License.
                 echo 	'<div>';
                 echo 		'<span class="b-one">' . $approval . '</span>';
                 echo 		'<span class="b-two">' . $disapproval . '</span>';
-                echo 		'<span class="b-three">0</span>';
+                echo 		'<span class="b-three">' . $unknown . '</span>';
                 echo 	'</div>';
                 echo '</td>';
 
