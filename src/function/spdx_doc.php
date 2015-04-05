@@ -82,21 +82,17 @@ limitations under the License.
         return $qrySPDX_Doc;
     }
 
-   function getSPDX_DocList($name = "",x) {
+   function getSPDX_DocList($name = "") {
         //Create Database connection
         include("Data_Source.php");
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
-        $query = "SELECT sf.spdx_pk,
-                         sf.document_name,
-                         sf.created_date
-                  FROM spdx_file AS sf LEFT JOIN spdx_file_info as sfi ON sf.spdx_pk = sfi.file_info_pk
-				  RIGHT OUTER JOIN spdx_license_list_insert AS slli ON sfi.license_info_in_file = slli.license_identifier";
+        $query = "SELECT spdx_pk,
+                         document_name,
+                         created_date
+                  FROM spdx_file ";
        	if($name != "") {
        		$query .= "WHERE document_name LIKE '%" . $name . "%' ";
-       	}
-		if (x=="true"){
-       		$query .= "AND sfi.license_identifier IS NOT NULL";
        	}
 		
         $query .= "ORDER BY created_date ASC";
@@ -106,33 +102,6 @@ limitations under the License.
         //Close Connection
         mysql_close();
         return $qrySpdxDocs;
-
-    }
-    
-	function getSPDX_DocListAdv($name ="", $date_cr_fr = "",$date_cr_to = "", $date_md_fr = "",$date_md_to ="") {
-        //Create Database connection
-        include("Data_Source.php");
-        mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
-        mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
-
-        $query = "SELECT id,
-                         upload_file_name,
-                         created_at, updated_at 
-                  FROM spdx_docs ";
-
-       	if($name != "") {
-       		$query .= "WHERE upload_file_name LIKE '%" . $name . "%' ";
-       	}
-		
-        $query .= "ORDER BY created_at ASC";
-
-        //Execute Query
-        $qrySpdxDocs = mysql_query($query);
-        
-        //Close Connection
-        mysql_close();
-        return $qrySpdxDocs;
-
     }
 	 function getSPDX_LicenseList() {
         //Create Database connection

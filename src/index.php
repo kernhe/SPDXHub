@@ -20,11 +20,9 @@ limitations under the License.
   include("function/spdx_doc.php");
   include("function/license.php");
   $name = "";
-
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
-
 ?>
 
 <div class="container search">
@@ -58,7 +56,7 @@ limitations under the License.
         <form class="col-xs-12">
           <ul>
             <li>
-              <input type="checkbox" name="spdx_approved" class = "checkbox_check" value="Yes" />
+              <input type="checkbox" name="spdx_approved" class = "" value="Yes" />
               <label title="SPDX approved" for="">SPDX approved</label>
             </li>
             <li>
@@ -116,7 +114,7 @@ limitations under the License.
         <tbody>
           <?php
             
-            $result = getSPDX_DocList($name, x);
+            $result = getSPDX_DocList($name);
             $count = 0;
             while($row = mysql_fetch_assoc($result)) {
                 $approval_result = getLicenseApproval_Count($row['spdx_pk']);
