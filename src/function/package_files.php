@@ -44,32 +44,10 @@ limitations under the License.
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
         
         //Query
-        $sql  = "SELECT pf.Id,
-                        file_name,
-                        file_type,
-                        file_copyright_text,
-                        artifact_of_project_name,
-                        artifact_of_project_homepage,
-                        artifact_of_project_uri,
-                        license_concluded,
-                        license_info_in_file,
-                        file_checksum,
-                        file_checksum_algorithm,
-                        dfpa.relative_path,
-                        pf.license_comments,
-                        file_notice,
-                        file_contributor,
-                        file_dependency,
-                        file_comment,
-                        pf.created_at,
-                        pf.updated_at,
-                        dla.license_id,
-                        dla.license_identifier
-                FROM package_files AS pf
-                     LEFT OUTER JOIN licensings AS l ON pf.id = l.package_file_id
-                     LEFT OUTER JOIN doc_license_associations AS dla ON dla.Id = l.doc_license_association_id
-                     LEFT OUTER JOIN doc_file_package_associations AS dfpa ON pf.id = dfpa.package_file_id
-                WHERE pf.Id = " . $fileId . " AND dla.spdx_doc_id = " . $docId;
+        $sql  = "SELECT pf.*, le.license_identifier
+                FROM spdx_file_info AS pf
+                	LEFT OUTER JOIN spdx_license_list_insert AS le ON pf.license_info_in_file = le.license_identifier
+                WHERE pf.file_info_pk = " . $fileId . " AND pf.spdx_fk = " . $docId;
         
         //Execute Query
         $qryPKGFile = mysql_query($sql);

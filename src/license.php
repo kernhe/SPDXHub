@@ -15,13 +15,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php
-    include("function/headerfooter.php");
+	$title = "License";
+    include("function/_header.php");
     include("function/license.php");
     
     $licenseId = $_GET['license_id'];
     $spdxId    = $_GET['doc_id'];
     
-    incHeader("License");
     if(array_key_exists('action',$_POST)){
         if($_POST["action"] == "update"){
             updateLicenses($licenseId,
@@ -115,5 +115,5 @@ limitations under the License.
     </div>
 </div>
 <?php
-    incFooter();
+    include("function/_footer.php");
 ?>

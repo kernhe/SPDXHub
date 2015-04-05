@@ -270,12 +270,11 @@ limitations under the License.
                         $mAllTrees = array();
     
                        foreach($all_files as $file=> $fileId){
-                            if(strpos($file,'/') != FALSE){
-                               $path = substr($file,0,strrpos($file,'/'));
-                               $fileName = substr($file,strrpos($file,'/')+1);
+                            if(strpos($file, '/') != FALSE){
+                               $path = substr($file, 0, strrpos($file, '/'));
+                               $fileName = substr($file, strrpos($file,'/') + 1);
                                $root = substr($file,0,strpos($file,'/'));
-                               
-                               if(array_key_exists($root,$mAllTrees))
+                               if(array_key_exists($root, $mAllTrees))
                                     $tree = $mAllTrees[$root];
                                 else{
                                     $tree = new Tree();
@@ -305,11 +304,11 @@ limitations under the License.
                        
                        if(count($mAllTrees) > 0){
                           $html = '';
-                          $html = $html.'<div class="tree"><ul>';
+                          $html = $html . '<div class="tree"><ul>';
                           foreach($mAllTrees as $root => $iTree){
-                            $html = $html.$iTree->printTreeNew($iTree->getRoot());
+                            $html =  $html . $iTree->printTreeNew($iTree->getRoot());
                           }
-                          $html = $html.'</ul></div>';
+                          $html = $html . '</ul></div>';
                           echo $html;
                        }
                     ?>
