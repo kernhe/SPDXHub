@@ -262,9 +262,9 @@ limitations under the License.
                         $all_files = array();
                         $file_licenses = array();
                         while($row = mysql_fetch_assoc($files)) {
-                            $all_files[$row['relative_path']]=$row['spdx_pk'];
-                            $file_licenses[$row['relative_path']]['license_id'] = $row['license_id'];
-                            $file_licenses[$row['relative_path']]['license_name'] = $row['license_name'];
+                            $all_files[$row['relative_path']]=$row['spdx_fk'];
+                            $file_licenses[$row['relative_path']]['license_identifier'] = $row['license_identifier'];
+                            $file_licenses[$row['relative_path']]['license_fullname'] = $row['license_fullname'];
                         }
                         
                         $mAllTrees = array();
@@ -289,14 +289,14 @@ limitations under the License.
                                }
                                $tree->addFileToPath($path,
                                                     $fileName . ' - <a href="file.php?file_id=' . $all_files[$file]. '&doc_id=' . $spdxId . '">View File Details</a> - ' .
-                                                        $file_licenses[$file]['licensename'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_id'] . '&doc_id=' . $spdxId . '">View License Details</a>',
+                                                        $file_licenses[$file]['license_fullname'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_identifier'] . '&doc_id=' . $spdxId . '">View License Details</a>',
                                                     $all_files[$file]);
                             }
                             else{
                                 $tree = new Tree();
                                 $tree->setSpdxId($spdxId);
                                 $tree->createNode($file . ' - <a href="file.php?file_id=' . $all_files[$file]. '&doc_id=' . $spdxId . '">View File Details</a> - ' . 
-                                        $file_licenses[$file]['licensename'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_id'] . '&doc_id=' . $spdxId . '">View License Details</a>'
+                                        $file_licenses[$file]['license_fullname'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_identifier'] . '&doc_id=' . $spdxId . '">View License Details</a>'
                                                   ,null);
                                 $tree->addFieldId($file,$all_files[$file]);
                                 $mAllTrees[$file] = $tree;

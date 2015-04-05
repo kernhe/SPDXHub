@@ -22,19 +22,11 @@ limitations under the License.
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
 
         //Query
-        $sql  = "SELECT DISTINCT pf.*,
-                                 dfpa.relative_path,
-                                 LENGTH( pf.relative_path ) - LENGTH( REPLACE( dfpa.relative_path,  '/',  '' ) ) AS level,
-                                 dfpa.package_id,
-                                 dla.license_id,
-                                 le.license_fullname
-                 FROM package_files pf
-                      INNER JOIN doc_file_package_associations AS dfpa ON pf.id = dfpa.package_file_id
-                      LEFT OUTER JOIN licensings AS l ON pf.id = l.package_file_id
-                      LEFT OUTER JOIN doc_license_associations AS dla ON l.doc_license_association_id = dla.id
-                      LEFT OUTER JOIN spdx_license_list_insert AS le ON dla.license_id = le.license_list_pk
-                 WHERE dfpa.spdx_doc_id = " . $spdx_doc_id . "
-                 ORDER BY dfpa.relative_path";
+        $sql  = "SELECT DISTINCT pf.*, LENGTH( pf.relative_path ) - LENGTH( REPLACE( pf.relative_path,  '/',  '' ) ) AS level, le.license_fullname, le.license_identifier
+               	FROM  spdx_file_info pf
+               		LEFT OUTER JOIN spdx_license_list_insert AS le ON pf.license_info_in_file = le.license_identifier
+               	WHERE pf.spdx_fk = " . $spdx_doc_id . "
+                ORDER BY pf.relative_path";
         
         //Execute Query
         $qryPKGFiles = mysql_query($sql);
