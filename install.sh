@@ -2,15 +2,20 @@
 
 #Setup User Name and Password for MySql
 u="root"
-echo -n "Enter desired password for mySQL root user: "
+echo -n "Enter [desired] password for mySQL root user: "
 read p
 
-#Install dependencies, may remove later
-sudo apt-get install apache2
-sudo apt-get install mysql-server
-sudo apt-get install php5 libapache2-mod-php5
-sudo apt-get install php5-mysql
-sudo apt-get install git
+echo "INSTALL DEPENDENCIES [y/n]: "
+read result
+
+if [ "$result" == "y" -o "$result" == "Y" ]; then
+  #Install dependencies, may remove later
+  sudo apt-get install apache2
+  sudo apt-get install mysql-server
+  sudo apt-get install php5 libapache2-mod-php5
+  sudo apt-get install php5-mysql
+  sudo apt-get install git
+fi
 
 #Clone Repos
 echo "Moving to /var/www/ ..."
