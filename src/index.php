@@ -46,7 +46,7 @@ limitations under the License.
     <div class="col-xs-12 adv-search-inner">
       
       <div class="col-xs-12 col-md-6  ">
-        <h5>Licences</h5>
+        <h4>Licenses</h4>
         <form>
           <ul class="license-filter">
             <li>
@@ -67,7 +67,7 @@ limitations under the License.
 
       <div class="col-xs-12 col-md-6">   
         
-        <h5>Identifier</strong></h><span id="identifier">Identifier</span> 
+        <h5>Identifier: </strong></h><span id="identifier">Identifier</span> 
         
         <select class="LicenseListDropDown" name="charset">
           <option value="(license identifier)" selected="selected">license name</option>
