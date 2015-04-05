@@ -120,7 +120,7 @@ limitations under the License.
 					$html = $html.'<ul>';
 				   foreach($n->getChildNodes() as $childNode){
 				     if(!$childNode->hasChildNodes()){
-						$html = $html.'<li>'.$childNode->getValue().'</li>';
+						$html = $html . '<li>' . $childNode->getValue() . '</li></br>';
 					 }else{
 						$html = $html.$this->printTreeNew($childNode);
 						
