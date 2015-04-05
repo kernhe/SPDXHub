@@ -1,3 +1,4 @@
+
 nav {
 	letter-spacing: .5px;
 }
@@ -5,6 +6,17 @@ nav {
 div.search {
 	height: 100px;
 }
+div.search form{
+	padding-top: 50px;
+} div.search input {
+	width: 400px;
+	margin: 0;
+	display:inline-block;
+} div.search button {
+	margin: 0;
+	width: 100px;
+}
+
 
 ul.license-filter {
 	list-style: none;
@@ -14,40 +26,20 @@ ul.license-filter {
 	padding-right: 5px;
 
 }
-
-
-/*.search-block form input {
-    width: 70%;
-    display: inline-block;
+.adv-search-header {
+	width: 100%;
+	background-color: #E6E7E8;
 }
-.search-block form button {
-    width: 30%;
+.adv-search {
+	height: 150px;
+	/*background-color: #D1D2D4*/
 }
-*/
-.draw-line {
-    width: 100%;
-    height: 1px;
-    background-color: black;
-}
-/*#f9f9f9*/
-/*.search-header{
-	font-size: 20px;
-	border-bottom: solid 2px #D1D2D4;
-}*/
 .adv-search-inner {
 	border-top: solid 2px #D1D2D4;
-	background-color: #f9f9f9; 
+	/*background-color: #D1D2D4; */
 }
 
-/*.container {
-	border: dotted 1px red;
 
-}
-*/
-/*.col-xs-12 {
-	border: solid 1px blue;
-}
-*/
 .col-xs-6 {
 	border: solid 1px blue;
 }
@@ -79,7 +71,7 @@ td#breakdown div {
 	width: 35px;
 	border: 1px solid #D1D2D4;
 	border-radius: 4px; 
-	margin: 0 3px 0 0;
+	margin: 0 4px 0 0;
 	display: inline-block;
 	text-align: center;
 	padding-top: 5px;
@@ -100,7 +92,7 @@ td#breakdown div {
 }
 
 #action button {
-	margin-right: 9px;
+	margin-right: 10px;
 }
 
 .document-name {
@@ -108,7 +100,19 @@ td#breakdown div {
 }
 
 
-
+#tablesorter thead {
+	width: 100%;
+	background-color: #E6E7E8;
+}
+/*@media (max-width: 992px) {
+	body {
+		width: 992px;
+	}
+	.container {
+		margin: 0 20px;
+	}
+}
+*/
 
 
 
