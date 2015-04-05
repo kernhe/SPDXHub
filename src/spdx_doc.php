@@ -325,10 +325,10 @@ limitations under the License.
             </tbody>         
             <thead>
                 <tr>
-                    <td colspan="2">License Breakdown</td>
+                    <th colspan="2" id="License">License Breakdown</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody  id="LicenseContent">
             	<tr>
             		<td colspan="2">
             			<div align="center">
