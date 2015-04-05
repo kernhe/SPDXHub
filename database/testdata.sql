@@ -1,6 +1,7 @@
 /*
  * spdx_docs 4 inserts
  */
+ USE `SPDX`;
 
 INSERT INTO `spdx_file` (`spdx_pk`,`spdx_id`,`version`,`data_license`,`document_name`,`document_comment`,`created_date`) VALUES (1001, 1, 1, "MIT", "AngularJS","#FOSSOLOGY_ONLY",NOW());
 INSERT INTO `spdx_file` (`spdx_pk`,`spdx_id`,`version`,`data_license`,`document_name`,`document_comment`,`created_date`) VALUES (1002, 2, 1, "APACHE 2.0", "Node.js", "#FOSSOLOGY_ONLY",NOW());
