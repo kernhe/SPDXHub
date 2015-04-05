@@ -19,9 +19,31 @@ limitations under the License.
   include("function/_header.php");
   include("function/spdx_doc.php");
   $name = "";
+  $spdxapproved = ""; 
+  $spdxnotapproved = ""; 
+  $notinlist = ""; 
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
+  if(isset($_POST["spdx_approved"])){ 
+    $spdxapproved="Yes"; 
+    } 
+	else{ 
+    $spdxapproved="No"; 
+    } 
+     
+     
+
+if ($spdx_not_approved != 'Yes') {
+	$spdxnotapproved="Yes"; 
+    } 
+else{ 
+    $spdxnotapproved="No"; 
+    } 
+$spdxapproved = $_POST["spdx_approved"]; 
+$spdxnotapproved = $_POST["spdx_not_approved"]; 
+$notinlist = $_POST["not_in_list"]; 
+
 ?>
 
 <div class="container search">
@@ -49,15 +71,15 @@ limitations under the License.
         <form>
           <ul class="license-filter">
             <li>
-              <input id="" name="outline" type="checkbox" value="1" />
+              <input type="checkbox" name="spdx_approved" value="Yes" />
               <label title="SPDX approved" for="">SPDX approved</label>
             </li>
             <li>
-              <input id="" name="No200" type="checkbox" value="1" />
+              <input type="checkbox" name="spdx_not_approved" value="Yes" />
               <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
             </li>
             <li>
-              <input id="uri-verbose2" name="" type="checkbox" value="1" />
+              <input type="checkbox" name="not_in_list" value="Yes" />
               <label title="Not in SPDX list" for="">Not in SPDX list</label>
             </li>
           </ul>
