@@ -26,6 +26,7 @@ limitations under the License.
         if($_POST["action"] == "update"){
             updateFile($fileId,
                        $_POST["file_copyright_text"],
+                       $_POST["filetype"],
                        $_POST["artifact_of_project_name"],
                        $_POST["artifact_of_project_homepage"],
                        $_POST["artifact_of_project_uri"],
@@ -34,16 +35,17 @@ limitations under the License.
                        $_POST["license_comments"],
                        $_POST["file_notice"],
                        $_POST["file_contributor"],
-                       $_POST["file_dependency"],
                        $_POST["file_comment"]);
         }
     }
     $file = mysql_fetch_assoc(getPackageFile($fileId, $spdxDocId));
 ?>
 <script>
-    $(document).on('click','#edit_doc', function() {
-        $('.edit').show();
-        $('.view').hide();
+    $(document).ready(function() {
+    	$("#edit_doc").click(function () {
+    		$('.edit').show();
+        	$('.view').hide();
+        });
     });
 </script>
 <div class="container">
@@ -70,11 +72,18 @@ limitations under the License.
             </thead>
             <tbody>
                 <tr>
-                    <td title="Type of this file.">File Type</td>
+                    <td title="Information about copyright.">Copyright Text</td>
                     <td class="edit" style="display:none;">
                         <textarea name="file_copyright_text" class='form-control'><?php echo $file["file_copyright_text"]; ?></textarea>
                     </td>
                     <td class="view"><?php echo $file["file_copyright_text"]; ?></td>
+                </tr>
+                <tr>
+                    <td title="Type of this file.">File Type</td>
+                    <td class="edit" style="display:none;">
+                        <textarea name="filetype" class='form-control'><?php echo $file["filetype"]; ?></textarea>
+                    </td>
+                    <td class="view"><?php echo $file["filetype"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Project the file has been derived from.">Artifact Of Project Name</td>

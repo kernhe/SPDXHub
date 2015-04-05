@@ -59,6 +59,7 @@ limitations under the License.
     }
     function updateFile($fileId,
                         $file_copyright_text = "",
+                        $filetype = "",
                         $artifact_of_project_name = "",
                         $artifact_of_project_homepage = "",
                         $artifact_of_project_uri = "",
@@ -67,7 +68,6 @@ limitations under the License.
                         $license_comments = "",
                         $file_notice = "",
                         $file_contributor = "",
-                        $file_dependency = "",
                         $file_comment = "") {
 
         //Create Database connection
@@ -76,20 +76,19 @@ limitations under the License.
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
         
         //Query
-        $sql  = "UPDATE package_files
+        $sql  = "UPDATE spdx_file_info
                  SET file_copyright_text = '" . $file_copyright_text . "',
-                     artifact_of_project_name = '" . $artifact_of_project_name . "',
-                     artifact_of_project_homepage = '" . $artifact_of_project_homepage . "',
-                     artifact_of_project_uri = '" . $artifact_of_project_uri . "',
+                 	 filetype = '" . $filetype . "', 
+                     artifact_of_project = '" . $artifact_of_project_name . "',
+                     artifact_of_homepage = '" . $artifact_of_project_homepage . "',
+                     artifact_of_url = '" . $artifact_of_project_uri . "',
                      license_concluded = '" . $license_concluded . "', 
                      license_info_in_file = '" . $license_info_in_file . "',
-                     license_comments = '" . $license_comments . "',
+                     license_comment = '" . $license_comments . "',
                      file_notice = '" . $file_notice . "', 
                      file_contributor = '" . $file_contributor . "',
-                     file_dependency = '" . $file_dependency . "',
-                     file_comment = '" . $file_comment . "',
-                     updated_at = Now()
-                 WHERE Id = " . $fileId;
+                     file_comment = '" . $file_comment . "'
+                 WHERE file_info_pk = " . $fileId;
         
         //Execute Query
         $updPKGFile = mysql_query($sql);

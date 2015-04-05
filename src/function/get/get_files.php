@@ -32,6 +32,7 @@ limitations under the License.
 			$file_comment = "",
 			$file_notice = "",
 			$file_contributor = "",
+			$relative_path = $docFile . "/",
 			$package_info_fk = $packageID,
 			$spdx_fk = $docID,
 		);
@@ -51,6 +52,7 @@ limitations under the License.
 			$file_comment = "<rdfs:comment>(?P<name>.*?)<\/rdfs:comment>",
 			$file_notice = "<noticeText>(?P<name>.*?)<\/noticeText>",
 			$file_contributor = "<fileContributor>(?P<name>.*?)<\/fileContributor>",	
+			$relative_path = NULL,
 			$package_info_fk = NULL,
 			$spdx_fk = NULL,
 		);
@@ -70,6 +72,7 @@ limitations under the License.
 			$file_comment = "FileComment:.*<text>(?P<name>.*?)<\/text>",
 			$file_notice = "FileNotice:.*<text>(?P<name>.*?)<\/text>",
 			$file_contributor = "FileContributor:(?P<name>.*?)\n",
+			$relative_path = NULL,
 			$package_info_fk = NULL,
 			$spdx_fk = NULL,
 		);
@@ -88,12 +91,14 @@ limitations under the License.
 			}
 		}
 		
+		$fileArray[14] = $fileArray[14] . $fileArray[0];
+		
         $query	= 	"INSERT INTO `spdx_file_info` (`filename`,`fspdx_id`,`filetype`,`checksum`,`license_concluded`,
 	        		`license_info_in_file`,`license_comment`,`file_copyright_text`,`artifact_of_project`,`artifact_of_homepage`,
-	        		`artifact_of_url`,`file_comment`,`file_notice`,`file_contributor`,`package_info_fk`,`spdx_fk`) 
+	        		`artifact_of_url`,`file_comment`,`file_notice`,`file_contributor`,`relative_path`,`package_info_fk`,`spdx_fk`) 
 	        		VALUES ('$fileArray[0]', '$fileArray[1]', '$fileArray[2]', '$fileArray[3]', '$fileArray[4]',
 					'$fileArray[5]', '$fileArray[6]', '$fileArray[7]', '$fileArray[8]', '$fileArray[9]',
-					'$fileArray[10]', '$fileArray[11]', '$fileArray[12]', '$fileArray[13]', '$fileArray[14]','$fileArray[15]')";
+					'$fileArray[10]', '$fileArray[11]', '$fileArray[12]', '$fileArray[13]', '$fileArray[14]','$fileArray[15]','$fileArray[16]')";
 					
 		return $query;
     }

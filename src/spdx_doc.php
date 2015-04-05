@@ -262,7 +262,7 @@ limitations under the License.
                         $all_files = array();
                         $file_licenses = array();
                         while($row = mysql_fetch_assoc($files)) {
-                            $all_files[$row['relative_path']]=$row['spdx_fk'];
+                            $all_files[$row['relative_path']]=$row['file_info_pk'];
                             $file_licenses[$row['relative_path']]['license_identifier'] = $row['license_identifier'];
                             $file_licenses[$row['relative_path']]['license_fullname'] = $row['license_fullname'];
                         }
