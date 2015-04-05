@@ -20,30 +20,10 @@ limitations under the License.
   include("function/spdx_doc.php");
   include("function/license.php");
   $name = "";
-  $spdxapproved = ""; 
-  $spdxnotapproved = ""; 
-  $notinlist = ""; 
+
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
-  if(isset($_POST["spdx_approved"])){ 
-    $spdxapproved="Yes"; 
-    } 
-	else{ 
-    $spdxapproved="No"; 
-    } 
-     
-     
-
-if ($spdx_not_approved != 'Yes') {
-	$spdxnotapproved="Yes"; 
-    } 
-else{ 
-    $spdxnotapproved="No"; 
-    } 
-$spdxapproved = $_POST["spdx_approved"]; 
-$spdxnotapproved = $_POST["spdx_not_approved"]; 
-$notinlist = $_POST["not_in_list"]; 
 
 ?>
 
@@ -72,7 +52,7 @@ $notinlist = $_POST["not_in_list"];
         <form>
           <ul class="license-filter">
             <li>
-              <input type="checkbox" name="spdx_approved" value="Yes" />
+              <input type="checkbox" name="spdx_approved" class = "checkbox_check" value="Yes" />
               <label title="SPDX approved" for="">SPDX approved</label>
             </li>
             <li>
@@ -126,7 +106,7 @@ $notinlist = $_POST["not_in_list"];
         <tbody>
           <?php
             
-            $result = getSPDX_DocList($name);
+            $result = getSPDX_DocList($name, x);
             $count = 0;
             while($row = mysql_fetch_assoc($result)) {
                 $approval_result = getLicenseApproval_Count($row['spdx_pk']);

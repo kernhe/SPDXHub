@@ -82,17 +82,21 @@ limitations under the License.
         return $qrySPDX_Doc;
     }
 
-   function getSPDX_DocList($name = "") {
+   function getSPDX_DocList($name = "",x) {
         //Create Database connection
         include("Data_Source.php");
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
-        $query = "SELECT spdx_pk,
-                         document_name,
-                         created_date
-                  FROM spdx_file ";
+        $query = "SELECT sf.spdx_pk,
+                         sf.document_name,
+                         sf.created_date
+                  FROM spdx_file AS sf LEFT JOIN spdx_file_info as sfi ON sf.spdx_pk = sfi.file_info_pk
+				  RIGHT OUTER JOIN spdx_license_list_insert AS slli ON sfi.license_info_in_file = slli.license_identifier";
        	if($name != "") {
        		$query .= "WHERE document_name LIKE '%" . $name . "%' ";
+       	}
+		if (x=="true"){
+       		$query .= "AND sfi.license_identifier IS NOT NULL";
        	}
 		
         $query .= "ORDER BY created_date ASC";
@@ -119,12 +123,7 @@ limitations under the License.
        	if($name != "") {
        		$query .= "WHERE upload_file_name LIKE '%" . $name . "%' ";
        	}
-		if($date_cr_fr != "" && $date_cr_to != "") {
-       		$query .= "AND WHERE created_at BETWEEN #" . $date_cr_fr . "# AND #" . $date_cr_to . "#";
-       	}
-		if($date_md_fr != "" && $date_md_to != "") {
-       		$query .= "AND WHERE updated_at BETWEEN #" . $date_md_fr . "# AND #" . $date_md_to . "#";
-       	}
+		
         $query .= "ORDER BY created_at ASC";
 
         //Execute Query
