@@ -65,7 +65,6 @@ limitations under the License.
                         $artifact_of_project_uri = "",
                         $license_concluded = "",
                         $license_info_in_file = "",
-                        $license_comments = "",
                         $file_notice = "",
                         $file_contributor = "",
                         $file_comment = "") {
@@ -84,7 +83,6 @@ limitations under the License.
                      artifact_of_url = '" . $artifact_of_project_uri . "',
                      license_concluded = '" . $license_concluded . "', 
                      license_info_in_file = '" . $license_info_in_file . "',
-                     license_comment = '" . $license_comments . "',
                      file_notice = '" . $file_notice . "', 
                      file_contributor = '" . $file_contributor . "',
                      file_comment = '" . $file_comment . "'

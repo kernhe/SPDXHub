@@ -21,23 +21,22 @@ limitations under the License.
     
     $licenseId = $_GET['license_id'];
     $spdxId    = $_GET['doc_id'];
+    $fileID	   = $_GET['file_id'];
     
     if(array_key_exists('action',$_POST)){
         if($_POST["action"] == "update"){
-            updateLicenses($licenseId,
-                           $spdxId,
-                           $_POST['extracted_text'],
-                           $_POST['osi_approved'],
-                           $_POST['license_cross_reference'],
+            updateLicenses($fileID,
                            $_POST['license_comments']);
         }
     }
-    $lic = mysql_fetch_assoc(getlicenseInfo($spdxId,$licenseId));
+    $lic = mysql_fetch_assoc(getlicenseInfo($fileID,$licenseId));
 ?>
 <script>
-    $(document).on('click','#edit_doc', function() {
-        $('.edit').show();
-        $('.view').hide();
+    $(document).ready(function() {
+    	$("#edit_doc").click(function () {
+    		$('.edit').show();
+        	$('.view').hide();
+        });
     });
 </script>
 <div class="container">
@@ -48,13 +47,13 @@ limitations under the License.
             }
         }
     ?>
-    <form id="spdx_form" action="license.php?license_id=<?php echo $licenseId; ?>&doc_id=<?php echo $spdxId;?>" method="post">
+    <form id="spdx_form" action="license.php?license_id=<?php echo $licenseId; ?>&doc_id=<?php echo $spdxId;?>&file_id=<?php echo $fileID;?>" method="post">
         <input type="hidden" name="action" value="update"/>
         <table id="tblMain" class="table table-bordered table-striped table-doc">
             <thead>
                 <tr>
                     <th colspan=2>
-                        <?php echo $lic["license_name"]; ?>
+                        <?php echo $lic["license_fullname"]; ?>
                         <div style="display:inline-block;float:right;">
                             <button id="edit_doc"     type="button"  class="btn btn-primary view"/>Edit</button>
                             <button id="save_doc"     type="submit"  class="btn btn-primary edit" style="display:none;">Save</button>
@@ -70,42 +69,17 @@ limitations under the License.
                 <tr>
                     <td title="Any addtional information on this license in this SPDX document.">License Comments</td>
                     <td class="edit" style="display:none;">
-                        <textarea name="license_comments" class='form-control'><?php echo $lic["license_comments"]; ?></textarea>
+                        <textarea name="license_comments" class='form-control'><?php echo $lic["license_comment"]; ?></textarea>
                     </td>
-                    <td class="view"><?php echo $lic["license_comments"]; ?></td>
-                </tr>
-                <tr>
-                    <td title="Provide a pointer to the official source of a license that is not included in the SPDX License List.">License Cross Reference</td>
-                    <td class="edit" style="display:none;">
-                        <textarea name="license_cross_reference" class='form-control'><?php echo $lic["license_cross_reference"]; ?></textarea>
-                    </td>
-                    <td class="view"><?php echo $lic["license_cross_reference"]; ?></td>
+                    <td class="view"><?php echo $lic["license_comment"]; ?></td>
                 </tr>
                 <tr>
                     <td title="Any addtional information on this license in this SPDX document.">OSI Approved</td>
-                    <td class="edit" style="display:none;">
-                        <textarea name="osi_approved" class='form-control'><?php echo $lic["osi_approved"]; ?></textarea>
-                    </td>
-                    <td class="view"><?php echo $lic["license_comments"]; ?></td>
+                    <td><?php echo $lic["osi_approved"]; ?></td>
                 </tr>
                 <tr>
                     <td title="File this license was identified in.">File</td>
-                    <td><a href="file.php?file_id=<?php echo $lic['file_id'];?>&doc_id=<?php echo $spdxId; ?>"><?php echo $lic["file_name"]; ?></a></td>
-                </tr>
-                <tr>
-                    <td title="Text that identified the license in the file.">Extracted Text</td>
-                    <td class="edit" style="display:none;">
-                        <textarea name="extracted_text" class='form-control'><?php echo $lic["extracted_text"]; ?></textarea>
-                    </td>
-                    <td class="view"><?php echo $lic["extracted_text"]; ?></td>
-                </tr>
-                <tr>
-                    <td title="Date this license was added to this SPDX document.">Created At</td>
-                    <td><?php echo $lic["created_at"]; ?></td>
-                </tr>
-                <tr>
-                    <td title="Date this license was last updated.">Updated At</td>
-                    <td><?php echo $lic["updated_at"]; ?></td>
+                    <td><a href="file.php?file_id=<?php echo $lic['file_info_pk'];?>&doc_id=<?php echo $spdxId; ?>"><?php echo $lic["filename"]; ?></a></td>
                 </tr>
             </tbody>
         </table>

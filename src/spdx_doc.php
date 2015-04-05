@@ -283,13 +283,20 @@ limitations under the License.
                                 }
                                    
                                                 
-                               if(!$tree->hasPath($path)) {
-                                  $tree->createPath($path);
-                               }
-                               $tree->addFileToPath($path,
-                                                    $fileName . ' - <a href="file.php?file_id=' . $all_files[$file]. '&doc_id=' . $spdxId . '">View File Details</a> - ' .
-                                                        $file_licenses[$file]['license_fullname'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_identifier'] . '&doc_id=' . $spdxId . '">View License Details</a>',
-                                                    $all_files[$file]);
+                               	if(!$tree->hasPath($path)) {
+                               	   $tree->createPath($path);
+                               	}
+                               	if($file_licenses[$file]['license_identifier'] == NULL){
+	                               	$tree->addFileToPath($path,
+		                                                    $fileName . ' - <a href="file.php?file_id=' . $all_files[$file]. '&doc_id=' . $spdxId . '">View File Details</a>' .
+		                                                        $file_licenses[$file]['license_fullname'], $all_files[$file]);
+                               	}
+                               	else{
+	                               	$tree->addFileToPath($path,
+	                                                    $fileName . ' - <a href="file.php?file_id=' . $all_files[$file]. '&doc_id=' . $spdxId . '">View File Details</a> - ' .
+	                                                        $file_licenses[$file]['license_fullname'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_identifier'] . '&doc_id=' . $spdxId . '&file_id=' . $all_files[$file] . '">View License Details</a>',
+	                                                    $all_files[$file]);
+                            	}
                             }
                             else{
                                 $tree = new Tree();
