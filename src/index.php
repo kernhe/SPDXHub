@@ -26,64 +26,60 @@ limitations under the License.
 
 <div class="container search">
   
-  <div class="col-xs-12">
-    <h4 class="search-header">Advanced Search</h4>
-  </div>
-
   <div class="col-xs-12 search-inner">
     <form class="" action="index.php" method="post" >
-    	<span class="col-xs-10 col-sm-8 col-md-6"><!-- autofocus="autofocus" -->
-        <input type="search" class="form-control" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
-        <button type="submit" class="btn pull-right">Search</button>
-      </span>
+      <input type="search" class="form-control" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
+      <button type="submit" class="btn btn-default">Search</button>
   	</form>
   </div>
 
 </div>
 
 <div class="container adv-search"> 
+  <div  class="col-xs-12 bkg"> 
     
-  <div class="col-xs-12">
-    <h4 class="search-header">Advanced Search</h4>
-  </div>
-  
-  <div class="col-xs-12 adv-search-inner">
-    
-    <div class="col-xs-12 col-md-6  ">
-      <h5>Licences</h5>
-      <form>
-        <ul class="license-filter">
-          <li>
-            <input id="" name="outline" type="checkbox" value="1" />
-            <label title="SPDX approved" for="">SPDX approved</label>
-          </li>
-          <li>
-            <input id="" name="No200" type="checkbox" value="1" />
-            <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
-          </li>
-          <li>
-            <input id="uri-verbose2" name="" type="checkbox" value="1" />
-            <label title="Not in SPDX list" for="">Not in SPDX list</label>
-          </li>
-        </ul>
-      </form>
+    <div class="col-xs-12 adv-search-header">
+      <h4>Advanced Search</h4>
     </div>
+    
+    <div class="col-xs-12 adv-search-inner">
+      
+      <div class="col-xs-12 col-md-6  ">
+        <h5>Licences</h5>
+        <form>
+          <ul class="license-filter">
+            <li>
+              <input id="" name="outline" type="checkbox" value="1" />
+              <label title="SPDX approved" for="">SPDX approved</label>
+            </li>
+            <li>
+              <input id="" name="No200" type="checkbox" value="1" />
+              <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
+            </li>
+            <li>
+              <input id="uri-verbose2" name="" type="checkbox" value="1" />
+              <label title="Not in SPDX list" for="">Not in SPDX list</label>
+            </li>
+          </ul>
+        </form>
+      </div>
 
-    <div class="col-xs-12 col-md-6">   
-      
-      <h5>Identifier</strong></h><span id="identifier">Identifier</span> 
-      
-      <select class="LicenseListDropDown" name="charset">
-        <option value="(license identifier)" selected="selected">license name</option>
-        <?php
-        $resultlist = getSPDX_LicenseList();
-          while($row = mysql_fetch_assoc($resultlist)) {
-            echo '<option value="' . $row['license_identifier'] . '">';
-            echo $row['license_fullname'];
-            echo '</option>';
-           }
-        ?>
-      </select>                
+      <div class="col-xs-12 col-md-6">   
+        
+        <h5>Identifier</strong></h><span id="identifier">Identifier</span> 
+        
+        <select class="LicenseListDropDown" name="charset">
+          <option value="(license identifier)" selected="selected">license name</option>
+          <?php
+          $resultlist = getSPDX_LicenseList();
+            while($row = mysql_fetch_assoc($resultlist)) {
+              echo '<option value="' . $row['license_identifier'] . '">';
+              echo $row['license_fullname'];
+              echo '</option>';
+             }
+          ?>
+        </select>                
+      </div>
     </div>
 
   </div>

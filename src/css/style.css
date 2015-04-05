@@ -4,7 +4,7 @@ nav {
 }
 
 div.search {
-	height: 100px;
+	height: 150px;
 }
 div.search form{
 	padding-top: 50px;
@@ -26,16 +26,25 @@ ul.license-filter {
 	padding-right: 5px;
 
 }
-.adv-search-header {
+
+div.adv-search-header {
 	width: 100%;
 	background-color: #E6E7E8;
 }
-.adv-search {
+div.adv-search {
 	height: 150px;
-	/*background-color: #D1D2D4*/
+	padding-right: 30px;
+	padding-left: 30px;
+}
+div.adv-search div.bkg {
+	background-color: #f9f9f9;
+	border: 1px solid #D1D2D4;
+	padding: 0;
+
 }
 .adv-search-inner {
 	border-top: solid 2px #D1D2D4;
+	background-color: #f9f9f9;
 	/*background-color: #D1D2D4; */
 }
 
@@ -104,16 +113,6 @@ td#breakdown div {
 	width: 100%;
 	background-color: #E6E7E8;
 }
-/*@media (max-width: 992px) {
-	body {
-		width: 992px;
-	}
-	.container {
-		margin: 0 20px;
-	}
-}
-*/
-
 
 
 
