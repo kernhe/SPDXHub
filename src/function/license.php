@@ -124,4 +124,34 @@ limitations under the License.
 
         return mysql_query($sql);
     }
+    
+    function getLicenseApproval_Count($spdxDocId) {
+        //Create Database connection
+        include("Data_Source.php");
+        mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
+        mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
+
+        $sql = 	"SELECT COUNT(license_identifier) as approvalCount
+				FROM spdx_file_info sfi 
+				JOIN spdx_license_list_insert slli ON sfi.license_info_in_file = slli.license_identifier
+				WHERE slli.osi_approved = 1 AND sfi.spdx_fk = " . $spdxDocId . "
+				GROUP BY license_identifier";
+
+        return mysql_query($sql);
+    }
+    
+    function getLicenseDisapproval_Count($spdxDocId) {
+        //Create Database connection
+        include("Data_Source.php");
+        mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
+        mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
+
+        $sql = 	"SELECT COUNT(license_identifier) as disapprovalCount
+				FROM spdx_file_info sfi 
+				JOIN spdx_license_list_insert slli ON sfi.license_info_in_file = slli.license_identifier
+				WHERE slli.osi_approved IS NULL AND sfi.spdx_fk = " . $spdxDocId . "
+				GROUP BY license_identifier";
+
+        return mysql_query($sql);
+    }
 ?>

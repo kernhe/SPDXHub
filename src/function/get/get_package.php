@@ -11,7 +11,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-(isset($_POST['scan_option']) ? $_POST['scan_option'] : null);
 -->
 <?php
     function getPackage($myFile, $docFile, $fileType, $docID){
@@ -61,8 +60,8 @@ limitations under the License.
 			$home_page = "<doap:homepage>(?P<name>.*?)<\/doap:homepage>",
 			$source_Information = "<spdx:sourceInfo>(?P<name>.*?)<\/spdx:sourceInfo>",
 			$source_info = "<spdx:sourceInfo>(?P<name>.*?)<\/spdx:sourceInfo>",
-			$license_declared ="<spdx:licenseDeclared rdf:resource=\".*\/(?P<name>.*?)\"\/>",
-			$license_concluded = "<spdx:licenseConcluded rdf:resource=\".*\/(?P<name>.*?)\"\/>",
+			$license_declared ="<spdx:licenseDeclared.*\/(?P<name>.*?)\"\/>",
+			$license_concluded = "<spdx:licenseConcluded.*\/(?P<name>.*?)\"\/>",
 			$license_info_from_files = NULL,
 			$license_comment = "<spdx:licenseComments>(?P<name>.*?)<\/spdx:licenseComments>",
 			$package_copyright_text = "<spdx:copyrightText>(?P<name>.*?)<\/spdx:copyrightText>",

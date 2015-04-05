@@ -13,44 +13,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php
-    function getFiles($myFile, $docFile, $fileType, $docID, $packageID){	
+    function getFiles($myFile, $docFile, $fileType, $fileID, $docID){	
 		//FILES
     	$myString = $myFile;	
 
-		$fileArray = array(
-			$filename = "",
-			$fspdx_id = "",
-			$filetype = "",
-			$checksum = "",
-			$license_concluded = "",
+		$licenseArray = array(
 			$license_info_in_file = "",
-			$license_comment = "",
-			$file_copyright_text = "",
-			$artifact_of_project = "",
-			$artifact_of_homepage = "",
-			$artifact_of_url = "",
-			$file_comment = "",
-			$file_notice = "",
-			$file_contributor = "",
 			$package_info_fk = $packageID,
 			$spdx_fk = $docID,
 		);
 		
 		$rdf_regex = array(
-			$filename = "<spdx:fileName>.*\/(?:(?P<name>.*)\..*?)<\/spdx:fileName>",
-			$fspdx_id = "<spdx:File.*?ID=\"(?P<name>.*?)\".*>",
-			$filetype = "<spdx:fileType rdf:resource=\".*fileType_(?P<name>.*?)\"\/>",
-			$checksum = "<spdx:checksumValue>(?P<name>.*?)<\/spdx:checksumValue>",
-			$license_concluded = "<spdx:licenseConcluded.*\/(?P<name>.*?)\"\/>",
-			$license_info_in_file = "<spdx:licenseInfoInFile.*\/(?P<name>.*?)\"\/>",
-			$license_comment = "<spdx:licenseComments>(?P<name>.*?)<\/spdx:licenseComments>",
-			$file_copyright_text = "<spdx:copyrightText>(?P<name>.*?)<\/spdx:copyrightText>",
-			$artifact_of_project = "<doap:name>(?P<name>.*?)<\/doap:name>",
-			$artifact_of_homepage = "<doap:homepage rdf:resource=\"(?P<name>.*?)\"\/>",
-			$artifact_of_url = NULL,
-			$file_comment = "<rdfs:comment>(?P<name>.*?)<\/rdfs:comment>",
-			$file_notice = "<noticeText>(?P<name>.*?)<\/noticeText>",
-			$file_contributor = "<fileContributor>(?P<name>.*?)<\/fileContributor>",	
+			$license_info_in_file = NULL,
 			$package_info_fk = NULL,
 			$spdx_fk = NULL,
 		);

@@ -18,6 +18,7 @@ limitations under the License.
   $title = "SPDX";
   include("function/_header.php");
   include("function/spdx_doc.php");
+  include("function/license.php");
   $name = "";
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
@@ -106,6 +107,18 @@ limitations under the License.
             $result = getSPDX_DocList($name);
             $count = 0;
             while($row = mysql_fetch_assoc($result)) {
+                $approval = getLicenseApproval_Count($row['spdx_pk']);
+                $row_2 = mysql_fetch_assoc($approval);
+                if ($row_2['approvalCount'] == NULL){
+                	$row_2['approvalCount'] = 0;
+                }
+                
+                $disapproval = getLicenseDisapproval_Count($row['spdx_pk']);
+                $row_3 = mysql_fetch_assoc($disapproval);
+                if ($row_3['disapprovalCount'] == NULL){
+                	$row_3['disapprovalCount'] = 0;
+                }
+                
                 echo '<tr>';
                 echo     '<td>';
                 echo         ++$count; //$row['spdx_pk']
@@ -115,15 +128,16 @@ limitations under the License.
                 echo     '</td>';
                 echo     '<td>';
                 echo         date('m/d/Y', strtotime($row['created_date'])); 
-                echo     '</td>'; ?>
-                <td id="breakdown">
-                  <div>
-                    <span class="b-one">5</span>
-                    <span class="b-two">5</span>
-                    <span class="b-three">5</span>
-                  </div>
-                </td>
-                <?php
+                echo     '</td>'; 
+                
+				echo '<td id="breakdown">';
+                echo 	'<div>';
+                echo 		'<span class="b-one">' . $row_2['approvalCount'] . '</span>';
+                echo 		'<span class="b-two">' . $row_3['disapprovalCount'] . '</span>';
+                echo 		'<span class="b-three">0</span>';
+                echo 	'</div>';
+                echo '</td>';
+
                 echo     '<td id="action">';
                 echo         '<div>';
                 echo             '<button type="button" class="btn btn-info" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['spdx_pk'] . '\'">View Details</button>';
