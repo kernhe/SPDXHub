@@ -133,6 +133,7 @@ CREATE TABLE IF NOT EXISTS `spdx_file_info` (
   `file_comment` text,
   `file_notice` text,
   `file_contributor` text,
+  `relative_path` text,
   `package_info_fk` int(11) NOT NULL,
   `spdx_fk` int(11) NOT NULL,
   PRIMARY KEY (`file_info_pk`,`package_info_fk`,`spdx_fk`)

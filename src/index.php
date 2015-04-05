@@ -18,6 +18,7 @@ limitations under the License.
   $title = "SPDX";
   include("function/_header.php");
   include("function/spdx_doc.php");
+  include("function/license.php");
   $name = "";
   $spdxapproved = ""; 
   $spdxnotapproved = ""; 
@@ -67,7 +68,7 @@ $notinlist = $_POST["not_in_list"];
     <div class="col-xs-12 adv-search-inner">
       
       <div class="col-xs-12 col-md-6  ">
-        <h5>Licences</h5>
+        <h4>Licenses</h4>
         <form>
           <ul class="license-filter">
             <li>
@@ -88,7 +89,7 @@ $notinlist = $_POST["not_in_list"];
 
       <div class="col-xs-12 col-md-6">   
         
-        <h5>Identifier</strong></h><span id="identifier">Identifier</span> 
+        <h5>Identifier: </strong></h><span id="identifier">Identifier</span> 
         
         <select class="LicenseListDropDown" name="charset">
           <option value="(license identifier)" selected="selected">license name</option>
@@ -117,7 +118,7 @@ $notinlist = $_POST["not_in_list"];
             <th>#</th>
             <th>Document Name</th>
             <th>Created on</th>
-            <th>Licences</th>
+            <th>Licenses</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -128,6 +129,22 @@ $notinlist = $_POST["not_in_list"];
             $result = getSPDX_DocList($name);
             $count = 0;
             while($row = mysql_fetch_assoc($result)) {
+                $approval_result = getLicenseApproval_Count($row['spdx_pk']);
+                $disapproval_result = getLicenseDisapproval_Count($row['spdx_pk']);
+                $unknown_result = getLicenseUnknown_Count($row['spdx_pk']);
+                $approval = 0;
+                $disapproval = 0;
+                $unknown = 0;
+                while($row_2 = mysql_fetch_assoc($approval_result)) {
+                	$approval += $row_2['approvalCount'];
+                }
+                while($row_3 = mysql_fetch_assoc($disapproval_result)) {
+                	$disapproval += $row_3['disapprovalCount'];
+                }
+                while($row_4 = mysql_fetch_assoc($unknown_result)) {
+                	$unknown += $row_4['unknownCount'];
+                }
+
                 echo '<tr>';
                 echo     '<td>';
                 echo         ++$count; //$row['spdx_pk']
@@ -137,15 +154,16 @@ $notinlist = $_POST["not_in_list"];
                 echo     '</td>';
                 echo     '<td>';
                 echo         date('m/d/Y', strtotime($row['created_date'])); 
-                echo     '</td>'; ?>
-                <td id="breakdown">
-                  <div>
-                    <span class="b-one">5</span>
-                    <span class="b-two">5</span>
-                    <span class="b-three">5</span>
-                  </div>
-                </td>
-                <?php
+                echo     '</td>'; 
+                
+				echo '<td id="breakdown">';
+                echo 	'<div>';
+                echo 		'<span title="Contained licenses with SPDX approval." class="b-one">' . $approval . '</span>';
+                echo 		'<span title="Contained licenses without SPDX approval." class="b-two">' . $disapproval . '</span>';
+                echo 		'<span title="Contained licenses without SPDX acknowledgement." class="b-three">' . $unknown . '</span>';
+                echo 	'</div>';
+                echo '</td>';
+
                 echo     '<td id="action">';
                 echo         '<div>';
                 echo             '<button type="button" class="btn btn-info" onclick="window.location=\'spdx_doc.php?doc_id=' . $row['spdx_pk'] . '\'">View Details</button>';

@@ -24,17 +24,19 @@ git clone https://github.com/socs-dev-env/DoSOCS
 git clone https://github.com/joverkamp/SPDXHub
 
 #Config apache
+echo "Configuring apache ..."
 sudo cp /var/www/SPDXHub/doc/SPDXHub.conf /etc/apache2/sites-available/SPDXHub.conf
 cd /etc/apache2/sites-available/
 sudo a2ensite SPDXHub.conf
 
 #Install Database
-echo "Install SOCS Database..."
+echo "Install SPDXHub Database..."
 mysql --user=$u --password=$p < /var/www/SPDXHub/database/SPDX2.sql
 mysql --user=$u --password=$p < /var/www/SPDXHub/database/testdata.sql
 #Exit mySql
 
 #Move source to base directorie
+echo "Changing permissions ..."
 sudo chmod 777 /var/www/DoSOCS/src -R
 sudo chmod 777 /var/www/SPDXHub/src -R
 

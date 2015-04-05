@@ -97,11 +97,13 @@ div.navbar.navbar-default.navbar-static-top{
 		float: left;
 		display: inline-block;	
 	}
+    /*
 	body{
 		padding-top: 134px;
 	}
+    */
 }
-
+/*
 @media screen and (max-width:326px){
 	body{
 		padding-top: 184px;
@@ -113,7 +115,6 @@ div.navbar.navbar-default.navbar-static-top{
 		padding-top: 240px;
 	}
 }
-
-
+*/
 
 

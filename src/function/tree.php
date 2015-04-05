@@ -57,7 +57,7 @@ limitations under the License.
 			$parentNode = $this->getRoot();
 			
 			
-			$directories = split('/',$path);
+			$directories = explode('/',$path);
 			
 			if($tempNode == null){
 				$tempNode = $this->createNode($directories[0],null);
@@ -120,7 +120,7 @@ limitations under the License.
 					$html = $html.'<ul>';
 				   foreach($n->getChildNodes() as $childNode){
 				     if(!$childNode->hasChildNodes()){
-						$html = $html.'<li>'.$childNode->getValue().'</li>';
+						$html = $html . '<li>' . $childNode->getValue() . '</li></br>';
 					 }else{
 						$html = $html.$this->printTreeNew($childNode);
 						

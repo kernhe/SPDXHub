@@ -13,46 +13,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php
-    function getFiles($myFile, $docFile, $fileType, $docID, $packageID){	
+    function getFiles($myFile, $docFile, $fileType, $fileID, $docID){	
 		//FILES
     	$myString = $myFile;	
 
-		$fileArray = array(
-			$filename = "",
-			$fspdx_id = "",
-			$filetype = "",
-			$checksum = "",
-			$license_concluded = "",
+		$licenseArray = array(
 			$license_info_in_file = "",
-			$license_comment = "",
-			$file_copyright_text = "",
-			$artifact_of_project = "",
-			$artifact_of_homepage = "",
-			$artifact_of_url = "",
-			$file_comment = "",
-			$file_notice = "",
-			$file_contributor = "",
-			$relative_path = $docFile . "/",
 			$package_info_fk = $packageID,
 			$spdx_fk = $docID,
 		);
 		
 		$rdf_regex = array(
-			$filename = "<spdx:fileName>.*\/(?:(?P<name>.*)\..*?)<\/spdx:fileName>",
-			$fspdx_id = "<spdx:File.*?ID=\"(?P<name>.*?)\".*>",
-			$filetype = "<spdx:fileType rdf:resource=\".*fileType_(?P<name>.*?)\"\/>",
-			$checksum = "<spdx:checksumValue>(?P<name>.*?)<\/spdx:checksumValue>",
-			$license_concluded = "<spdx:licenseConcluded.*\/(?P<name>.*?)\"\/>",
-			$license_info_in_file = "<spdx:licenseInfoInFile.*\/(?P<name>.*?)\"\/>",
-			$license_comment = "<spdx:licenseComments>(?P<name>.*?)<\/spdx:licenseComments>",
-			$file_copyright_text = "<spdx:copyrightText>(?P<name>.*?)<\/spdx:copyrightText>",
-			$artifact_of_project = "<doap:name>(?P<name>.*?)<\/doap:name>",
-			$artifact_of_homepage = "<doap:homepage rdf:resource=\"(?P<name>.*?)\"\/>",
-			$artifact_of_url = NULL,
-			$file_comment = "<rdfs:comment>(?P<name>.*?)<\/rdfs:comment>",
-			$file_notice = "<noticeText>(?P<name>.*?)<\/noticeText>",
-			$file_contributor = "<fileContributor>(?P<name>.*?)<\/fileContributor>",	
-			$relative_path = NULL,
+			$license_info_in_file = NULL,
 			$package_info_fk = NULL,
 			$spdx_fk = NULL,
 		);
@@ -72,7 +44,6 @@ limitations under the License.
 			$file_comment = "FileComment:.*<text>(?P<name>.*?)<\/text>",
 			$file_notice = "FileNotice:.*<text>(?P<name>.*?)<\/text>",
 			$file_contributor = "FileContributor:(?P<name>.*?)\n",
-			$relative_path = NULL,
 			$package_info_fk = NULL,
 			$spdx_fk = NULL,
 		);
@@ -91,14 +62,12 @@ limitations under the License.
 			}
 		}
 		
-		$fileArray[14] = $fileArray[14] . $fileArray[0];
-		
         $query	= 	"INSERT INTO `spdx_file_info` (`filename`,`fspdx_id`,`filetype`,`checksum`,`license_concluded`,
 	        		`license_info_in_file`,`license_comment`,`file_copyright_text`,`artifact_of_project`,`artifact_of_homepage`,
-	        		`artifact_of_url`,`file_comment`,`file_notice`,`file_contributor`,`relative_path`,`package_info_fk`,`spdx_fk`) 
+	        		`artifact_of_url`,`file_comment`,`file_notice`,`file_contributor`,`package_info_fk`,`spdx_fk`) 
 	        		VALUES ('$fileArray[0]', '$fileArray[1]', '$fileArray[2]', '$fileArray[3]', '$fileArray[4]',
 					'$fileArray[5]', '$fileArray[6]', '$fileArray[7]', '$fileArray[8]', '$fileArray[9]',
-					'$fileArray[10]', '$fileArray[11]', '$fileArray[12]', '$fileArray[13]', '$fileArray[14]','$fileArray[15]','$fileArray[16]')";
+					'$fileArray[10]', '$fileArray[11]', '$fileArray[12]', '$fileArray[13]', '$fileArray[14]','$fileArray[15]')";
 					
 		return $query;
     }

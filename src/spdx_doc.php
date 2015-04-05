@@ -262,20 +262,19 @@ limitations under the License.
                         $all_files = array();
                         $file_licenses = array();
                         while($row = mysql_fetch_assoc($files)) {
-                            $all_files[$row['relative_path']]=$row['spdx_pk'];
-                            $file_licenses[$row['relative_path']]['license_id'] = $row['license_id'];
-                            $file_licenses[$row['relative_path']]['license_name'] = $row['license_name'];
+                            $all_files[$row['relative_path']]=$row['file_info_pk'];
+                            $file_licenses[$row['relative_path']]['license_identifier'] = $row['license_identifier'];
+                            $file_licenses[$row['relative_path']]['license_fullname'] = $row['license_fullname'];
                         }
                         
                         $mAllTrees = array();
     
                        foreach($all_files as $file=> $fileId){
-                            if(strpos($file,'/') != FALSE){
-                               $path = substr($file,0,strrpos($file,'/'));
-                               $fileName = substr($file,strrpos($file,'/')+1);
+                            if(strpos($file, '/') != FALSE){
+                               $path = substr($file, 0, strrpos($file, '/'));
+                               $fileName = substr($file, strrpos($file,'/') + 1);
                                $root = substr($file,0,strpos($file,'/'));
-                               
-                               if(array_key_exists($root,$mAllTrees))
+                               if(array_key_exists($root, $mAllTrees))
                                     $tree = $mAllTrees[$root];
                                 else{
                                     $tree = new Tree();
@@ -289,14 +288,14 @@ limitations under the License.
                                }
                                $tree->addFileToPath($path,
                                                     $fileName . ' - <a href="file.php?file_id=' . $all_files[$file]. '&doc_id=' . $spdxId . '">View File Details</a> - ' .
-                                                        $file_licenses[$file]['licensename'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_id'] . '&doc_id=' . $spdxId . '">View License Details</a>',
+                                                        $file_licenses[$file]['license_fullname'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_identifier'] . '&doc_id=' . $spdxId . '">View License Details</a>',
                                                     $all_files[$file]);
                             }
                             else{
                                 $tree = new Tree();
                                 $tree->setSpdxId($spdxId);
                                 $tree->createNode($file . ' - <a href="file.php?file_id=' . $all_files[$file]. '&doc_id=' . $spdxId . '">View File Details</a> - ' . 
-                                        $file_licenses[$file]['licensename'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_id'] . '&doc_id=' . $spdxId . '">View License Details</a>'
+                                        $file_licenses[$file]['license_fullname'] . ' - <a href="license.php?license_id=' . $file_licenses[$file]['license_identifier'] . '&doc_id=' . $spdxId . '">View License Details</a>'
                                                   ,null);
                                 $tree->addFieldId($file,$all_files[$file]);
                                 $mAllTrees[$file] = $tree;
@@ -305,11 +304,11 @@ limitations under the License.
                        
                        if(count($mAllTrees) > 0){
                           $html = '';
-                          $html = $html.'<div class="tree"><ul>';
+                          $html = $html . '<div class="tree"><ul>';
                           foreach($mAllTrees as $root => $iTree){
-                            $html = $html.$iTree->printTreeNew($iTree->getRoot());
+                            $html =  $html . $iTree->printTreeNew($iTree->getRoot());
                           }
-                          $html = $html.'</ul></div>';
+                          $html = $html . '</ul></div>';
                           echo $html;
                        }
                     ?>

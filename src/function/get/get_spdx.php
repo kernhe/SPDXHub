@@ -11,7 +11,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-(isset($_POST['scan_option']) ? $_POST['scan_option'] : null);
 -->
 <?php
     function getSPDX($myFile, $docFile, $fileType){
@@ -36,7 +35,7 @@ limitations under the License.
 		$rdf_regex = array(
 			$spdx_id = "<spdx:SpdxDocument.*?ID=\"(?P<name>.*?)\".*>",
 			$version = "<spdx:specVersion>(?P<name>.*?)<\/spdx:specVersion>",
-			$data_license = "<spdx:dataLicense rdf:resource=\"http:\/\/spdx.org\/licenses\/(?P<name>.*?)\"\/>",
+			$data_license = "<spdx:dataLicense.*\/(?P<name>.*?)\"\/>",
 			$document_name = NULL,
 			$document_namespace = "<spdx:SpdxDocument.*?about=\"(?P<name>.*?)\".*>",
 			$external_dic_ref = NULL,

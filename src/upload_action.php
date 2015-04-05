@@ -81,10 +81,10 @@ limitations under the License.
 	    if(!empty($scan_option)) {
 	        $commandLine .= " --scanOption \"$scan_option\"";
 	        shell_exec($commandLine . ' 2>&1');
-	    	echo "<div align=\"center\">Document successfully uploaded.</div>";
+	    	echo '<div align="center"><h4><p class="text-success">Successfully uploaded document.</p></h4></div>';
 	    }
 	    else{
-	    	echo "<div align=\"center\">Error processing request.</div>";
+	    	echo '<div align="center"><h4><p class="text-danger">Error processing request.</p></h4></div>';
 	    }
     }
     
