@@ -28,7 +28,9 @@ limitations under the License.
 ?>
 
 <div class="container search">
-  
+  <div class="col-xs-12 adv-search-header">
+    <h4>Search by name</h4>
+  </div>
   <div class="col-xs-12 search-inner">
     <form class="" action="index.php" method="post" >
       <input type="search" class="form-control" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
@@ -39,18 +41,22 @@ limitations under the License.
 </div>
 
 <div class="container adv-search"> 
+ 
+    
+  <div class="col-xs-12 adv-search-header">
+    <h4>Advanced Search</h4>
+  </div>
   <div  class="col-xs-12 bkg"> 
-    
-    <div class="col-xs-12 adv-search-header">
-      <h4>Advanced Search</h4>
-    </div>
-    
     <div class="col-xs-12 adv-search-inner">
       
-      <div class="col-xs-12 col-md-6  ">
-        <h4>Licenses</h4>
-        <form>
-          <ul class="license-filter">
+      <div class="col-xs-12 col-md-6  license-filter clearfix">
+        <p>
+          <strong>License Recognition</strong>
+        </p>
+        <div class="is-line"></div>
+
+        <form class="col-xs-12">
+          <ul>
             <li>
               <input type="checkbox" name="spdx_approved" class = "checkbox_check" value="Yes" />
               <label title="SPDX approved" for="">SPDX approved</label>
@@ -67,9 +73,13 @@ limitations under the License.
         </form>
       </div>
 
-      <div class="col-xs-12 col-md-6">   
+      <div class="col-xs-12 col-md-6 id-filter">   
         
-        <h5>Identifier: </strong></h><span id="identifier">Identifier</span> 
+        <p>
+          <strong>Identifier:</strong>
+          <span  id="identifier" class="pull-right">Identifier</span>
+        </p>       
+        <div class="is-line"></div>
         
         <select class="LicenseListDropDown" name="charset">
           <option value="(license identifier)" selected="selected">license name</option>
@@ -81,7 +91,7 @@ limitations under the License.
               echo '</option>';
              }
           ?>
-        </select>                
+        </select>         
       </div>
     </div>
 
@@ -89,7 +99,7 @@ limitations under the License.
 </div>
         
 <div class="container">
- 	<div class="col-xs-12">	 
+ 	<div class="col-xs-12 table-section">	 
        
     <table id="tablesorter" class="table table-striped  display"> <!-- table-striped -->
         
