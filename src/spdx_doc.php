@@ -1,3 +1,19 @@
+<SPDX-License-Identifier: Apache-2.0>
+<!--
+Copyright (C) 2014 University of Nebraska at Omaha.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
 <?php
 	$title = "Drill Down";
     include("function/_header.php");
@@ -299,7 +315,7 @@
                     ?>
                     <td>
                 </tr>
-            </tbody>
+            </tbody>         
             <thead>
                 <tr>
                     <td colspan="2">License Breakdown</td>
@@ -315,6 +331,29 @@
             		</td>
             	</tr>
             </tbody>
+			<thead>
+                <tr>
+                    <th colspan=2 id="Annotations">Annotations</th>
+                </tr>
+            </thead>
+			<tbody id="AnnotationsContent">  
+            <?php
+	            $result = getAnnotator_List($spdxId);
+	            $annotator = " ";
+	            while($row = mysql_fetch_assoc($result)) {
+	            	if ($annotator != $row['annotator']){
+	            		echo '<tr>';
+						echo 	'<td colspan="2" title="Name of annotator."><b>' . $row['annotator'] . '</b></td>';
+	                	echo '</tr>';
+	                }
+	                echo '<tr>';
+	                echo     '<td title="Date the annotation was made.">' . date('m/d/Y', strtotime($row['annotator_date'])) . '</td>';
+	                echo	 '<td title="Comment left by annotator.">' . $row['annotator_comment'] . '</td>';
+	                echo '</tr>';
+	                $annotator = $row['annotator'];
+	            }
+        	?>       
+		</tbody>
         </table>
     </form>
 </div>

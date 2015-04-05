@@ -62,7 +62,12 @@ INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`licen
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
 
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 1", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", "2016-04-01 00:00:00", "EDIT", "OMG ITS SOOO AWESOME!", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", '2015-07-04 00:00:00', "EDIT", "OMG ITS LIKE WOW", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", "2013-06-06 00:00:00", "EDIT", "OMG ITS SOOO AWESOME!", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", "2015-08-08 00:00:00", "EDIT", "OMG ITS LIKE WOW", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 1", NOW(), "EDIT", "OMG ITS TOOO AWESOME!", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 1", "2001-03-03 00:00:00", "EDIT", "OMG ITS TOOO AWESOME!", 1001);
 INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 2", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1002);
 INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 3", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1003);
 INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 4", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1004);

@@ -1,3 +1,19 @@
+<SPDX-License-Identifier: Apache-2.0>
+<!--
+Copyright (C) 2014 University of Nebraska at Omaha.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
 <?php
     function getSPDX_Doc($spdx_doc_id) {
         //Create Database connection
@@ -88,6 +104,7 @@
         return $qrySpdxDocs;
 
     }
+    
 	function getSPDX_DocListAdv($name ="", $date_cr_fr = "",$date_cr_to = "", $date_md_fr = "",$date_md_to ="") {
         //Create Database connection
         include("Data_Source.php");
@@ -162,4 +179,25 @@
         //Close Connection
         mysql_close();
     } 
+    
+   function getAnnotator_List($id) {
+        //Create Database connection
+        include("Data_Source.php");
+        mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
+        mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
+        $query = "SELECT annotator,
+                         annotator_date,
+                         annotator_type,
+                         annotator_comment
+                  FROM spdx_annotations_create
+				  WHERE spdx_fk LIKE '%" . $id . "%' ";
+		
+        $query .= "ORDER BY annotator ASC, annotator_date ASC";
+        //Execute Query
+        $qrySpdxDocs = mysql_query($query);
+        
+        //Close Connection
+        mysql_close();
+        return $qrySpdxDocs;
+    }
 ?>
