@@ -32,7 +32,6 @@ limitations under the License.
                        $_POST["artifact_of_project_uri"],
                        $_POST["license_concluded"],
                        $_POST["license_info_in_file"],
-                       $_POST["license_comments"],
                        $_POST["file_notice"],
                        $_POST["file_contributor"],
                        $_POST["file_comment"]);
@@ -129,13 +128,6 @@ limitations under the License.
                     <td><?php echo $file["relative_path"]; ?></td>
                 </tr>
                 <tr>
-                    <td title="Any relevant additional license information for this file.">License Comments</td>
-                    <td class="edit" style="display:none;">
-                        <textarea name="license_comments" class='form-control'><?php echo $file["license_comment"]; ?></textarea>
-                    </td>
-                    <td class="view"><?php echo $file["license_comment"]; ?></td>
-                </tr>
-                <tr>
                     <td title="Any legal notices found in this file.">File Notice</td>
                     <td class="edit" style="display:none;">
                         <textarea name="file_notice" class='form-control'><?php echo $file["file_notice"]; ?></textarea>
@@ -158,7 +150,7 @@ limitations under the License.
                 </tr>
                 <tr>
                     <td title="License of this file.">License</td>
-                    <td><a href="license.php?license_id=<?php echo $file['license_identifier'];?>&doc_id=<?php echo $spdxDocId; ?>"><?php echo $file["license_identifier"]; ?></a></td>
+                    <td><a href="license.php?license_id=<?php echo $file['license_identifier'];?>&doc_id=<?php echo $spdxDocId;?>&file_id=<?php echo $fileId;?>"><?php echo $file["license_identifier"]; ?></a></td>
                 </tr>
             </tbody>
         </table>
