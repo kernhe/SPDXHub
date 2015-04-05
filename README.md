@@ -70,8 +70,9 @@
 
 ## Milestone Three
 * Begin by working through issues detailed on the SPDXDashboard’s issue tracker: https://github.com/socs-dev-env/SOCSDashboard/issues
-  1. Listed in order of their defined "difficulty":
-    * Import existing SPDX docs
+  1. High level goals, listed in order of their defined "difficulty":
+    * Import existing SPDX docs in RDF
+    * Create more robust search options
   2. Creating a “flagging” system that can be used to designate specific licenses to stand out in searches and file views.  
     * The idea is that this flagging system will be viewed post-upload; users can designate licenses while performing a search.       This will give more power to the existing search command, and will not affect upload times.
   3. Update SPDX spec to 2.0
