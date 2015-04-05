@@ -8,7 +8,7 @@ read p
 echo "INSTALL DEPENDENCIES [y/n]: "
 read result
 
-if [ "$result" == "y" -o "$result" == "Y" ]; then
+if [ "$result" = "y" ] || [ "$result" = "Y" ]; then
   #Install dependencies, may remove later
   sudo apt-get install apache2
   sudo apt-get install mysql-server
