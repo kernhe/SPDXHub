@@ -107,18 +107,17 @@ limitations under the License.
             $result = getSPDX_DocList($name);
             $count = 0;
             while($row = mysql_fetch_assoc($result)) {
-                $approval = getLicenseApproval_Count($row['spdx_pk']);
-                $row_2 = mysql_fetch_assoc($approval);
-                if ($row_2['approvalCount'] == NULL){
-                	$row_2['approvalCount'] = 0;
+                $approval_result = getLicenseApproval_Count($row['spdx_pk']);
+                $disapproval_result = getLicenseDisapproval_Count($row['spdx_pk']);
+                $approval = 0;
+                $disapproval = 0;
+                while($row_2 = mysql_fetch_assoc($approval_result)) {
+                	$approval += $row_2['approvalCount'];
                 }
-                
-                $disapproval = getLicenseDisapproval_Count($row['spdx_pk']);
-                $row_3 = mysql_fetch_assoc($disapproval);
-                if ($row_3['disapprovalCount'] == NULL){
-                	$row_3['disapprovalCount'] = 0;
+                while($row_3 = mysql_fetch_assoc($disapproval_result)) {
+                	$disapproval += $row_3['disapprovalCount'];
                 }
-                
+
                 echo '<tr>';
                 echo     '<td>';
                 echo         ++$count; //$row['spdx_pk']
@@ -132,8 +131,8 @@ limitations under the License.
                 
 				echo '<td id="breakdown">';
                 echo 	'<div>';
-                echo 		'<span class="b-one">' . $row_2['approvalCount'] . '</span>';
-                echo 		'<span class="b-two">' . $row_3['disapprovalCount'] . '</span>';
+                echo 		'<span class="b-one">' . $approval . '</span>';
+                echo 		'<span class="b-two">' . $disapproval . '</span>';
                 echo 		'<span class="b-three">0</span>';
                 echo 	'</div>';
                 echo '</td>';
