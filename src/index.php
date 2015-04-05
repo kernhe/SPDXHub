@@ -96,7 +96,7 @@ limitations under the License.
             <th>#</th>
             <th>Document Name</th>
             <th>Created on</th>
-            <th>Licences</th>
+            <th>Licenses</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -136,9 +136,9 @@ limitations under the License.
                 
 				echo '<td id="breakdown">';
                 echo 	'<div>';
-                echo 		'<span class="b-one">' . $approval . '</span>';
-                echo 		'<span class="b-two">' . $disapproval . '</span>';
-                echo 		'<span class="b-three">' . $unknown . '</span>';
+                echo 		'<span title="Contained licenses with SPDX approval." class="b-one">' . $approval . '</span>';
+                echo 		'<span title="Contained licenses without SPDX approval." class="b-two">' . $disapproval . '</span>';
+                echo 		'<span title="Contained licenses without SPDX acknowledgement." class="b-three">' . $unknown . '</span>';
                 echo 	'</div>';
                 echo '</td>';
 
