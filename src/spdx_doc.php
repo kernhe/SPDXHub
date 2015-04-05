@@ -44,6 +44,7 @@ limitations under the License.
     $doc = mysql_fetch_assoc(getSPDX_Doc($spdxId));
     $licCounts = getLicenseCounts($spdxId);
 ?>
+<script src="js/Chart.js"></script>
 <style>
     a.tooltip {outline:none; }
     a.tooltip strong {line-height:30px;}
@@ -79,7 +80,7 @@ limitations under the License.
 	    list-style: none;    
 	}
 </style>
-<script src="js/Chart.js"></script>
+
 <script>
     $(document).ready(function() {
     	$("#edit_doc").click(function () {
@@ -370,7 +371,7 @@ limitations under the License.
        <?php while($row = mysql_fetch_assoc($licCounts)):?>
             {
                 value: <?php echo $row['numLicenses']; ?>,
-                label: "<?php echo str_replace(array("\r\n", "\n", "\r"), '', $row['licensename']); ?>",
+                label: "<?php echo str_replace(array("\r\n", "\n", "\r"), '', $row['license_fullname']); ?>",
                 color: getRandomColor(),
                 highlight: '#D8D8D8'
             }
@@ -378,6 +379,7 @@ limitations under the License.
             <?php if($count != mysql_num_rows($licCounts)):?>,<?php endif;?>
        <?php endwhile;?>
     ];
+    
     window.onload = function(){
         var ctx = document.getElementById("licChart").getContext("2d");
         var options = {
@@ -387,6 +389,7 @@ limitations under the License.
         var legend = myPie.generateLegend();
         $("#legend").html(legend);
     };
+    
     function getRandomColor() {
         var letters = '0123456789ABCDEF'.split('');
         var color = '#';

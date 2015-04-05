@@ -93,10 +93,11 @@ limitations under the License.
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
 
-        $sql = "SELECT COUNT( license_id ) as numLicenses, license_name
-               FROM doc_license_associations
-               WHERE spdx_doc_id = $spdxDocId
-               GROUP BY license_name";
+        $sql = "SELECT COUNT( license_identifier ) as numLicenses, license_fullname
+               FROM spdx_file_info pf
+               JOIN spdx_license_list_insert le ON pf.license_info_in_file = le.license_identifier
+               WHERE spdx_fk = $spdxDocId
+               GROUP BY license_fullname";
 
         return mysql_query($sql);
     }
