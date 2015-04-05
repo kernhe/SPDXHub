@@ -2,6 +2,10 @@
 nav {
 	letter-spacing: .5px;
 }
+nav a.upload {
+	width: 100px;
+	margin-right: 15px;
+}
 
 div.search {
 	height: 150px;
@@ -35,17 +39,17 @@ div.adv-search {
 	height: 150px;
 	padding-right: 30px;
 	padding-left: 30px;
+	margin-bottom: 25px;
 }
 div.adv-search div.bkg {
 	background-color: #f9f9f9;
 	border: 1px solid #D1D2D4;
 	padding: 0;
-
+	height: 100%;
 }
 .adv-search-inner {
 	border-top: solid 2px #D1D2D4;
 	background-color: #f9f9f9;
-	/*background-color: #D1D2D4; */
 }
 
 
@@ -102,6 +106,7 @@ td#breakdown div {
 
 #action button {
 	margin-right: 10px;
+	/*margin-bottom: 5px;*/
 }
 
 .document-name {
@@ -109,14 +114,36 @@ td#breakdown div {
 }
 
 
+table#tablesorter {
+	border: 1px solid #D1D2D4;
+}
+
 #tablesorter thead {
 	width: 100%;
 	background-color: #E6E7E8;
 }
 
 
+@media (max-width: 992px) {
+	div.container {
+		width: 100%;
+	}
+}
 
-
+@media (max-width: 865px) {
+	#breakdown span {
+		display: block;
+		margin-right: 0;
+		margin-bottom: 8px;
+	}
+	
+	#action button {
+		display: block;
+		margin-right: 0;
+		margin-bottom: 10px;
+		width: 100%;
+	}
+}
 
 
 
