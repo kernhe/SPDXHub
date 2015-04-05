@@ -63,10 +63,7 @@ limitations under the License.
 
      -->
     <header class="navbar navbar-default navbar-fixed-top bs-docs-nav" id="top" role="banner" > 
-        <!-- class="navbar navbar-static-top bs-docs-nav" id="top" role="banner" -->
-        <!-- class="navbar navbar-default navbar-fixed-top" -->
         <div class="container">
-            
             <div class="navbar-header">
               <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -76,7 +73,7 @@ limitations under the License.
               </button>
             </div>
 
-            <nav class="collapse navbar-collapse bs-navbar-collapse">
+            <nav class="collapse navbar-collapse bs-navbar-collapse"><!-- navbar-collapse  -->
                 <ul class="nav navbar-nav">
                  	<li><a href="index.php">Home</a></li>
                  	<li><a href="https://fossologyspdx.ist.unomaha.edu/" target="_blank">Fossology+SPDX</a></li>
