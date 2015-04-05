@@ -74,7 +74,8 @@
     * Import existing SPDX docs in RDF
     * Create more robust search options
   2. Creating a “flagging” system that can be used to designate specific licenses to stand out in searches and file views.  
-    * The idea is that this flagging system will be viewed post-upload; users can designate licenses while performing a search.       This will give more power to the existing search command, and will not affect upload times.
+    * Represented by a license breakdown for every SPDX element in the the search table on the home page.
+    * This flagging system will be viewed post-upload; users can designate licenses while performing a search.       This will give more power to the existing search command, and will not affect upload times.
   3. Update SPDX spec to 2.0
 
 ## Milestone Four
