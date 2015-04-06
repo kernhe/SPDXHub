@@ -108,7 +108,7 @@ limitations under the License.
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
 
-        $sql = 	"SELECT sf.spdx_pk,
+        $query = 	"SELECT sf.spdx_pk,
                          sf.document_name,
                          sf.created_date
 				FROM spdx_file sf 
@@ -133,7 +133,7 @@ limitations under the License.
 		
 		$query .= " GROUP BY document_name";		
 
-        return mysql_query($sql);
+        return mysql_query($query);
     }
 	function getLicenseVerifier1($name = "",  $spdxapproved = "",  $spdxnotapproved = "",  $notinlist = "") {
         //Create Database connection
