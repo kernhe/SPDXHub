@@ -18,6 +18,7 @@ limitations under the License.
 	$title = "License";
     include("function/_header.php");
     include("function/license.php");
+    include("function/annotate.php");
     
     $licenseId = $_GET['license_id'];
     $spdxId    = $_GET['doc_id'];
@@ -27,6 +28,11 @@ limitations under the License.
         if($_POST["action"] == "update"){
             updateLicenses($fileID,
                            $_POST['license_comments']);
+        	addPackageAnnotation(	
+        					$spdxId,
+        					$_POST["annotator_name"],
+        					$_POST["annotator_comment"],
+        					"EDIT");
         }
     }
     $lic = mysql_fetch_assoc(getlicenseInfo($fileID,$licenseId));
@@ -60,6 +66,15 @@ limitations under the License.
                         </div>
                     </th>
                 </tr>
+                <tr style="border-bottom: solid; border-top:solid; border-color: #d3d3d3; border-width: 3px;">
+                    <td colspan=1 class="edit" style="display:none;">
+                    	<textarea name="annotator_name" class='form-control' placeholder='Annotator Name'></textarea>
+                    </td>
+                    <td colspan=1 class="edit" style="display:none;">
+                    	<textarea name="annotator_comment" class='form-control' placeholder="Annotation Comment"></textarea>
+                    </td>
+                </tr>
+                
             </thead>
             <tbody>
                 <tr>

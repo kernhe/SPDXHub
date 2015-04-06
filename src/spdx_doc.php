@@ -21,6 +21,7 @@ limitations under the License.
     include("function/creator.php");
     include("function/package.php");
     include("function/package_files.php");
+    include("function/annotate.php");
     include("function/license.php");
     include("function/tree.php");
     
@@ -39,6 +40,11 @@ limitations under the License.
                           $_POST["package_description"],
                           $_POST["package_copyright_text"],
                           $_POST["package_license_concluded"]);
+        	addPackageAnnotation(	
+        					$spdxId,
+        					$_POST["annotator_name"],
+        					$_POST["annotator_comment"],
+        					"EDIT");
         }
     }
     $doc = mysql_fetch_assoc(getSPDX_Doc($spdxId));
@@ -88,6 +94,10 @@ limitations under the License.
         	$('.view').hide();
         });
     });
+	$(window).load(function() {
+		$("#AnnotationsContent").slideToggle();
+	});
+    			
 </script>
 <div class="container">
     <?php 
@@ -111,6 +121,15 @@ limitations under the License.
                             <button id="save_doc"     type="submit"  class="btn btn-primary edit" style="display:none;">Save</button>
                         </div>
                     </th>
+                </tr>
+
+                <tr style="border-bottom: solid; border-top:solid; border-color: #d3d3d3; border-width: 3px;">
+                    <td colspan=1 class="edit" style="display:none;">
+                    	<textarea name="annotator_name" class='form-control' placeholder='Annotator Name'></textarea>
+                    </td>
+                    <td colspan=1 class="edit" style="display:none;">
+                    	<textarea name="annotator_comment" class='form-control' placeholder="Annotation Comment"></textarea>
+                    </td>
                 </tr>
             </thead>
             <tbody id = "filenameContent">
@@ -138,7 +157,7 @@ limitations under the License.
             </tbody>
             <thead>
                 <tr>
-                    <th colspan=2 id = "CreatingInfo">Creation Information</th>
+                    <th colspan=2 id = "CreatingInfo" title="Click to collapse/expand.">Creation Information</th>
                 </tr>
             </thead>
             <tbody id = "CreatingInfoContent">
@@ -163,7 +182,7 @@ limitations under the License.
             </tbody>
             <thead>
                 <tr>
-                    <th colspan=2 id="PackInfo">Package Information</th>
+                    <th colspan=2 id="PackInfo" title="Click to collapse/expand.">Package Information</th>
                 </tr>
             </thead>
             <tbody id="PackInfoContent">
@@ -252,7 +271,7 @@ limitations under the License.
             </tbody>
             <thead>
                 <tr>
-                    <th colspan=2 id="tfiles">Files</th>
+                    <th colspan=2 id="tfiles" title="Click to collapse/expand.">Files</th>
                 </tr>
             </thead>
             <tbody id="tfilesContent">
@@ -325,7 +344,7 @@ limitations under the License.
             </tbody>         
             <thead>
                 <tr>
-                    <th colspan="2" id="License">License Breakdown</th>
+                    <th colspan="2" id="License" title="Click to collapse/expand.">License Breakdown</th>
                 </tr>
             </thead>
             <tbody  id="LicenseContent">
@@ -340,7 +359,7 @@ limitations under the License.
             </tbody>
 			<thead>
                 <tr>
-                    <th colspan=2 id="Annotations">Annotations</th>
+                    <th colspan=2 id="Annotations" title="Click to collapse/expand.">Annotations</th>
                 </tr>
             </thead>
 			<tbody id="AnnotationsContent">  
