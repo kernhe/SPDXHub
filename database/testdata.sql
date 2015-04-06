@@ -4,9 +4,9 @@
  USE `SPDX`;
 
 INSERT INTO `spdx_file` (`spdx_pk`,`spdx_id`,`version`,`data_license`,`document_name`,`document_comment`,`created_date`) VALUES (1001, 1, 1, "MIT", "AngularJS","#FOSSOLOGY_ONLY",NOW());
-INSERT INTO `spdx_file` (`spdx_pk`,`spdx_id`,`version`,`data_license`,`document_name`,`document_comment`,`created_date`) VALUES (1002, 2, 1, "APACHE 2.0", "Node.js", "#FOSSOLOGY_ONLY",NOW());
-INSERT INTO `spdx_file` (`spdx_pk`,`spdx_id`,`version`,`data_license`,`document_name`,`document_comment`,`created_date`) VALUES (1003, 3, 1, "GPL V2", "Django", "#FOSSOLOGY_ONLY",NOW());
-INSERT INTO `spdx_file` (`spdx_pk`,`spdx_id`,`version`,`data_license`,`document_name`,`document_comment`,`created_date`) VALUES (1004, 4, 1, "GPL", "ExpressJS", "#FOSSOLOGY_ONLY",NOW());
+INSERT INTO `spdx_file` (`spdx_pk`,`spdx_id`,`version`,`data_license`,`document_name`,`document_comment`,`created_date`) VALUES (1002, 2, 1, "Apache-2.0", "Node.js", "#FOSSOLOGY_ONLY",NOW());
+INSERT INTO `spdx_file` (`spdx_pk`,`spdx_id`,`version`,`data_license`,`document_name`,`document_comment`,`created_date`) VALUES (1003, 3, 1, "GPL-2.0", "Django", "#FOSSOLOGY_ONLY",NOW());
+INSERT INTO `spdx_file` (`spdx_pk`,`spdx_id`,`version`,`data_license`,`document_name`,`document_comment`,`created_date`) VALUES (1004, 4, 1, "GPL-1.0", "ExpressJS", "#FOSSOLOGY_ONLY",NOW());
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 

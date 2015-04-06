@@ -106,7 +106,7 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
           <ul>
           
             <li>
-            <input type="checkbox" name="checkbox[0]" value="<?php echo $checkbox[ 'checked' ]; ?>" CHECKED/>
+            <input type="checkbox" name="checkbox[0]" value="<?php echo $checkbox['checked']; ?>" CHECKED/>
               
               <label title="SPDX approved" for="">SPDX approved</label>
             </li>
