@@ -64,15 +64,15 @@ INSERT INTO `spdx_license_associations` (`file_info_pk`,`license_list_pk`,`licen
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
 
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", "2016-04-01 00:00:00", "EDIT", "OMG ITS SOOO AWESOME!", 1001);
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", '2015-07-04 00:00:00', "EDIT", "OMG ITS LIKE WOW", 1001);
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", "2013-06-06 00:00:00", "EDIT", "OMG ITS SOOO AWESOME!", 1001);
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", "2015-08-08 00:00:00", "EDIT", "OMG ITS LIKE WOW", 1001);
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 1", NOW(), "EDIT", "OMG ITS TOOO AWESOME!", 1001);
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 1", "2001-03-03 00:00:00", "EDIT", "OMG ITS TOOO AWESOME!", 1001);
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 2", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1002);
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 3", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1003);
-INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 4", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1004);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", "2016-04-01 00:00:00", "EDIT", "Annotation 1", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", '2015-07-04 00:00:00', "EDIT", "Annotation 2", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", "2013-06-06 00:00:00", "EDIT", "Annotation 3", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("John Doe", "2015-08-08 00:00:00", "EDIT", "Annotation 4", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 1", NOW(), "EDIT", "Annotation 5", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 1", "2001-03-03 00:00:00", "EDIT", "Annotation 6", 1001);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 2", NOW(), "EDIT", "Annotation 7", 1002);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 3", NOW(), "EDIT", "Annotation 8", 1003);
+INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 4", NOW(), "EDIT", "Annotation 9", 1004);
 
 INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1001, 1002, 7, 1001);
 INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1002, 1003, 9, 1002);
