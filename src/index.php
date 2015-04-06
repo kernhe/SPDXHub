@@ -31,9 +31,9 @@ limitations under the License.
 <?php
 
 $checkboxes = array(
-    array( 'label' => 'spdx_approved', 'unchecked' => '0', 'checked' => '1' ),
-    array( 'label' => 'spdx_not_approved', 'unchecked' => '0', 'checked' => '1' ),
-    array( 'label' => 'not_in_list', 'unchecked' => '0', 'checked' => '1' )
+    array( 'label' => 'spdxapproved', 'unchecked' => '0', 'checked' => '1' ),
+    array( 'label' => 'spdxnotapproved', 'unchecked' => '0', 'checked' => '1' ),
+    array( 'label' => 'notinlist', 'unchecked' => '0', 'checked' => '1' )
 );
 
 if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
@@ -106,16 +106,16 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
           <ul>
           
             <li>
-            <input type="checkbox" name="checkbox[0]" value="<?php echo $checkbox[ 'checked' ]; ?>">
+            <input type="checkbox" name="checkbox[0]" value="<?php echo $checkbox[ 'checked' ]; ?>" CHECKED/>
               
               <label title="SPDX approved" for="">SPDX approved</label>
             </li>
             <li>
-              <input type="checkbox" name="checkbox[1]" value="<?php echo $checkbox[ 'checked' ]; ?>">
+              <input type="checkbox" name="checkbox[1]" value="<?php echo $checkbox[ 'checked' ]; ?>" CHECKED/>
               <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
             </li>
             <li>
-            <input type="checkbox" name="checkbox[2]" value="<?php echo $checkbox[ 'checked' ]; ?>">
+            <input type="checkbox" name="checkbox[2]" value="<?php echo $checkbox[ 'checked' ]; ?>" />
               <label title="Not in SPDX list" for="">Not in SPDX list</label>
             </li>
           </ul>
