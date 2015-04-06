@@ -106,11 +106,11 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
         <form id="adv-search" action="index.php" method="post"><!--  height: 100px; -->
           <ul>
             <li>
-              <input type="checkbox" name="checkbox[0]" value="<?php echo $checkbox['checked'] = TRUE; ?>" CHECKED/>
+              <input type="checkbox" name="checkbox[0]" value="<?php echo $checkbox['checked'] = TRUE; ?>"/>
               <label title="SPDX approved" for="">SPDX approved</label>
             </li>
             <li>
-              <input type="checkbox" name="checkbox[1]" value="<?php echo $checkbox[ 'checked' ]; ?>" CHECKED/>
+              <input type="checkbox" name="checkbox[1]" value="<?php echo $checkbox[ 'checked' ]; ?>"/>
               <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
             </li>
             <li>
