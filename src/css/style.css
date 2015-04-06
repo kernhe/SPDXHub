@@ -17,10 +17,14 @@ nav a.upload {
 }
 
 div.search {
-	height: 150px;
+	height: 100px;
 	background-color: #f9f9f9;
 	border: 1px solid #D1D2D4;
 	margin-bottom: 15px;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-bottom: 15px;
+
 }
 div.search form{
 } div.search input {
@@ -51,7 +55,7 @@ div.id-filter  {
 }
 
 div.id-filter {
-
+	height: 100px;
 }
 
 div.adv-search {
@@ -59,7 +63,6 @@ div.adv-search {
 } div.adv-search-header {
 	width: 100%;
 	background-color: #E6E7E8;
-	border: 1px solid #D1D2D4;
 	margin-bottom: 0;
 
 } div.adv-search div.bkg {
@@ -71,6 +74,9 @@ div.adv-search {
 .adv-search-inner {
 	background-color: #f9f9f9;
 	
+} .adv-search-inner form {
+	margin-top: 10px;
+
 }
 
 
