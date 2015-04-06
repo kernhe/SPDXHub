@@ -66,7 +66,7 @@ limitations under the License.
                         </div>
                     </th>
                 </tr>
-                <tr style="border-bottom: solid; border-top:solid; border-color: #d3d3d3; border-width: 3px;">
+                <tr style="border-bottom: solid; border-top:solid; border-color: #ddd; border-width: 3px;">
                     <td colspan=1 class="edit" style="display:none;">
                     	<textarea name="annotator_name" class='form-control' placeholder='Annotator Name'></textarea>
                     </td>
@@ -90,7 +90,17 @@ limitations under the License.
                 </tr>
                 <tr>
                     <td title="Any addtional information on this license in this SPDX document.">OSI Approved</td>
-                    <td><?php echo $lic["osi_approved"]; ?></td>
+                    <td>
+                    <?php 
+                    	if ($lic["osi_approved"] == 1){
+                    		echo "Yes";
+                    	} 
+                    	else{
+                    		echo "No";
+                    	}
+                    
+                    ?>
+                    </td>
                 </tr>
                 <tr>
                     <td title="File this license was identified in.">File</td>

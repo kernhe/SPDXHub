@@ -23,6 +23,7 @@ limitations under the License.
     include("function/package_files.php");
     include("function/annotate.php");
     include("function/license.php");
+    include("function/relationship.php");
     include("function/tree.php");
     
     $spdxId = $_GET["doc_id"];
@@ -123,7 +124,7 @@ limitations under the License.
                     </th>
                 </tr>
 
-                <tr style="border-bottom: solid; border-top:solid; border-color: #d3d3d3; border-width: 3px;">
+                <tr style="border-bottom: solid; border-top:solid; border-color: #ddd; border-width: 3px;">
                     <td colspan=1 class="edit" style="display:none;">
                     	<textarea name="annotator_name" class='form-control' placeholder='Annotator Name'></textarea>
                     </td>
@@ -359,13 +360,29 @@ limitations under the License.
             </tbody>
 			<thead>
                 <tr>
+                    <th colspan=2 id="Relation" title="Click to collapse/expand.">Relationships</th>
+                </tr>
+            </thead>
+			<tbody id="RelationContent">  
+            <?php
+	            $result = getRelationship_List($spdxId);
+	            while($row = mysql_fetch_assoc($result)) {
+	                echo '<tr>';
+	                echo     '<td title="Relationship type.">' . $row['relationship_type'] . '</td>';
+	                echo	 '<td title="Element involved in relationship.">' . $row['document_name'] . '</td>';
+	                echo '</tr>';
+	            }
+        	?>       
+		</tbody>
+			<thead>
+                <tr>
                     <th colspan=2 id="Annotations" title="Click to collapse/expand.">Annotations</th>
                 </tr>
             </thead>
 			<tbody id="AnnotationsContent">  
             <?php
 	            $result = getAnnotator_List($spdxId);
-	            $annotator = " ";
+	            $annotator = "";
 	            while($row = mysql_fetch_assoc($result)) {
 	            	if ($annotator != $row['annotator']){
 	            		echo '<tr>';

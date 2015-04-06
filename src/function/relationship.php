@@ -13,24 +13,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <?php 
-    function addPackageAnnotation(
+    function addPackageRelationShip(
     					$spdxID,
-                        $annotator_name = "",
-                        $annotator_comment = "",
-                        $annotation_type = "") {
+                        $spdx_id1 = "",
+                        $spdx_id2 = "",
+                        $relationship_id = "") {
 
         //Create Database connection
         include("Data_Source.php");
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
-        
-        if($annotator_name == ""){
-        	$annotator_name = "Anonymous";
-        }
-        
+                
         //Query
-        $sql  = "INSERT INTO spdx_annotations_create (`annotator`, `annotator_date`, `annotator_type`, `annotator_comment`, `spdx_fk`)
-        		 VALUES ( '$annotator_name', NOW(), '$annotation_type', '$annotator_comment', '$spdxID')";
+        $sql  = "INSERT INTO relationship (`spdx_id1`, `spdx_id2`, `relationship_id`, `spdx_fk`)
+        		 VALUES ( '$spdxID', '$spdx_id1', '$spdx_id2', '$relationship_id')";
         
         $result = mysql_query($sql);
         
@@ -40,19 +36,19 @@ limitations under the License.
         return $result;
     }
     
-   function getAnnotator_List($id) {
+   function getRelationship_List($id) {
         //Create Database connection
         include("Data_Source.php");
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
-        $query = "SELECT annotator,
-                         annotator_date,
-                         annotator_type,
-                         annotator_comment
-                  FROM spdx_annotations_create
-				  WHERE spdx_fk LIKE '%" . $id . "%' ";
+        $query = "SELECT sf.document_name,
+                         relationship_type
+                  FROM relationship r
+                  JOIN spdx_file sf ON sf.spdx_pk = r.spdx_id2
+                  JOIN spdx_relationship_insert ri ON r.relationship_id = ri.relationship_id_pk
+				  WHERE spdx_fk LIKE '%" . $id . "%' AND spdx_id1 LIKE '%" . $id . "%'";
 		
-        $query .= "ORDER BY annotator ASC, annotator_date ASC";
+        $query .= "ORDER BY spdx_id1 ASC";
         //Execute Query
         $qrySpdxDocs = mysql_query($query);
         
