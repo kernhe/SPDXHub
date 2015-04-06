@@ -164,24 +164,5 @@ limitations under the License.
         mysql_close();
     } 
     
-   function getAnnotator_List($id) {
-        //Create Database connection
-        include("Data_Source.php");
-        mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
-        mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
-        $query = "SELECT annotator,
-                         annotator_date,
-                         annotator_type,
-                         annotator_comment
-                  FROM spdx_annotations_create
-				  WHERE spdx_fk LIKE '%" . $id . "%' ";
-		
-        $query .= "ORDER BY annotator ASC, annotator_date ASC";
-        //Execute Query
-        $qrySpdxDocs = mysql_query($query);
-        
-        //Close Connection
-        mysql_close();
-        return $qrySpdxDocs;
-    }
+
 ?>

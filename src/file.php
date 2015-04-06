@@ -18,6 +18,7 @@ limitations under the License.
 	$title = "File";
     include("function/_header.php");
     include("function/package_files.php");
+    include("function/annotate.php");
     
     $fileId = $_GET['file_id'];
     $spdxDocId = $_GET['doc_id'];
@@ -35,6 +36,11 @@ limitations under the License.
                        $_POST["file_notice"],
                        $_POST["file_contributor"],
                        $_POST["file_comment"]);
+        	addPackageAnnotation(	
+        					$spdxDocId,
+        					$_POST["annotator_name"],
+        					$_POST["annotator_comment"],
+        					"EDIT");
         }
     }
     $file = mysql_fetch_assoc(getPackageFile($fileId, $spdxDocId));
@@ -67,6 +73,14 @@ limitations under the License.
 	                        <button id="save_doc"     type="submit"  class="btn btn-primary edit" style="display:none;">Save</button>
 	                    </div>
                     </th>
+                </tr>
+                <tr style="border-bottom: solid; border-top:solid; border-color: #ddd; border-width: 3px;">
+                    <td colspan=1 class="edit" style="display:none;">
+                    	<textarea name="annotator_name" class='form-control' placeholder='Annotator Name'></textarea>
+                    </td>
+                    <td colspan=1 class="edit" style="display:none;">
+                    	<textarea name="annotator_comment" class='form-control' placeholder="Annotation Comment"></textarea>
+                    </td>
                 </tr>
             </thead>
             <tbody>

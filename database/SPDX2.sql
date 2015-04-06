@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `relationship` (
   `spdx_id2` int(11) NOT NULL,
   `relationship_id` int(11) NOT NULL,
   `spdx_fk` int(11) NOT NULL,
-  PRIMARY KEY (`spdx_fk`)
+  PRIMARY KEY (`spdx_id1`, `spdx_id2`, `spdx_fk`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --

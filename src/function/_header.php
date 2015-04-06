@@ -37,9 +37,6 @@ limitations under the License.
 		
 		// hide / show toggler for subparts in spdx_doc page
 		$(document).ready(function(){
-			$("#filename").click(function(){
-				$("#filenameContent").slideToggle();
-			});
 			$("#CreatingInfo").click(function(){
 				$("#CreatingInfoContent").slideToggle();
 			});
@@ -48,6 +45,15 @@ limitations under the License.
 			});
 			$("#tfiles").click(function(){
 				$("#tfilesContent").slideToggle();
+			});
+			$("#License").click(function(){
+				$("#LicenseContent").slideToggle();
+			});
+			$("#Relation").click(function(){
+				$("#RelationContent").slideToggle();
+			});
+			$("#Annotations").click(function(){
+				$("#AnnotationsContent").slideToggle();
 			});
 		});
 		</script>
