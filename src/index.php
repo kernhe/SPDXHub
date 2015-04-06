@@ -24,6 +24,9 @@ limitations under the License.
   $spdxnotapproved = "1";
   $notinlist = "0";
   $licenselist = "";
+   if(array_key_exists('checkbox[2]',$_POST)) {
+   $spdxapproved = $_POST['checkbox[2]'];
+  }
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
