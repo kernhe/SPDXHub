@@ -23,6 +23,7 @@ limitations under the License.
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
+
 ?>
 
 <div class="container search">
@@ -56,15 +57,15 @@ limitations under the License.
         <form class="col-xs-12">
           <ul>
             <li>
-              <input type="checkbox" name="spdx_approved" class = "" value="Yes" />
+              <input type="checkbox" name="spdx_approved" value="<?php echo $spdx_approved = 1; ?>" CHECKED/>
               <label title="SPDX approved" for="">SPDX approved</label>
             </li>
             <li>
-              <input type="checkbox" name="spdx_not_approved" value="Yes" />
+              <input type="checkbox" name="spdx_not_approved" value="Yes"  CHECKED/>
               <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
             </li>
             <li>
-              <input type="checkbox" name="not_in_list" value="Yes" />
+              <input type="checkbox" name="not_in_list" value="Yes"  CHECKED/>
               <label title="Not in SPDX list" for="">Not in SPDX list</label>
             </li>
           </ul>
@@ -113,7 +114,6 @@ limitations under the License.
   
         <tbody>
           <?php
-            
             $result = getSPDX_DocList($name);
             $count = 0;
             while($row = mysql_fetch_assoc($result)) {
@@ -174,7 +174,6 @@ limitations under the License.
 
 <script>
 
-
   $( ".LicenseListDropDown" )
     .change(function () {
       var str = "";
@@ -183,4 +182,6 @@ limitations under the License.
       });
       $( "#identifier" ).text( str );
     }).change();
+	
+
 </script>

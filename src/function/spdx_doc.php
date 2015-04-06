@@ -94,14 +94,30 @@ limitations under the License.
        	if($name != "") {
        		$query .= "WHERE document_name LIKE '%" . $name . "%' ";
        	}
-		
-        $query .= "ORDER BY created_date ASC";
+	    $query .= "ORDER BY document_name ASC";
         //Execute Query
         $qrySpdxDocs = mysql_query($query);
         
         //Close Connection
         mysql_close();
         return $qrySpdxDocs;
+    }
+	function getLicenseVerifier($name = "",$spdxDocId) {
+        //Create Database connection
+        include("Data_Source.php");
+        mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
+        mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
+
+        $sql = 	"SELECT sf.spdx_pk,
+                         sf.document_name,
+                         sf.created_date
+				FROM spdx_file sf 
+				JOIN spdx_file_info sfi ON sf.spdx_pk = sfi.spdx_fk
+				JOIN spdx_license_list_insert slli ON sfi.license_info_in_file = slli.license_identifier
+				WHERE slli.osi_approved IS NOT NULL AND sfi.spdx_fk = " . $spdxDocId . "
+				GROUP BY document_name LIKE '%" . $name . "%'";
+
+        return mysql_query($sql);
     }
 	 function getSPDX_LicenseList() {
         //Create Database connection
