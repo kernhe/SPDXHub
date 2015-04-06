@@ -20,19 +20,70 @@ limitations under the License.
   include("function/spdx_doc.php");
   include("function/license.php");
   $name = "";
+  $spdxapproved = "";
+  $spdxnotapproved = "";
+  $notinlist = "";
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
 
 ?>
+<?php
 
+$checkboxes = array(
+    array( 'label' => 'spdx_approved', 'unchecked' => '0', 'checked' => '1' ),
+    array( 'label' => 'spdx_not_approved', 'unchecked' => '0', 'checked' => '1' ),
+    array( 'label' => 'not_in_list', 'unchecked' => '0', 'checked' => '1' )
+);
+
+if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
+{
+    foreach( $checkboxes as $key => $checkbox )
+    {
+         $spdxapproved = "";
+		  $spdxnotapproved = "";
+		  $notinlist = "";
+		if( isset( $_POST[ 'checkbox' ][ $key ] ) && $_POST[ 'checkbox' ][ $key ] == $checkbox[ 'checked' ] )
+        {
+           if($key  == 0){
+			$spdxapproved = "1";
+			//echo $checkbox[ 'label' ] . ' is checked, so we use value: ' . $checkbox[ 'checked' ] .$spdxapproved.'<br>';}
+			}
+			if( $key  == 1){
+			$spdxnotapproved = "1";
+			}
+			///echo $checkbox[ 'label' ] . ' is checked, so we use value: ' . $checkbox[ 'checked' ] .$spdxapproved.'<br>';}
+			 if($key  == 2){
+			 $notinlist = "1";
+			}
+			//echo $checkbox[ 'label' ] . ' is checked, so we use value: ' . $checkbox[ 'checked' ] .$spdxapproved.'<br>';}
+			 
+        }
+        else
+        {
+         if($key  == 0){
+			$spdxapproved = "0";
+			}
+			if( $key  == 1){
+			$spdxnotapproved = "0";
+			}
+			if($key  == 2){
+			 $notinlist = "0";
+			}
+			
+		}
+		
+		
+    }
+}
+?>
 <div class="container search">
   <div class="col-xs-12 adv-search-header">
     <h4>Search by name</h4>
   </div>
   <div class="col-xs-12 search-inner">
     <form class="" action="index.php" method="post" >
-      <input type="search" class="form-control" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
+      <input type="search" onkeyup="showHint(this.value)" class="form-control" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
       <button type="submit" class="btn btn-default">Search</button>
   	</form>
   </div>
@@ -54,21 +105,24 @@ limitations under the License.
         </p>
         <div class="is-line"></div>
 
-        <form class="col-xs-12">
+        <form class="col-xs-12" action="" method="post">
           <ul>
+          
             <li>
-              <input type="checkbox" name="spdx_approved" value="<?php echo $spdx_approved = 1; ?>" CHECKED/>
+            <input type="checkbox" name="checkbox[0]" value="<?php echo $checkbox[ 'checked' ]; ?>">
+              
               <label title="SPDX approved" for="">SPDX approved</label>
             </li>
             <li>
-              <input type="checkbox" name="spdx_not_approved" value="Yes"  CHECKED/>
+              <input type="checkbox" name="checkbox[1]" value="<?php echo $checkbox[ 'checked' ]; ?>">
               <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
             </li>
             <li>
-              <input type="checkbox" name="not_in_list" value="Yes"  CHECKED/>
+            <input type="checkbox" name="checkbox[2]" value="<?php echo $checkbox[ 'checked' ]; ?>">
               <label title="Not in SPDX list" for="">Not in SPDX list</label>
             </li>
           </ul>
+          <input type="submit" value="refresh">
         </form>
       </div>
 
@@ -90,17 +144,16 @@ limitations under the License.
               echo '</option>';
              }
           ?>
-        </select>         
+        </select>
       </div>
     </div>
 
   </div>
 </div>
         
-<div class="container">
+<div class="container" id="container">
  	<div class="col-xs-12 table-section">	 
-       
-    <table id="tablesorter" class="table table-striped  display"> <!-- table-striped -->
+	<table id="tablesorter" class="table table-striped display" > <!-- table-striped -->
         
         <thead> 
           <tr>
@@ -111,12 +164,13 @@ limitations under the License.
             <th>Action</th>
           </tr>
         </thead>
-  
-        <tbody>
+		<tbody>
           <?php
-            $result = getSPDX_DocList($name);
+            $result = getLicenseVerifier($name, $spdxapproved, $spdxnotapproved,
+  $notinlist);
             $count = 0;
             while($row = mysql_fetch_assoc($result)) {
+			
                 $approval_result = getLicenseApproval_Count($row['spdx_pk']);
                 $disapproval_result = getLicenseDisapproval_Count($row['spdx_pk']);
                 $unknown_result = getLicenseUnknown_Count($row['spdx_pk']);
@@ -160,12 +214,12 @@ limitations under the License.
                 echo         '</div>';
                 echo     '</td>';
                 echo '</tr>';
-            }
+            
+			}
           ?>
+          
         </tbody>
     </table>
-
-
   </div>     
 </div>
  
@@ -182,6 +236,12 @@ limitations under the License.
       });
       $( "#identifier" ).text( str );
     }).change();
-	
 
+</script>
+<script type="text/javascript">
+$name = "";
+  if(array_key_exists('doc_name',$_POST)) {
+    $name = $_POST['doc_name'];
+  }
+ajax_loadContent('container','loadtable.php', {'$name'} );
 </script>

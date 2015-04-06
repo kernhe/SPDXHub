@@ -28,15 +28,40 @@ limitations under the License.
         <link href="css/demo_table.css" rel="stylesheet">
         <link href="css/bootstrap-theme.css" rel="stylesheet">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.css">		<script src="js/AC_RunActiveContent.js" type="text/javascript"></script>
+		<script src="js/AC_ActiveX.js" type="text/javascript"></script>
+         <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        
+        <script src="js/jquery.dataTables.min.js"></script>
+        <script src="http://cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.js"></script>
         <script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
- 
-       <script type="text/javascript">
-		
+		<script type="text/javascript" src="js/sortedtable-event.js"></script>
+		<script type="text/javascript" src="js/sortedtable.js"></script>
+        <script type="text/javascript" src="js/ajax.js"></script>
+        <script type="text/javascript" src="js/ajax-dynamic-content.js"></script>
+    	<script>
+function showHint(str) {
+     if (str.length == 0) { 
+         document.getElementById("container").innerHTML = "";
+         return;
+     } else {
+         var xmlhttp = new XMLHttpRequest();
+         xmlhttp.onreadystatechange = function() {
+             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                 document.getElementById("container").innerHTML = xmlhttp.responseText;
+             }
+         }
+         xmlhttp.open("GET", "loadtable.php?q="+str, true);
+         xmlhttp.send();
+     }
+}
+</script>
+		<script type="text/javascript">
+ 		 
 		// hide / show toggler for subparts in spdx_doc page
 		$(document).ready(function(){
+			 $('#tablesorter').dataTable();
+			} );
 			$("#CreatingInfo").click(function(){
 				$("#CreatingInfoContent").slideToggle();
 			});
