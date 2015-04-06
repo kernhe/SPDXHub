@@ -20,13 +20,11 @@ limitations under the License.
   include("function/spdx_doc.php");
   include("function/license.php");
   $name = "";
+  $key = "";
   $spdxapproved = "1";
   $spdxnotapproved = "1";
   $notinlist = "0";
   $licenselist = "";
-   if(array_key_exists('checkbox[2]',$_POST)) {
-   $spdxapproved = $_POST['checkbox[2]'];
-  }
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
@@ -56,6 +54,7 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
         }
         else
         {
+		
          if($key  == 0){
 			$spdxapproved = "0";
 			}
@@ -103,18 +102,17 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
 
         <form class="col-xs-12" action="" method="post">
           <ul>
-          
             <li>
-            <input type="checkbox" name="checkbox[0]" value="<?php echo $checkbox['checked']; ?>" CHECKED/>
+            <input type="checkbox" name="checkbox[<?php echo $key; ?>]" value="<?php echo $checkbox['checked'] = TRUE; ?>" CHECKED/>
               
               <label title="SPDX approved" for="">SPDX approved</label>
             </li>
             <li>
-              <input type="checkbox" name="checkbox[1]" value="<?php echo $checkbox[ 'checked' ]; ?>" CHECKED/>
+              <input type="checkbox" name="checkbox[<?php echo $key; ?>]" value="<?php echo $checkbox[ 'checked' ]; ?>" CHECKED/>
               <label title="SPDX Not Approved" for="">SPDX Not Approved</label>
             </li>
             <li>
-            <input type="checkbox" name="checkbox[2]" value="<?php echo $checkbox[ 'checked' ]; ?>" />
+            <input type="checkbox" name="checkbox[<?php echo  $key; ?>]" value="<?php echo $checkbox[ 'checked' ]; ?>" />
               <label title="Not in SPDX list" for="">Not in SPDX list</label>
             </li>
           </ul>
@@ -162,10 +160,13 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
         </thead>
 		<tbody>
           <?php
-		   //$result =  getSPDX_DocList($name);
-		   
+		  
+		  if($spdxapproved == "1" && $spdxnotapproved == "1" && $notinlist == "0"){
+		   $result =  getSPDX_DocList($name);}
+		   else{
             $result = getLicenseVerifier($name, $spdxapproved, $spdxnotapproved, $notinlist);
-            $count = 0;
+            }
+			$count = 0;
             while($row = mysql_fetch_assoc($result)) {
 			
                 $approval_result = getLicenseApproval_Count($row['spdx_pk']);
