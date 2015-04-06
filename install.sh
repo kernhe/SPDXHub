@@ -1,10 +1,5 @@
 #!/bin/bash
 
-#Setup User Name and Password for MySql
-u="root"
-echo -n "Enter [desired] password for mySQL root user: "
-read p
-
 echo "INSTALL DEPENDENCIES [y/n]: "
 read result
 
@@ -23,11 +18,11 @@ cd /var/www/
 git clone https://github.com/socs-dev-env/DoSOCS
 git clone https://github.com/joverkamp/SPDXHub
 
-#Config apache
-echo "Configuring apache ..."
-sudo cp /var/www/SPDXHub/doc/SPDXHub.conf /etc/apache2/sites-available/SPDXHub.conf
-cd /etc/apache2/sites-available/
-sudo a2ensite SPDXHub.conf
+#Setup User Name and Password for MySql
+echo -n "Enter [desired] username for mySQL: "
+read u
+echo -n "Enter [desired] password for mySQL: "
+read p
 
 #Install Database
 echo "Install SPDXHub Database..."
@@ -40,11 +35,11 @@ echo "Changing permissions ..."
 sudo chmod 777 /var/www/DoSOCS/src -R
 sudo chmod 777 /var/www/SPDXHub/src -R
 
-sudo service apache2 restart
-
 echo "Install Complete"
 echo "Don't forget to update the setting files ('DoSOCS/settings.py' AND 'SPDXHub/function/Data_Source.php') with the database"
-echo "connection information, and with the paths to Ninka and FOSSology. File located in /var/www/"
+echo "connection information, and with the paths to Ninka and FOSSology." 
+echo -n "Be sure to configure Apache with the DocumentRoot /var/www/SPDXHub/src."
+echo "An example .conf for Apache can be found at /var/www/SPDXHub/doc/SPDXHUB.conf"
 
 
 

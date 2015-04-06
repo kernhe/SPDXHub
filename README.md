@@ -8,7 +8,7 @@
 # Stakeholders
 * SPDX Community
 
-# System Service Requests
+# Minimum System Requirements
 **Linux Ubuntu system** 
 * 12.04 Dual core or greater
 * 32G of memory or greater
@@ -35,7 +35,7 @@
 
 # Database / Data Store Structures of the System
 * The structure of the database will rely on the all of the required fields in the SPDX document found here: https://github.com/socs-dev-env/SOCSDatabase/blob/master/Schema.md
-* Dataflow diagram can be found here: https://github.com/joverkamp/SPDXHub/blob/master/doc/DFD_002.svg
+* Dataflow diagram can be found here: https://github.com/joverkamp/SPDXHub/blob/master/doc/dfd_final.svg
 
 # Copyright Declarations and License Choice
 * Apache 2.0 License
