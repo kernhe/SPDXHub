@@ -163,8 +163,8 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
         </thead>
 		<tbody>
           <?php
-		   $result =  getSPDX_DocList($name);
-           // $result = getLicenseVerifier($name, $spdxapproved, $spdxnotapproved, $notinlist);
+		   //$result =  getSPDX_DocList($name);
+            $result = getLicenseVerifier($name, $spdxapproved, $spdxnotapproved, $notinlist);
             $count = 0;
             while($row = mysql_fetch_assoc($result)) {
 			

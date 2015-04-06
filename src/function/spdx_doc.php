@@ -118,17 +118,17 @@ limitations under the License.
        		$query .= "WHERE sf.document_name LIKE '%" . $name . "%' ";
        	}	
 		if($spdxapproved == "1") {
-       		$query .= "AND slli.osi_approved IS NULL AND sf.document_name  LIKE '%" . $name . "%' ";
+       		$query .= "AND slli.osi_approved IS NOT NULL AND sf.document_name  LIKE '%" . $name . "%' ";
 			
        	}	
 		if($spdxnotapproved == "1") {
        		$query .= "AND slli.osi_approved IS NULL";
        	}
 		if($notinlist == "1") {	
-			$query .= "AND sf.spdx_pk NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
+			$query .= "AND sf.data_license NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
 			}
 		
-		$query .= " GROUP BY document_name";		
+		$query .= " GROUP BY sf.document_name";		
 
         return mysql_query($sql);
     }
