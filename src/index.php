@@ -40,9 +40,6 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
 {
     foreach( $checkboxes as $key => $checkbox )
     {
-         $spdxapproved = "";
-		  $spdxnotapproved = "";
-		  $notinlist = "";
 		if( isset( $_POST[ 'checkbox' ][ $key ] ) && $_POST[ 'checkbox' ][ $key ] == $checkbox[ 'checked' ] )
         {
            if($key  == 0){
