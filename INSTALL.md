@@ -2,8 +2,7 @@ SPDXHUb(Dashboard) is an online interface for the SPDX database.
 To Install SPDXHub(Dashboard) on your computer follow the installation  
 instructions below:
 
-
-####################################################
+***
 
 For UNIX:
 Ensure your computer matches the minimum requirements set in the README.md file  
@@ -80,6 +79,4 @@ NOTE you will be required to configure the Data_Source.php file located at
 "(Enter install path)/SPDXHub/src/function/Data_Source.php" with your mySQL  
 credentials and your path to DoSPDX.py
 
-
-
-####################################################
+***
