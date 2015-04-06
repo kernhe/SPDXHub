@@ -1,4 +1,4 @@
-SPDXHUb(Dashboard) is an online interface for the SPDX database.
+SPDXHub(Dashboard) is an online interface for the SPDX database.
 To Install SPDXHub(Dashboard) on your computer follow the installation  
 instructions below:
 
