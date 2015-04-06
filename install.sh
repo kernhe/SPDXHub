@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#Setup User Name and Password for MySql
-echo -n "Enter [desired] username for mySQL: "
-read u
-echo -n "Enter [desired] password for mySQL: "
-read p
-
 echo "INSTALL DEPENDENCIES [y/n]: "
 read result
 
@@ -23,6 +17,12 @@ echo "Moving to /var/www/ ..."
 cd /var/www/
 git clone https://github.com/socs-dev-env/DoSOCS
 git clone https://github.com/joverkamp/SPDXHub
+
+#Setup User Name and Password for MySql
+echo -n "Enter [desired] username for mySQL: "
+read u
+echo -n "Enter [desired] password for mySQL: "
+read p
 
 #Install Database
 echo "Install SPDXHub Database..."
