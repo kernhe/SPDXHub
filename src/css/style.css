@@ -7,7 +7,6 @@ nav {
 
 a.upload.btn {
 	margin-top: 8px;
-	width: ;
 	letter-spacing: .5px;
 }
 
@@ -35,19 +34,21 @@ div.search {
 } div.search div.bkg {
 	background-color: #f9f9f9;
 	padding: 15px;
-} div.search-inner {
-	background-color: #f9f9f9;
-} div.search input {
-	width: 400px;
-	margin: 0;
-	display:inline-block;
 } div.search button {
 	margin: 0;
 	width: 100px;
+} 
+div.search form {
+	margin-bottom: 0px;
+} 
+
+#search input {
+	width: 400px;
+	display: inline-block;
 }
-
-
-div.license-filter,
+div.id-filter {
+	height: 96px;
+} div.license-filter,
 div.id-filter  {
 	border:1px solid #D1D2D4;
 	border-radius: 4px;
@@ -56,18 +57,13 @@ div.id-filter  {
 	list-style: none;
 	padding-left: 0;
 } div.license-filter ul li {
-	display:inline-block;
+	display: inline-block;
 	padding-right: 5px;
 } div.license-filter p, div.id-filter p {
 	margin-top: 6px;
 	margin-top: 3px;
 	padding: 0;
 }
-
-div.id-filter {
-	height: 100px;
-}
-
 
 a.upload.btn {
 	margin-top: 8px;
@@ -78,9 +74,7 @@ a.upload.btn {
 td#breakdown div {
 	margin-right: auto;
 	margin-bottom: auto;
-}
-
-#breakdown span {
+} #breakdown span {
 	height: 35px;
 	width: 35px;
 	border: 1px solid #D1D2D4;
@@ -109,27 +103,22 @@ td#breakdown div {
 	font-weight: bold;
 }
 
-
 .container#table, 
 div.table-section {
 	padding: 0;
 } table#tablesorter {
 	border: 1px solid #D1D2D4;
-}
-
-#tablesorter thead {
+} #tablesorter thead {
 	width: 100%;
 	background-color: #E6E7E8;
 }
 
-
+/* media queries */
 @media (max-width: 992px) {
 	div.container {
 		width: 100%;
 	}
-}
-
-
+} 
 @media (max-width: 865px) {
 	#breakdown span {
 		display: block;
