@@ -23,12 +23,10 @@ limitations under the License.
   $spdxapproved = "1";
   $spdxnotapproved = "1";
   $notinlist = "0";
+  $licenselist = "";
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
-
-?>
-<?php
 
 $checkboxes = array(
     array( 'label' => 'spdxapproved', 'unchecked' => '0', 'checked' => '1' ),
@@ -44,16 +42,13 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
         {
            if($key  == 0){
 			$spdxapproved = "1";
-			//echo $checkbox[ 'label' ] . ' is checked, so we use value: ' . $checkbox[ 'checked' ] .$spdxapproved.'<br>';}
-			}
+				}
 			if( $key  == 1){
 			$spdxnotapproved = "1";
 			}
-			///echo $checkbox[ 'label' ] . ' is checked, so we use value: ' . $checkbox[ 'checked' ] .$spdxapproved.'<br>';}
 			 if($key  == 2){
 			 $notinlist = "1";
 			}
-			//echo $checkbox[ 'label' ] . ' is checked, so we use value: ' . $checkbox[ 'checked' ] .$spdxapproved.'<br>';}
 			 
         }
         else
@@ -73,6 +68,7 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
 		
     }
 }
+
 ?>
 <div class="container search">
   <div class="col-xs-12 adv-search-header">
@@ -164,6 +160,7 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
 		<tbody>
           <?php
 		   //$result =  getSPDX_DocList($name);
+		   
             $result = getLicenseVerifier($name, $spdxapproved, $spdxnotapproved, $notinlist);
             $count = 0;
             while($row = mysql_fetch_assoc($result)) {
@@ -231,14 +228,8 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
       $( "select option:selected" ).each(function() {
         str += $( this ).val() + " ";
       });
-      $( "#identifier" ).text( str );
+      $licenselist = $( "#identifier" ).text( str );
+	  //$licenselist = $( "#identifier" ).text( str );
     }).change();
 
-</script>
-<script type="text/javascript">
-$name = "";
-  if(array_key_exists('doc_name',$_POST)) {
-    $name = $_POST['doc_name'];
-  }
-ajax_loadContent('container','loadtable.php', {'$name'} );
 </script>
