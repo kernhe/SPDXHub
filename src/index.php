@@ -22,7 +22,7 @@ limitations under the License.
   $name = "";
   $spdxapproved = "1";
   $spdxnotapproved = "1";
-  $notinlist = "1";
+  $notinlist = "0";
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }

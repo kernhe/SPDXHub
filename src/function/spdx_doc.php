@@ -141,7 +141,7 @@ limitations under the License.
 			$query .= "AND sf.data_license NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
 			}
 			else{
-				$query .= "AND slli.osi_approved";
+				
 			}
        	}
 		
