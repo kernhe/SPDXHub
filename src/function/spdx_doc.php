@@ -81,7 +81,7 @@ limitations under the License.
         
         return $qrySPDX_Doc;
     }
-
+  
    function getSPDX_DocList($name = "") {
         //Create Database connection
         include("Data_Source.php");
@@ -123,9 +123,6 @@ limitations under the License.
        	}	
 		if($spdxnotapproved == "1") {
        		$query .= "AND slli.osi_approved IS NULL";
-       	}	
-		if($spdxapproved == "1" && $spdxnotapproved == "1") {
-       		$query .= "AND slli.osi_approved";
        	}
 		if($notinlist == "1") {	
 			$query .= "AND sf.spdx_pk NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
@@ -135,39 +132,7 @@ limitations under the License.
 
         return mysql_query($sql);
     }
-	function getLicenseVerifier1($name = "",  $spdxapproved = "",  $spdxnotapproved = "",  $notinlist = "") {
-        //Create Database connection
-        include("Data_Source.php");
-        mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
-        mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
-
-        $sql = 	"SELECT sf.spdx_pk,
-                         sf.document_name,
-                         sf.created_date
-				FROM spdx_file sf 
-				JOIN spdx_file_info sfi ON sf.spdx_pk = sfi.spdx_fk
-				JOIN spdx_license_list_insert slli ON sfi.license_info_in_file = slli.license_identifier
-				";
-		if($name != "") {
-       		$query .= "WHERE sf.document_name LIKE '%" . $name . "%' ";
-       	}	
-		if($spdxapproved == "1") {
-       		$query .= "AND slli.osi_approved IS NOT NULL";
-       	}	
-		if($spdxnotapproved == "1") {
-       		$query .= "AND slli.osi_approved IS NULL";
-       	}	
-		if($spdxapproved == "1" && $spdxnotapproved == "1") {
-       		$query .= "AND slli.osi_approved";
-       	}
-		if($spdxapproved == "1" && $spdxnotapproved == "1") {	
-			$query .= "AND sf.spdx_pk NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
-			}
-		
-		" GROUP BY license_info_in_file";		
-
-        return mysql_query($sql);
-    }
+	
 	 function getSPDX_LicenseList() {
         //Create Database connection
         include("Data_Source.php");
