@@ -126,7 +126,7 @@ limitations under the License.
         $sql = 	"SELECT COUNT(license_identifier) as disapprovalCount, license_fullname
 				FROM spdx_file_info sfi 
 				JOIN spdx_license_list_insert slli ON sfi.license_info_in_file = slli.license_identifier
-				WHERE slli.osi_approved IS NULL AND sfi.spdx_fk = " . $spdxDocId . "
+				WHERE slli.osi_approved = 0 AND sfi.spdx_fk = " . $spdxDocId . "
 				GROUP BY license_fullname";
 
         return mysql_query($sql);

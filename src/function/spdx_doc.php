@@ -102,49 +102,40 @@ limitations under the License.
         mysql_close();
         return $qrySpdxDocs;
     }
+    
 	function getLicenseVerifier($name = "",  $spdxapproved = "",  $spdxnotapproved = "",  $notinlist = "") {
         //Create Database connection
         include("Data_Source.php");
         mysql_connect("$host", "$username", "$password")or die("cannot connect server " . mysql_error());
         mysql_select_db("$db_name")or die("cannot select DB " . mysql_error());
 
-        $query = 	"SELECT sf.spdx_pk,
-                         sf.document_name,
-                         sf.created_date
-				FROM spdx_file sf 
-				JOIN spdx_license_list_insert slli ON sf.data_license = slli.license_identifier
-				";
-		if($name != "") {
-       		$query .= "WHERE sf.document_name LIKE '%" . $name . "%' ";
-       	}	
+        $query = 	"SELECT DISTINCT sf.spdx_pk, sf.document_name, sf.created_date
+					FROM spdx_file sf 
+					JOIN spdx_file_info sfi on sf.spdx_pk = sfi.spdx_fk
+					LEFT JOIN spdx_license_list_insert slli ON sfi.license_info_in_file = slli.license_identifier
+					WHERE sf.document_name LIKE '%" . $name . "%'";
+					
 		if($spdxapproved == "1" && $spdxnotapproved == "0") {
-       		if($notinlist == "1") {	
-			$query .= "AND sf.data_license NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
-			}
-			else{
-			$query .= "AND slli.osi_approved IS NOT NULL";
-			}
+			$query .= " AND slli.osi_approved = 1";
+			if($notinlist == "1"){
+				$query .= " OR sfi.license_info_in_file NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
+			}		
        	}	
 		else if($spdxapproved == "0" && $spdxnotapproved == "1") {
-       		if($notinlist == "1") {	
-			$query .= "AND sf.data_license NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
-			}
-			else{
-				$query .= "AND slli.osi_approved IS NULL";
-			}
-			
-			
+			$query .= " AND slli.osi_approved = 0";		
+			if($notinlist == "1"){
+				$query .= " OR sfi.license_info_in_file NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
+			}	
        	}	
 		else if($spdxapproved == "1" && $spdxnotapproved == "1") {
-       		
-			if($notinlist == "1") {	
-			$query .= "AND sf.data_license NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
-			}
-			else{
-				
-			}
+			$query .= " AND slli.osi_approved = 0 OR slli.osi_approved = 1";	
+			if($notinlist == "1"){
+				$query .= " OR sfi.license_info_in_file NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
+			}	
+       	}	
+		else if($spdxapproved == "0" && $spdxnotapproved == "0" && $notinlist == "1") {
+				$query .= " AND sfi.license_info_in_file NOT IN (SELECT license_identifier FROM spdx_license_list_insert )";
        	}
-		
 		
 		//$query .= " GROUP BY sf.document_name";		
 
