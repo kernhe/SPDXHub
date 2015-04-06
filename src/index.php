@@ -28,6 +28,10 @@ limitations under the License.
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
+  if(array_key_exists('licValue',$_POST)) {
+    echo $_POST['licValue'];
+  }
+  
 
 $checkboxes = array(
     array( 'label' => 'spdxapproved', 'unchecked' => '0', 'checked' => '1' ),
@@ -99,7 +103,7 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
         </p>
         <div class="is-line"></div>
 
-        <form id="adv-search" action="" method="post"><!--  height: 100px; -->
+        <form id="adv-search" action="index.php" method="post"><!--  height: 100px; -->
           <ul>
             <li>
               <input type="checkbox" name="checkbox[0]" value="<?php echo $checkbox['checked'] = TRUE; ?>" CHECKED/>
@@ -126,7 +130,7 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
         </p>       
         <div class="is-line"></div>
         
-        <select class="LicenseListDropDown" name="charset">
+        <select id="licValue" class="LicenseListDropDown" name="charset">
           <option value="(license identifier)" selected="selected">license name</option>
           <?php
           $resultlist = getSPDX_LicenseList();
