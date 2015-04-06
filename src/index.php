@@ -74,11 +74,11 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
 
 ?>
 <div class="container search">
-  <div class="col-xs-12 adv-search-header">
+  <div class="col-xs-12 search-header">
       <h4>Search by name</h4>
     </div>
   <div  class="col-xs-12 bkg"> 
-    <div class="col-xs-12 adv-search-inner">
+    <div class="col-xs-12 search-inner">
       <form class="" action="index.php" method="post" >
         <input type="search" onkeyup="showHint(this.value)" class="form-control" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
         <button type="submit" class="btn btn-default">Search</button>
@@ -87,13 +87,13 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
   </div>
 </div>
 
-<div class="container adv-search"> 
+<div class="container search"> 
   
-  <div class="col-xs-12 adv-search-header">
+  <div class="col-xs-12 search-header">
     <h4>Advanced Search</h4>
   </div>
   <div  class="col-xs-12 bkg"> 
-    <div class="col-xs-12 adv-search-inner">
+    <div class="col-xs-12 search-inner">
       
       <div class="col-xs-12 col-md-6  license-filter">
         <p>
@@ -147,7 +147,7 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
   </div>
 </div>
         
-<div class="container" id="container">
+<div class="container" id="table">
  	<div class="col-xs-12 table-section">	 
 	<table id="tablesorter" class="table table-striped display" > <!-- table-striped -->
         

@@ -1,3 +1,16 @@
+nav {
+	letter-spacing: .5px;
+} nav a.upload {
+	width: 100px;
+	margin-right: 15px;
+}
+
+a.upload.btn {
+	margin-top: 8px;
+	width: ;
+	letter-spacing: .5px;
+}
+
 div.is-line {
 	height: 1px;
 	width: 100%;
@@ -7,26 +20,23 @@ div.is-line {
 	padding-top: 0;
 }
 
-
-nav {
-	letter-spacing: .5px;
-}
-nav a.upload {
-	width: 100px;
-	margin-right: 15px;
-}
-
 div.search {
-	height: 100px;
 	background-color: #f9f9f9;
 	border: 1px solid #D1D2D4;
 	margin-bottom: 15px;
 	padding-right: 0px;
 	padding-left: 0px;
 	margin-bottom: 15px;
-
-}
-div.search form{
+} div.search-header {
+	width: 100%;
+	background-color: #E6E7E8;
+	border-bottom: 2px solid #D1D2D4;
+	margin-bottom: 0;
+} div.search div.bkg {
+	background-color: #f9f9f9;
+	padding: 15px;
+} div.search-inner {
+	background-color: #f9f9f9;
 } div.search input {
 	width: 400px;
 	margin: 0;
@@ -58,49 +68,13 @@ div.id-filter {
 	height: 100px;
 }
 
-div.adv-search {
-	margin-bottom: 15px;
-} div.adv-search-header {
-	width: 100%;
-	background-color: #E6E7E8;
-	margin-bottom: 0;
-
-} div.adv-search div.bkg {
-	background-color: #f9f9f9;
-	border: 1px solid #D1D2D4;
-	padding: 15;
-	/*height: 200px;*/
-}
-.adv-search-inner {
-	background-color: #f9f9f9;
-	
-} .adv-search-inner form {
-	margin-top: 10px;
-
-}
-
-
-.col-xs-6 {
-	border: solid 1px blue;
-}
-
 
 a.upload.btn {
 	margin-top: 8px;
 	width: ;
 	letter-spacing: .5px;
 }
-
-div.adv-search-inner {
-	padding-left: 0px;
-	padding-right: 0px;
-}
-
-
-td#breakdown {
-/*	background-color: grey;*/
-
-} 
+ 
 td#breakdown div {
 	margin-right: auto;
 	margin-bottom: auto;
@@ -117,33 +91,29 @@ td#breakdown div {
 	padding-top: 5px;
 	font-weight: bold;
 	color: #333;
-}
-
-#breakdown .b-one {
+} #breakdown .b-one {
 	background-color: #B9D989;
-} .b-two {
+} #breakdown .b-two {
 	background-color: #F37A69;
-} .b-three {
+} #breakdown .b-three {
 	background-color: #E6E7E8;
 }
 
 #action {
 	border-left: 1px solid #D1D2D4;
-}
-
-#action button {
+} #action button {
 	margin-right: 10px;
-	/*margin-bottom: 5px;*/
 }
 
 .document-name {
 	font-weight: bold;
 }
 
+
+.container#table, 
 div.table-section {
 	padding: 0;
-}
-table#tablesorter {
+} table#tablesorter {
 	border: 1px solid #D1D2D4;
 }
 
