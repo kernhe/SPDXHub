@@ -76,27 +76,27 @@ if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
 ?>
 <div class="container search">
   <div class="col-xs-12 adv-search-header">
-    <h4>Search by name</h4>
+      <h4>Search by name</h4>
+    </div>
+  <div  class="col-xs-12 bkg"> 
+    <div class="col-xs-12 adv-search-inner">
+      <form class="" action="index.php" method="post" >
+        <input type="search" onkeyup="showHint(this.value)" class="form-control" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
+        <button type="submit" class="btn btn-default">Search</button>
+    	</form>
+    </div>
   </div>
-  <div class="col-xs-12 search-inner">
-    <form class="" action="index.php" method="post" >
-      <input type="search" onkeyup="showHint(this.value)" class="form-control" placeholder="Search" value="<?php echo $name; ?>" name="doc_name"/>
-      <button type="submit" class="btn btn-default">Search</button>
-  	</form>
-  </div>
-
 </div>
 
 <div class="container adv-search"> 
- 
-    
+  
   <div class="col-xs-12 adv-search-header">
     <h4>Advanced Search</h4>
   </div>
   <div  class="col-xs-12 bkg"> 
     <div class="col-xs-12 adv-search-inner">
       
-      <div class="col-xs-12 col-md-6  license-filter clearfix">
+      <div class="col-xs-12 col-md-6  license-filter">
         <p>
           <strong>License Recognition</strong>
         </p>
