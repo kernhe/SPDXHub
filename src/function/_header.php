@@ -49,6 +49,9 @@ limitations under the License.
 			$("#License").click(function(){
 				$("#LicenseContent").slideToggle();
 			});
+			$("#Relation").click(function(){
+				$("#RelationContent").slideToggle();
+			});
 			$("#Annotations").click(function(){
 				$("#AnnotationsContent").slideToggle();
 			});
