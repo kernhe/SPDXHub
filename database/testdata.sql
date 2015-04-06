@@ -73,3 +73,12 @@ INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_t
 INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 2", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1002);
 INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 3", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1003);
 INSERT INTO `spdx_annotations_create` (`annotator`,`annotator_date`,`annotator_type`,`annotator_comment`,`spdx_fk`) VALUES ("Person 4", NOW(), "EDIT", "OMG ITS SOOO AWESOME!", 1004);
+
+INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1001, 1002, 7, 1001);
+INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1002, 1003, 9, 1002);
+INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1003, 1004, 5, 1003);
+INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1004, 1001, 6, 1004);
+INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1001, 1004, 21, 1001);
+INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1002, 1001, 25, 1002);
+INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1003, 1002, 26, 1003);
+INSERT INTO `relationship` (`spdx_id1`,`spdx_id2`,`relationship_id`,`spdx_fk`) VALUES (1004, 1003, 27, 1004);
