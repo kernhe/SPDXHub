@@ -8,7 +8,7 @@
 # Stakeholders
 * SPDX Community
 
-# System Service Requests
+# Minimum System Requirements
 **Linux Ubuntu system** 
 * 12.04 Dual core or greater
 * 32G of memory or greater
