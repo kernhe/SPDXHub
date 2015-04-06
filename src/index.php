@@ -20,9 +20,9 @@ limitations under the License.
   include("function/spdx_doc.php");
   include("function/license.php");
   $name = "";
-  $spdxapproved = "";
-  $spdxnotapproved = "";
-  $notinlist = "";
+  $spdxapproved = "1";
+  $spdxnotapproved = "1";
+  $notinlist = "1";
   if(array_key_exists('doc_name',$_POST)) {
     $name = $_POST['doc_name'];
   }
